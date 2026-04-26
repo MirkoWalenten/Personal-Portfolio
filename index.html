@@ -110,9 +110,14 @@
     /* ── HERO ── */
     #hero {
       min-height: 100vh; display: flex; align-items: center;
+      justify-content: center;
       padding: 140px 0 100px;
+      text-align: center;
     }
-    .hero-inner { max-width: 1060px; margin: 0 auto; padding: 0 48px; }
+    .hero-inner {
+      max-width: 680px; margin: 0 auto; padding: 0 48px;
+      display: flex; flex-direction: column; align-items: center;
+    }
 
     .hero-badge {
       display: inline-flex; align-items: center; gap: 8px;
@@ -152,13 +157,13 @@
     .hero-desc {
       font-family: var(--fb); font-size: .92rem; font-weight: 300;
       color: var(--gray); line-height: 1.8;
-      max-width: 480px; margin-top: 28px;
+      max-width: 480px; margin-top: 28px; text-align: center;
       animation: fadeUp .7s .4s both;
     }
 
     .hero-cta {
       display: flex; gap: 14px; flex-wrap: wrap;
-      margin-top: 48px;
+      margin-top: 48px; justify-content: center;
       animation: fadeUp .7s .5s both;
     }
 
@@ -210,12 +215,12 @@
       border-top: 1px solid var(--card-border);
     }
     .skills-wrap {
-      display: flex; flex-wrap: wrap; gap: 10px;
-      justify-content: center;
+      display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px;
+      
     }
     .skill-tag {
       border: 1px solid var(--card-border);
-      border-radius: 6px; padding: 7px 16px;
+      border-radius: 6px; padding: 7px 16px; text-align: center;
       font-size: .75rem; font-weight: 400; letter-spacing: .05em;
       color: var(--gray);
       transition: border-color .25s, color .25s;
@@ -223,7 +228,7 @@
     .skill-tag:hover { border-color: var(--teal-border); color: var(--teal); }
 
     /* ── ABOUT ── */
-    #about { padding: 130px 0; }
+    #about { padding: 80px 0; }
     .about-grid {
       display: grid; grid-template-columns: 1fr 1fr;
       gap: 90px; align-items: center;
@@ -266,7 +271,7 @@
     }
 
     /* ── PROJECTS ── */
-    #projects { padding: 130px 0; }
+    #projects { padding: 80px 0; }
     .proj-header { margin-bottom: 56px; }
     .proj-h {
       font-family: var(--fh);
@@ -295,7 +300,7 @@
 
     .proj-cover {
       width: 100%; aspect-ratio: 16/7;
-      display: flex; align-items: center; justify-content: center;
+      display: flex; align-items: center; 
       position: relative; overflow: hidden;
     }
     .c-ff { background: linear-gradient(130deg, #04080f 0%, #081624 100%); }
@@ -357,7 +362,7 @@
 
     /* ── CV ── */
     #cv {
-      padding: 110px 0;
+      padding: 70px 0;
       border-top: 1px solid var(--card-border);
       border-bottom: 1px solid var(--card-border);
     }
@@ -392,7 +397,7 @@
       max-width: 360px; margin: 0 auto 44px;
     }
     .contact-row {
-      display: flex; justify-content: center;
+      display: flex; 
       gap: 12px; flex-wrap: wrap;
     }
     .contact-chip {
@@ -668,11 +673,11 @@
         <p class="cv-p">CV actualizado con formación, experiencia y habilidades técnicas. Disponible en español e inglés.</p>
       </div>
       <div class="cv-btns reveal reveal-d2">
-        <a href="./CV_Mirko_Walenten.pdf" download class="btn btn-primary">
+        <a href="./CV%20Mirko%20Walenten.pdf" download class="btn btn-primary">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
           CV en Español
         </a>
-        <a href="./CV_Mirko_Walenten_EN.pdf" download class="btn btn-outline">
+        <a href="./CV%20Mirko%20Walenten%20English.pdf" download class="btn btn-outline">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
           CV in English
         </a>
