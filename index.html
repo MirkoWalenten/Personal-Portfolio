@@ -16,11 +16,11 @@
       --bg2:         #070b10;
       --bg3:         #0a0f18;
       --bg4:         #0d1520;
-      --teal:        #16a8c4;
-      --teal-dim:    #0d7a90;
-      --teal-glow:   rgba(22,168,196,.14);
-      --teal-soft:   rgba(22,168,196,.06);
-      --teal-border: rgba(22,168,196,.18);
+      --teal:        #0e7d96;
+      --teal-dim:    #095e72;
+      --teal-glow:   rgba(14,125,150,.14);
+      --teal-soft:   rgba(14,125,150,.06);
+      --teal-border: rgba(14,125,150,.18);
       --white:       #e8edf2;
       --white-dim:   #b0bcc8;
       --gray:        #637282;
@@ -59,7 +59,7 @@
       padding: 22px 64px;
       background: rgba(4,6,9,.75);
       backdrop-filter: blur(24px);
-      border-bottom: 1px solid rgba(22,168,196,.06);
+      border-bottom: 1px solid rgba(14,125,150,.06);
       transition: padding .3s ease;
     }
     nav.scrolled { padding: 15px 64px; }
@@ -175,9 +175,9 @@
     .btn:hover { transform: translateY(-2px); }
     .btn-primary {
       background: var(--teal); color: var(--bg);
-      box-shadow: 0 0 22px rgba(22,168,196,.3);
+      box-shadow: 0 0 22px rgba(14,125,150,.3);
     }
-    .btn-primary:hover { box-shadow: 0 0 36px rgba(22,168,196,.5); }
+    .btn-primary:hover { box-shadow: 0 0 36px rgba(14,125,150,.5); }
     .btn-outline {
       background: transparent; color: var(--white-dim);
       border: 1px solid var(--lgray);
@@ -292,7 +292,7 @@
       transform: translateY(-5px);
       border-color: var(--teal-border);
       box-shadow: 0 20px 50px rgba(0,0,0,.5),
-                  0 0 0 1px rgba(22,168,196,.08);
+                  0 0 0 1px rgba(14,125,150,.08);
     }
 
     .proj-cover {
@@ -308,7 +308,7 @@
     .cover-initials {
       font-family: var(--fh); font-weight: 700;
       font-size: 3.8rem; letter-spacing: -.04em;
-      color: rgba(22,168,196,.07);
+      color: rgba(14,125,150,.07);
       user-select: none;
     }
     .cover-icon {
@@ -754,7 +754,7 @@ function draw() {
     const p = pts[i];
     ctx.beginPath();
     ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(22,168,196,${p.a})`;
+    ctx.fillStyle = `rgba(14,125,150,${p.a})`;
     ctx.fill();
     p.x += p.vx; p.y += p.vy;
     if (p.x < 0) p.x = canvas.width;
@@ -766,7 +766,7 @@ function draw() {
       const d = Math.hypot(p.x - q.x, p.y - q.y);
       if (d < 110) {
         ctx.beginPath();
-        ctx.strokeStyle = `rgba(22,168,196,${.05 * (1 - d / 110)})`;
+        ctx.strokeStyle = `rgba(14,125,150,${.05 * (1 - d / 110)})`;
         ctx.lineWidth = .5;
         ctx.moveTo(p.x, p.y);
         ctx.lineTo(q.x, q.y);
