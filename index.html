@@ -110,13 +110,10 @@
     /* ── HERO ── */
     #hero {
       min-height: 100vh; display: flex; align-items: center;
-      justify-content: center;
       padding: 140px 0 100px;
-      text-align: center;
     }
     .hero-inner {
-      max-width: 680px; margin: 0 auto; padding: 0 48px;
-      display: flex; flex-direction: column; align-items: center;
+      max-width: 1060px; width: 100%; margin: 0 auto; padding: 0 48px;
     }
 
     .hero-badge {
@@ -157,13 +154,13 @@
     .hero-desc {
       font-family: var(--fb); font-size: .92rem; font-weight: 300;
       color: var(--gray); line-height: 1.8;
-      max-width: 480px; margin-top: 28px; text-align: center;
+      max-width: 520px; margin-top: 28px;
       animation: fadeUp .7s .4s both;
     }
 
     .hero-cta {
       display: flex; gap: 14px; flex-wrap: wrap;
-      margin-top: 48px; justify-content: center;
+      margin-top: 48px;
       animation: fadeUp .7s .5s both;
     }
 
@@ -384,17 +381,21 @@
 
     /* ── CONTACT ── */
     #contact { padding: 130px 0 110px; }
-    .contact-c { text-align: center; }
+    .contact-c { text-align: left; }
     .contact-h {
       font-family: var(--fh);
       font-size: clamp(1.9rem, 4vw, 3rem);
       font-weight: 700; letter-spacing: -.02em;
       margin-bottom: 14px; line-height: 1.1;
     }
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+    }
     .contact-h .teal { color: var(--teal); }
     .contact-p {
       font-size: .88rem; font-weight: 300; color: var(--gray);
-      max-width: 360px; margin: 0 auto 44px;
+      max-width: 420px; margin-top: 12px; margin-bottom: 0;
     }
     .contact-row {
       display: flex; 
@@ -689,11 +690,13 @@
 <!-- CONTACT -->
 <section id="contact">
   <div class="container">
-    <div class="contact-c reveal">
-      <div class="label" style="justify-content:center;">Contacto</div>
-      <h2 class="contact-h">¿Hablamos?<br><span class="teal">Estoy disponible.</span></h2>
-      <p class="contact-p">Proyecto, oportunidad laboral o simplemente conectar — escribime.</p>
-      <div class="contact-row">
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="label">Contacto</div>
+        <h2 class="contact-h">¿Hablamos?<br><span class="teal">Estoy disponible.</span></h2>
+        <p class="contact-p">Proyecto, oportunidad laboral o simplemente conectar — escribime.</p>
+      </div>
+      <div class="contact-row reveal reveal-d2">
         <a href="mailto:mirkowalenten@gmail.com" class="contact-chip">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           mirkowalenten@gmail.com
