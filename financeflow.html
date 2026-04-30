@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Finance Flow</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 :root{
@@ -18,7 +18,7 @@
 html,body{height:100%;overflow:hidden;}
 body{
   background:var(--bg);color:var(--tx);
-  font-family:'Syne',sans-serif;
+  font-family:'Inter',sans-serif;
   display:flex;flex-direction:column;
 }
 /* NAV */
@@ -43,7 +43,7 @@ body{
   font-family:inherit;transition:all .15s;
 }
 .nav-tab.on{background:var(--bg5);color:var(--tx);}
-.nav-right{font-family:'DM Mono',monospace;font-size:11px;color:var(--tx3);}
+.nav-right{font-family:'Inter',monospace;font-size:11px;color:var(--tx3);}
 
 /* MAIN */
 .main{flex:1;overflow-y:auto;padding:24px 28px;}
@@ -55,12 +55,12 @@ body{
   padding:16px 18px;position:relative;overflow:hidden;
 }
 .stat::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(37,99,235,.3),transparent);}
-.stat-l{font-size:9px;font-weight:600;color:var(--tx3);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;font-family:'DM Mono',monospace;}
+.stat-l{font-size:9px;font-weight:600;color:var(--tx3);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;font-family:'Inter',monospace;}
 .stat-v{font-size:20px;font-weight:700;letter-spacing:-.5px;}
 .stat-v.blue{color:var(--acl);}
 .stat-v.green{color:var(--gn);}
 .stat-v.red{color:var(--rd);}
-.stat-sub{font-size:10px;color:var(--tx3);margin-top:4px;font-family:'DM Mono',monospace;}
+.stat-sub{font-size:10px;color:var(--tx3);margin-top:4px;font-family:'Inter',monospace;}
 
 /* GRID */
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;}
@@ -74,12 +74,12 @@ body{
 
 /* TABLE */
 .tbl{width:100%;border-collapse:collapse;font-size:12px;}
-.tbl th{font-size:9px;font-weight:600;color:var(--tx3);text-transform:uppercase;letter-spacing:.8px;padding:7px 10px;text-align:left;font-family:'DM Mono',monospace;border-bottom:1px solid var(--br);}
+.tbl th{font-size:9px;font-weight:600;color:var(--tx3);text-transform:uppercase;letter-spacing:.8px;padding:7px 10px;text-align:left;font-family:'Inter',monospace;border-bottom:1px solid var(--br);}
 .tbl td{padding:9px 10px;border-bottom:1px solid rgba(255,255,255,.03);color:var(--tx2);}
 .tbl tr:last-child td{border-bottom:none;}
 .tbl tr:hover td{background:rgba(255,255,255,.02);}
 .tbl td:first-child{color:var(--tx);font-weight:500;}
-.badge{display:inline-block;font-size:9px;font-weight:600;padding:2px 7px;border-radius:4px;font-family:'DM Mono',monospace;}
+.badge{display:inline-block;font-size:9px;font-weight:600;padding:2px 7px;border-radius:4px;font-family:'Inter',monospace;}
 .badge.ing{background:rgba(16,185,129,.12);color:#34d399;}
 .badge.gas{background:rgba(239,68,68,.1);color:#f87171;}
 .badge.plus{color:var(--gn);}
@@ -88,17 +88,17 @@ body{
 /* FORM */
 .form-section{display:flex;flex-direction:column;gap:10px;}
 .fg{display:flex;flex-direction:column;gap:5px;}
-.fl{font-size:10px;font-weight:600;color:var(--tx3);text-transform:uppercase;letter-spacing:.8px;font-family:'DM Mono',monospace;}
+.fl{font-size:10px;font-weight:600;color:var(--tx3);text-transform:uppercase;letter-spacing:.8px;font-family:'Inter',monospace;}
 input,select{
   background:var(--bg3);border:1px solid var(--br);border-radius:var(--r);
-  color:var(--tx);font-family:'Syne',sans-serif;font-size:13px;
+  color:var(--tx);font-family:'Inter',sans-serif;font-size:13px;
   padding:9px 12px;outline:none;width:100%;transition:border-color .15s;
 }
 input:focus,select:focus{border-color:var(--ac);}
 select option{background:var(--bg3);}
 .btn{
   background:var(--ac);border:none;border-radius:var(--r);
-  color:#fff;font-family:'Syne',sans-serif;font-size:12.5px;
+  color:#fff;font-family:'Inter',sans-serif;font-size:12.5px;
   font-weight:600;padding:9px 18px;cursor:pointer;
   transition:background .15s;letter-spacing:.3px;
 }
@@ -114,7 +114,7 @@ select option{background:var(--bg3);}
 .chart-tip{
   position:absolute;background:var(--bg4);border:1px solid var(--br2);
   border-radius:var(--r);padding:6px 10px;font-size:11px;
-  font-family:'DM Mono',monospace;pointer-events:none;display:none;
+  font-family:'Inter',monospace;pointer-events:none;display:none;
   color:var(--tx);white-space:nowrap;z-index:10;
 }
 
@@ -123,17 +123,17 @@ select option{background:var(--bg3);}
 .cat-bar-bg{flex:1;height:3px;background:rgba(255,255,255,.06);border-radius:2px;}
 .cat-bar-fill{height:3px;border-radius:2px;background:var(--acl);transition:width .4s ease;}
 .cat-name{font-size:11px;color:var(--tx2);width:100px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.cat-val{font-size:11px;font-family:'DM Mono',monospace;color:var(--tx3);width:70px;text-align:right;}
+.cat-val{font-size:11px;font-family:'Inter',monospace;color:var(--tx3);width:70px;text-align:right;}
 
 /* ASSETS */
 .asset-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.03);}
 .asset-row:last-child{border-bottom:none;}
-.asset-ico{width:32px;height:32px;border-radius:8px;background:var(--bg4);border:1px solid var(--br);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--tx3);font-family:'DM Mono',monospace;flex-shrink:0;}
+.asset-ico{width:32px;height:32px;border-radius:8px;background:var(--bg4);border:1px solid var(--br);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--tx3);font-family:'Inter',monospace;flex-shrink:0;}
 .asset-name{font-size:13px;font-weight:600;color:var(--tx);flex:1;}
 .asset-type{font-size:10px;color:var(--tx3);}
 .asset-val{text-align:right;}
-.asset-price{font-size:13px;font-weight:600;font-family:'DM Mono',monospace;}
-.asset-chg{font-size:10px;font-family:'DM Mono',monospace;}
+.asset-price{font-size:13px;font-weight:600;font-family:'Inter',monospace;}
+.asset-chg{font-size:10px;font-family:'Inter',monospace;}
 
 /* EMPTY */
 .empty{text-align:center;padding:40px;color:var(--tx3);font-size:12.5px;}
@@ -148,7 +148,7 @@ select option{background:var(--bg3);}
 .mnav{display:flex;align-items:center;gap:8px;}
 .mnav-btn{background:var(--bg3);border:1px solid var(--br);border-radius:var(--r);color:var(--tx2);padding:4px 10px;cursor:pointer;font-size:12px;transition:all .15s;}
 .mnav-btn:hover{border-color:var(--br2);color:var(--tx);}
-.mnav-label{font-size:12px;font-weight:600;color:var(--tx);font-family:'DM Mono',monospace;min-width:90px;text-align:center;}
+.mnav-label{font-size:12px;font-weight:600;color:var(--tx);font-family:'Inter',monospace;min-width:90px;text-align:center;}
 
 /* PORTFOLIO TOTAL */
 .port-total{
@@ -163,13 +163,21 @@ select option{background:var(--bg3);}
 
 <nav class="nav">
   <div class="nav-brand">
-    <div class="nav-logo">FF</div>
+    <div class="nav-logo">
+      <!-- Finance Flow logo: rising chart line forming F -->
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+        <rect width="28" height="28" rx="7" fill="url(#ff-grad)"/>
+        <polyline points="4,20 9,13 13,16 19,8 24,11" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <circle cx="24" cy="11" r="2" fill="white"/>
+        <defs><linearGradient id="ff-grad" x1="0" y1="0" x2="28" y2="28"><stop stop-color="#1d4ed8"/><stop offset="1" stop-color="#2563eb"/></linearGradient></defs>
+      </svg>
+    </div>
     <span class="nav-name">Finance Flow</span>
   </div>
   <div class="nav-tabs">
-    <button class="nav-tab on" onclick="setTab('overview')">Overview</button>
-    <button class="nav-tab" onclick="setTab('transactions')">Transactions</button>
-    <button class="nav-tab" onclick="setTab('assets')">Assets</button>
+    <button class="nav-tab on" onclick="setTab('overview')">Resumen</button>
+    <button class="nav-tab" onclick="setTab('transactions')">Movimientos</button>
+    <button class="nav-tab" onclick="setTab('assets')">Activos</button>
   </div>
   <div class="nav-right" id="nav-date"></div>
 </nav>
@@ -181,19 +189,19 @@ select option{background:var(--bg3);}
 let tab = 'overview';
 let curMonth = new Date().toISOString().slice(0,7);
 
-const CATS_ING = ['Salary','Freelance','Dividends','Other Income'];
-const CATS_GAS = ['Food','Transport','Housing','Entertainment','Health','Education','Shopping','Services','Other'];
+const CATS_ING = ['Sueldo','Freelance','Dividendos','Otros Ingresos'];
+const CATS_GAS = ['Comida','Transporte','Vivienda','Entretenimiento','Salud','Educación','Indumentaria','Servicios','Otro'];
 
 let state = {
   transactions: [
-    {id:1,type:'ing',cat:'Salary',desc:'Monthly salary',amount:4500,date:curMonth+'-01'},
-    {id:2,type:'gas',cat:'Housing',desc:'Rent & utilities',amount:1200,date:curMonth+'-02'},
-    {id:3,type:'gas',cat:'Food',desc:'Groceries & restaurants',amount:380,date:curMonth+'-05'},
-    {id:4,type:'ing',cat:'Freelance',desc:'Design project',amount:800,date:curMonth+'-08'},
-    {id:5,type:'gas',cat:'Transport',desc:'Fuel & transit',amount:150,date:curMonth+'-10'},
-    {id:6,type:'gas',cat:'Entertainment',desc:'Subscriptions',amount:65,date:curMonth+'-12'},
-    {id:7,type:'gas',cat:'Health',desc:'Gym & pharmacy',amount:90,date:curMonth+'-14'},
-    {id:8,type:'gas',cat:'Shopping',desc:'Clothing',amount:220,date:curMonth+'-18'},
+    {id:1,type:'ing',cat:'Sueldo',desc:'Sueldo mensual',amount:4500,date:curMonth+'-01'},
+    {id:2,type:'gas',cat:'Vivienda',desc:'Alquiler y servicios',amount:1200,date:curMonth+'-02'},
+    {id:3,type:'gas',cat:'Comida',desc:'Supermercado y restaurantes',amount:380,date:curMonth+'-05'},
+    {id:4,type:'ing',cat:'Freelance',desc:'Proyecto de diseño',amount:800,date:curMonth+'-08'},
+    {id:5,type:'gas',cat:'Transporte',desc:'Nafta y transporte',amount:150,date:curMonth+'-10'},
+    {id:6,type:'gas',cat:'Entretenimiento',desc:'Suscripciones',amount:65,date:curMonth+'-12'},
+    {id:7,type:'gas',cat:'Salud',desc:'Gym y farmacia',amount:90,date:curMonth+'-14'},
+    {id:8,type:'gas',cat:'Indumentaria',desc:'Ropa',amount:220,date:curMonth+'-18'},
   ],
   assets: [
     {id:1,name:'Apple Inc.',ticker:'AAPL',type:'Stock',qty:15,buyPrice:165,currentPrice:182.5},
@@ -205,7 +213,7 @@ let state = {
 };
 
 // ── HELPERS ────────────────────────────────────────────────
-const fmt = v => '$'+Math.round(v).toLocaleString('en-US');
+const fmt = v => '$'+Math.round(v).toLocaleString('es-AR');
 const fmtD = v => v >= 1000 ? '$'+(v/1000).toFixed(1)+'k' : '$'+Math.round(v);
 const esc = s => String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 const now = new Date();
@@ -261,7 +269,7 @@ function barChart(data, colors){
     const v=max*k/3;
     const y=PT+cH-(cH*k/3);
     grid+=`<line x1="${PL}" y1="${y.toFixed(1)}" x2="${W-PR}" y2="${y.toFixed(1)}" stroke="rgba(255,255,255,.04)" stroke-width="1"/>`;
-    grid+=`<text x="${PL-4}" y="${y.toFixed(1)}" text-anchor="end" dominant-baseline="middle" font-size="8" fill="#4a5568" font-family="'DM Mono',monospace">${fmtD(v)}</text>`;
+    grid+=`<text x="${PL-4}" y="${y.toFixed(1)}" text-anchor="end" dominant-baseline="middle" font-size="8" fill="#4a5568" font-family="'Inter',sans-serif">${fmtD(v)}</text>`;
   }
 
   data.forEach((d,i)=>{
@@ -270,7 +278,7 @@ function barChart(data, colors){
     const h2=max>0?(d.b/max)*cH:0;
     bars+=`<rect x="${(x-bW-1).toFixed(1)}" y="${(PT+cH-h1).toFixed(1)}" width="${bW}" height="${h1.toFixed(1)}" fill="${colors[0]}" rx="2" opacity=".85"/>`;
     bars+=`<rect x="${(x+1).toFixed(1)}" y="${(PT+cH-h2).toFixed(1)}" width="${bW}" height="${h2.toFixed(1)}" fill="${colors[1]}" rx="2" opacity=".85"/>`;
-    labels+=`<text x="${x.toFixed(1)}" y="${(PT+cH+14).toFixed(1)}" text-anchor="middle" font-size="8" fill="#4a5568" font-family="'DM Mono',monospace">${d.label}</text>`;
+    labels+=`<text x="${x.toFixed(1)}" y="${(PT+cH+14).toFixed(1)}" text-anchor="middle" font-size="8" fill="#4a5568" font-family="'Inter',sans-serif">${d.label}</text>`;
   });
 
   return`<svg width="100%" viewBox="0 0 ${W} ${H}" style="display:block">${grid}${bars}${labels}</svg>`;
@@ -313,33 +321,33 @@ function renderOverview(){
   const recentRows=recent.map(t=>`<tr>
     <td>${t.desc}</td>
     <td>${t.cat}</td>
-    <td style="font-family:'DM Mono',monospace;text-align:right;color:${t.type==='ing'?'var(--gn)':'var(--rd)'}">${t.type==='ing'?'+':'-'}${fmt(t.amount)}</td>
+    <td style="font-family:'Inter',monospace;text-align:right;color:${t.type==='ing'?'var(--gn)':'var(--rd)'}">${t.type==='ing'?'+':'-'}${fmt(t.amount)}</td>
   </tr>`).join('');
 
   return`
   <div class="stats">
-    <div class="stat"><div class="stat-l">Total Income</div><div class="stat-v green">${fmt(ing)}</div><div class="stat-sub">${months[now.getMonth()]} ${now.getFullYear()}</div></div>
-    <div class="stat"><div class="stat-l">Total Expenses</div><div class="stat-v red">${fmt(gas)}</div><div class="stat-sub">${pct}% of income</div></div>
-    <div class="stat"><div class="stat-l">Net Balance</div><div class="stat-v ${bal>=0?'green':'red'}">${bal>=0?'+':''}${fmt(bal)}</div><div class="stat-sub">This month</div></div>
-    <div class="stat"><div class="stat-l">Portfolio Value</div><div class="stat-v blue">${fmt(port.total)}</div><div class="stat-sub">${port.pct>=0?'+':''}${port.pct}% total return</div></div>
+    <div class="stat"><div class="stat-l">Total Ingresos</div><div class="stat-v green">${fmt(ing)}</div><div class="stat-sub">${months[now.getMonth()]} ${now.getFullYear()}</div></div>
+    <div class="stat"><div class="stat-l">Total Gastos</div><div class="stat-v red">${fmt(gas)}</div><div class="stat-sub">${pct}% of income</div></div>
+    <div class="stat"><div class="stat-l">Balance Neto</div><div class="stat-v ${bal>=0?'green':'red'}">${bal>=0?'+':''}${fmt(bal)}</div><div class="stat-sub">Este mes</div></div>
+    <div class="stat"><div class="stat-l">Valor Portfolio</div><div class="stat-v blue">${fmt(port.total)}</div><div class="stat-sub">${port.pct>=0?'+':''}${port.pct}% retorno total</div></div>
   </div>
   <div class="grid2">
     <div class="card">
-      <div class="card-hd"><span class="card-title">Income vs Expenses</span><div style="display:flex;gap:10px;font-size:10px;color:var(--tx3)"><span style="display:flex;align-items:center;gap:4px"><span style="width:8px;height:8px;border-radius:2px;background:var(--gn);display:inline-block"></span>Income</span><span style="display:flex;align-items:center;gap:4px"><span style="width:8px;height:8px;border-radius:2px;background:var(--rd);opacity:.85;display:inline-block"></span>Expenses</span></div></div>
+      <div class="card-hd"><span class="card-title">Ingresos vs Gastos</span><div style="display:flex;gap:10px;font-size:10px;color:var(--tx3)"><span style="display:flex;align-items:center;gap:4px"><span style="width:8px;height:8px;border-radius:2px;background:var(--gn);display:inline-block"></span>Ingreso</span><span style="display:flex;align-items:center;gap:4px"><span style="width:8px;height:8px;border-radius:2px;background:var(--rd);opacity:.85;display:inline-block"></span>Expenses</span></div></div>
       <div class="card-body">${barChart(chartData,['#10b981','#ef4444'])}</div>
     </div>
     <div class="card">
-      <div class="card-hd"><span class="card-title">Spending by Category</span></div>
-      <div class="card-body">${catArr.length?catRows:'<div class="empty">No expenses this month</div>'}</div>
+      <div class="card-hd"><span class="card-title">Gastos por Categoría</span></div>
+      <div class="card-body">${catArr.length?catRows:'<div class="empty">Sin gastos este mes</div>'}</div>
     </div>
   </div>
   <div class="card">
     <div class="card-hd">
-      <span class="card-title">Recent Transactions</span>
-      <button class="btn ghost sm" onclick="setTab('transactions')">View all →</button>
+      <span class="card-title">Últimas Transacciones</span>
+      <button class="btn ghost sm" onclick="setTab('transactions')">Ver todo →</button>
     </div>
     <div class="card-body" style="padding:0">
-      ${recent.length?`<table class="tbl"><thead><tr><th>Description</th><th>Category</th><th style="text-align:right">Amount</th></tr></thead><tbody>${recentRows}</tbody></table>`:'<div class="empty">No transactions this month</div>'}
+      ${recent.length?`<table class="tbl"><thead><tr><th>Descripción</th><th>Categoría</th><th style="text-align:right">Monto</th></tr></thead><tbody>${recentRows}</tbody></table>`:'<div class="empty">Sin movimientos este mes</div>'}
     </div>
   </div>`;
 }
@@ -350,11 +358,11 @@ function renderTransactions(){
   const sorted=[...tx].sort((a,b)=>new Date(b.date)-new Date(a.date));
 
   const rows=sorted.map(t=>`<tr>
-    <td style="font-family:'DM Mono',monospace;font-size:11px;color:var(--tx3)">${t.date.slice(5)}</td>
+    <td style="font-family:'Inter',monospace;font-size:11px;color:var(--tx3)">${t.date.slice(5)}</td>
     <td>${esc(t.desc)}</td>
     <td>${esc(t.cat)}</td>
-    <td><span class="badge ${t.type}">${t.type==='ing'?'Income':'Expense'}</span></td>
-    <td style="font-family:'DM Mono',monospace;text-align:right;color:${t.type==='ing'?'var(--gn)':'var(--rd)'};font-weight:600">${t.type==='ing'?'+':'-'}${fmt(t.amount)}</td>
+    <td><span class="badge ${t.type}">${t.type==='ing'?'Ingreso':'Gasto'}</span></td>
+    <td style="font-family:'Inter',monospace;text-align:right;color:${t.type==='ing'?'var(--gn)':'var(--rd)'};font-weight:600">${t.type==='ing'?'+':'-'}${fmt(t.amount)}</td>
     <td style="text-align:right"><button class="btn danger sm" onclick="delTx(${t.id})">✕</button></td>
   </tr>`).join('');
 
@@ -365,7 +373,7 @@ function renderTransactions(){
       <span class="mnav-label">${months[new Date(curMonth+'-15').getMonth()].slice(0,3)} ${curMonth.slice(0,4)}</span>
       <button class="mnav-btn" onclick="chMonth(1)">→</button>
     </div>
-    <div style="display:flex;gap:8px;font-family:'DM Mono',monospace;font-size:11px">
+    <div style="display:flex;gap:8px;font-family:'Inter',monospace;font-size:11px">
       <span style="color:var(--gn)">+${fmt(ing)}</span>
       <span style="color:var(--tx3)">·</span>
       <span style="color:var(--rd)">-${fmt(gas)}</span>
@@ -376,26 +384,26 @@ function renderTransactions(){
   <div class="grid3">
     <div class="card">
       <div class="card-body" style="padding:0">
-        ${sorted.length?`<table class="tbl"><thead><tr><th>Date</th><th>Description</th><th>Category</th><th>Type</th><th style="text-align:right">Amount</th><th></th></tr></thead><tbody>${rows}</tbody></table>`:'<div class="empty"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>No transactions this month</div>'}
+        ${sorted.length?`<table class="tbl"><thead><tr><th>Fecha</th><th>Descripción</th><th>Categoría</th><th>Tipo</th><th style="text-align:right">Monto</th><th></th></tr></thead><tbody>${rows}</tbody></table>`:'<div class="empty"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>Sin movimientos este mes</div>'}
       </div>
     </div>
     <div class="card">
-      <div class="card-hd"><span class="card-title">New Transaction</span></div>
+      <div class="card-hd"><span class="card-title">Nuevo Movimiento</span></div>
       <div class="card-body">
         <div class="form-section">
-          <div class="fg"><label class="fl">Type</label>
+          <div class="fg"><label class="fl">Tipo</label>
             <select id="tx-type" onchange="updateCats()">
-              <option value="ing">Income</option>
-              <option value="gas">Expense</option>
+              <option value="ing">Ingreso</option>
+              <option value="gas">Gasto</option>
             </select>
           </div>
-          <div class="fg"><label class="fl">Description</label><input id="tx-desc" placeholder="e.g. Monthly salary"></div>
-          <div class="fg"><label class="fl">Category</label><select id="tx-cat"></select></div>
+          <div class="fg"><label class="fl">Descripción</label><input id="tx-desc" placeholder="ej. Sueldo mensual"></div>
+          <div class="fg"><label class="fl">Categoría</label><select id="tx-cat"></select></div>
           <div class="fr">
-            <div class="fg"><label class="fl">Amount ($)</label><input id="tx-amount" type="number" placeholder="0.00"></div>
-            <div class="fg"><label class="fl">Date</label><input id="tx-date" type="date"></div>
+            <div class="fg"><label class="fl">Monto ($)</label><input id="tx-amount" type="number" placeholder="0.00"></div>
+            <div class="fg"><label class="fl">Fecha</label><input id="tx-date" type="date"></div>
           </div>
-          <button class="btn" onclick="addTx()">Add Transaction</button>
+          <button class="btn" onclick="addTx()">Agregar Movimiento</button>
         </div>
       </div>
     </div>
@@ -415,11 +423,11 @@ function renderAssets(){
       <div class="asset-ico">${a.ticker.slice(0,3)}</div>
       <div style="flex:1">
         <div class="asset-name">${esc(a.name)}</div>
-        <div class="asset-type">${a.type} · ${a.qty} units · ${alloc}% allocation</div>
+        <div class="asset-type">${a.type} · ${a.qty} unidades · ${alloc}% del portfolio</div>
       </div>
       <div style="text-align:right;margin-right:16px">
-        <div style="font-size:10px;color:var(--tx3);font-family:'DM Mono',monospace">${fmt(a.currentPrice)}/unit</div>
-        <div style="font-size:12px;font-family:'DM Mono',monospace;color:${pl>=0?'var(--gn)':'var(--rd)'}">${pl>=0?'+':''}${fmt(pl)} (${pct}%)</div>
+        <div style="font-size:10px;color:var(--tx3);font-family:'Inter',monospace">${fmt(a.currentPrice)}/unidad</div>
+        <div style="font-size:12px;font-family:'Inter',monospace;color:${pl>=0?'var(--gn)':'var(--rd)'}">${pl>=0?'+':''}${fmt(pl)} (${pct}%)</div>
       </div>
       <div class="asset-val">
         <div class="asset-price" style="color:var(--acl)">${fmt(val)}</div>
@@ -431,39 +439,39 @@ function renderAssets(){
   return`
   <div class="port-total">
     <div>
-      <div style="font-size:10px;font-weight:600;color:var(--tx3);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;font-family:'DM Mono',monospace">Total Portfolio Value</div>
+      <div style="font-size:10px;font-weight:600;color:var(--tx3);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;font-family:'Inter',monospace">Total Valor Portfolio</div>
       <div style="font-size:28px;font-weight:800;letter-spacing:-1px;color:var(--tx)">${fmt(port.total)}</div>
     </div>
     <div style="text-align:right">
-      <div style="font-size:11px;color:var(--tx3);font-family:'DM Mono',monospace">vs invested ${fmt(port.invested)}</div>
+      <div style="font-size:11px;color:var(--tx3);font-family:'Inter',monospace">vs invertido ${fmt(port.invested)}</div>
       <div style="font-size:20px;font-weight:700;color:${port.pl>=0?'var(--gn)':'var(--rd)'}">${port.pl>=0?'+':''}${fmt(port.pl)} (${port.pct}%)</div>
     </div>
   </div>
   <div class="grid3">
     <div class="card">
-      <div class="card-hd"><span class="card-title">Holdings</span></div>
-      <div class="card-body">${state.assets.length?rows:'<div class="empty">No assets added yet</div>'}</div>
+      <div class="card-hd"><span class="card-title">Posiciones</span></div>
+      <div class="card-body">${state.assets.length?rows:'<div class="empty">Sin activos cargados</div>'}</div>
     </div>
     <div class="card">
-      <div class="card-hd"><span class="card-title">Add Asset</span></div>
+      <div class="card-hd"><span class="card-title">Nuevo Activo</span></div>
       <div class="card-body">
         <div class="form-section">
-          <div class="fg"><label class="fl">Name</label><input id="as-name" placeholder="e.g. Apple Inc."></div>
+          <div class="fg"><label class="fl">Nombre</label><input id="as-name" placeholder="ej. Apple Inc."></div>
           <div class="fr">
             <div class="fg"><label class="fl">Ticker</label><input id="as-ticker" placeholder="AAPL"></div>
-            <div class="fg"><label class="fl">Type</label>
+            <div class="fg"><label class="fl">Tipo</label>
               <select id="as-type">
-                <option>Stock</option><option>ETF</option><option>Crypto</option>
-                <option>Bond</option><option>Money Market</option><option>Other</option>
+                <option>Acción</option><option>ETF</option><option>Cripto</option>
+                <option>Bono</option><option>Fondo</option><option>Otro</option>
               </select>
             </div>
           </div>
           <div class="fr">
-            <div class="fg"><label class="fl">Quantity</label><input id="as-qty" type="number" placeholder="0"></div>
-            <div class="fg"><label class="fl">Buy Price ($)</label><input id="as-buy" type="number" placeholder="0.00"></div>
+            <div class="fg"><label class="fl">Cantidad</label><input id="as-qty" type="number" placeholder="0"></div>
+            <div class="fg"><label class="fl">Precio Compra ($)</label><input id="as-buy" type="number" placeholder="0.00"></div>
           </div>
-          <div class="fg"><label class="fl">Current Price ($)</label><input id="as-cur" type="number" placeholder="0.00"></div>
-          <button class="btn" onclick="addAsset()">Add Asset</button>
+          <div class="fg"><label class="fl">Precio Actual ($)</label><input id="as-cur" type="number" placeholder="0.00"></div>
+          <button class="btn" onclick="addAsset()">Nuevo Activo</button>
         </div>
       </div>
     </div>
@@ -523,7 +531,7 @@ function render(){
 }
 
 // ── INIT ───────────────────────────────────────────────────
-document.getElementById('nav-date').textContent=now.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric',year:'numeric'});
+document.getElementById('nav-date').textContent=now.toLocaleDateString('es-AR',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
 render();
 </script>
 </body>
