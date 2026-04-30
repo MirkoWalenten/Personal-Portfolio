@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Habit Tracker</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#030b05;--bg2:#061009;--bg3:#08160c;--bg4:#0c1e10;--bg5:#112416;
+  --tx:#d4eeda;--tx2:#6aaf7a;--tx3:#2d5a38;
+  --ac:#22c55e;--ac2:#16a34a;--acl:#4ade80;
+  --br:rgba(34,197,94,.08);--br2:rgba(34,197,94,.2);
+  --r:8px;--r2:12px;--r3:16px;
+}
+html,body{height:100%;overflow:hidden;}
+body{background:var(--bg);color:var(--tx);font-family:'Inter',sans-serif;display:flex;flex-direction:column;}
+
+.nav{display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:52px;background:var(--bg2);border-bottom:1px solid var(--br);flex-shrink:0;}
+.nav-brand{display:flex;align-items:center;gap:10px;}
+.nav-name{font-size:14px;font-weight:700;letter-spacing:-.3px;color:var(--tx);}
+.nav-date{font-size:11px;color:var(--tx3);}
+
+.main{flex:1;overflow-y:auto;padding:20px 24px;display:flex;flex-direction:column;gap:16px;}
+
+/* TODAY */
+.today-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+.today-stat{background:var(--bg2);border:1px solid var(--br);border-radius:var(--r2);padding:14px 16px;}
+.today-stat-l{font-size:9px;font-weight:600;color:var(--tx3);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;}
+.today-stat-v{font-size:22px;font-weight:700;letter-spacing:-.5px;color:var(--acl);}
+.today-stat-v.dim{color:var(--tx2);}
+.today-stat-sub{font-size:10px;color:var(--tx3);margin-top:3px;}
+
+/* HABITS */
+.habits-section{background:var(--bg2);border:1px solid var(--br);border-radius:var(--r2);overflow:hidden;}
+.sec-hd{padding:14px 18px;border-bottom:1px solid var(--br);display:flex;align-items:center;justify-content:space-between;}
+.sec-title{font-size:11px;font-weight:700;color:var(--tx2);text-transform:uppercase;letter-spacing:.8px;}
+.habit-row{display:flex;align-items:center;gap:14px;padding:12px 18px;border-bottom:1px solid var(--br);transition:background .15s;}
+.habit-row:last-child{border-bottom:none;}
+.habit-row:hover{background:rgba(34,197,94,.04);}
+.habit-check{width:26px;height:26px;border-radius:50%;border:2px solid var(--tx3);background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s;}
+.habit-check.done{background:var(--ac);border-color:var(--ac);}
+.habit-name{flex:1;font-size:13px;font-weight:500;color:var(--tx);}
+.habit-name.done{color:var(--tx3);text-decoration:line-through;}
+.habit-streak{font-size:10px;color:var(--tx3);display:flex;align-items:center;gap:4px;}
+.habit-streak.hot{color:var(--acl);}
+.habit-del{background:none;border:none;color:var(--tx3);cursor:pointer;font-size:11px;opacity:0;transition:opacity .15s;padding:4px;}
+.habit-row:hover .habit-del{opacity:1;}
+
+/* HEATMAP */
+.heatmap-section{background:var(--bg2);border:1px solid var(--br);border-radius:var(--r2);padding:18px;}
+.heatmap-grid{display:flex;gap:3px;overflow-x:auto;padding-bottom:4px;}
+.heatmap-week{display:flex;flex-direction:column;gap:3px;}
+.heatmap-cell{width:13px;height:13px;border-radius:2px;background:var(--bg4);cursor:pointer;transition:all .15s;flex-shrink:0;}
+.heatmap-cell:hover{transform:scale(1.2);}
+.heatmap-cell.l1{background:rgba(34,197,94,.2);}
+.heatmap-cell.l2{background:rgba(34,197,94,.45);}
+.heatmap-cell.l3{background:rgba(34,197,94,.7);}
+.heatmap-cell.l4{background:#22c55e;}
+.heatmap-months{display:flex;gap:3px;margin-bottom:4px;overflow:hidden;}
+.heatmap-month-label{font-size:9px;color:var(--tx3);letter-spacing:.05em;}
+
+/* ADD HABIT */
+.add-form{display:flex;gap:8px;padding:12px 18px;border-top:1px solid var(--br);}
+.add-input{flex:1;background:var(--bg3);border:1px solid var(--br);border-radius:var(--r);padding:8px 12px;color:var(--tx);font-size:12.5px;font-family:inherit;outline:none;}
+.add-input:focus{border-color:var(--br2);}
+.add-btn{background:var(--ac);border:none;border-radius:var(--r);padding:8px 14px;color:#000;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;transition:opacity .15s;white-space:nowrap;}
+.add-btn:hover{opacity:.88;}
+
+/* PROGRESS RING */
+.ring-wrap{display:flex;align-items:center;justify-content:center;padding:4px 0;}
+
+::-webkit-scrollbar{width:4px;height:4px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:var(--bg4);border-radius:4px;}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-brand">
+    <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+      <rect width="26" height="26" rx="7" fill="#052010"/>
+      <path d="M13 4c0 0-4 3-4 7.5a4 4 0 008 0c0-2.5-1.5-4.5-1.5-4.5s-.8 2.2-2.5 2.2c0 0 .8-3.2 0-5.2z" fill="#22c55e" opacity=".9"/>
+      <path d="M13 13.5c0 0-3 2-3 5a3 3 0 006 0c0-2-1.2-3.5-1.2-3.5s-.6 1.8-1.8 1.8c0 0 .5-2.2 0-3.3z" fill="#4ade80" opacity=".6"/>
+    </svg>
+    <span class="nav-name">Habit Tracker</span>
+  </div>
+  <div class="nav-date" id="nav-date"></div>
+</nav>
+
+<div class="main" id="main"></div>
+
+<script>
+const today = new Date().toISOString().slice(0,10);
+const dias = ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
+const meses = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+
+let state = {
+  habits: [
+    {id:1,name:'Tomar 2L de agua',streak:12,history:{}},
+    {id:2,name:'30 minutos de ejercicio',streak:5,history:{}},
+    {id:3,name:'Leer 20 páginas',streak:8,history:{}},
+    {id:4,name:'Meditar 10 minutos',streak:3,history:{}},
+    {id:5,name:'Sin redes sociales hasta el mediodía',streak:1,history:{}},
+  ],
+};
+
+// Pre-fill some history for the heatmap
+function prefillHistory(){
+  const now = new Date();
+  state.habits.forEach(h=>{
+    for(let i=90;i>=0;i--){
+      const d=new Date(now);d.setDate(d.getDate()-i);
+      const key=d.toISOString().slice(0,10);
+      if(Math.random()<0.7) h.history[key]=true;
+    }
+    // Today not done yet
+    delete h.history[today];
+  });
+}
+prefillHistory();
+
+const esc=s=>String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+function toggleHabit(id){
+  const h=state.habits.find(h=>h.id===id);
+  if(!h)return;
+  if(h.history[today]){
+    delete h.history[today];
+    h.streak=Math.max(0,h.streak-1);
+  } else {
+    h.history[today]=true;
+    h.streak++;
+  }
+  render();
+}
+
+function delHabit(id){
+  state.habits=state.habits.filter(h=>h.id!==id);
+  render();
+}
+
+function addHabit(){
+  const input=document.getElementById('new-habit');
+  const name=input?.value.trim();
+  if(!name)return;
+  state.habits.push({id:Date.now(),name,streak:0,history:{}});
+  input.value='';
+  render();
+}
+
+function buildHeatmap(){
+  const now=new Date();
+  const weeks=[];
+  const start=new Date(now);
+  start.setDate(start.getDate()-90);
+  // Build 13 weeks
+  for(let w=0;w<14;w++){
+    const week=[];
+    for(let d=0;d<7;d++){
+      const date=new Date(start);
+      date.setDate(start.getDate()+w*7+d);
+      if(date>now){week.push(null);continue;}
+      const key=date.toISOString().slice(0,10);
+      const count=state.habits.filter(h=>h.history[key]).length;
+      const total=state.habits.length||1;
+      const pct=count/total;
+      const level=pct===0?0:pct<0.25?1:pct<0.5?2:pct<0.75?3:4;
+      week.push({key,level,date:date.toLocaleDateString('es-AR',{day:'2-digit',month:'short'}),count,total});
+    }
+    weeks.push(week);
+  }
+
+  const cells=weeks.map(week=>`<div class="heatmap-week">${week.map(d=>d===null?`<div class="heatmap-cell" style="opacity:0"></div>`:`<div class="heatmap-cell l${d.level}" title="${d.date}: ${d.count}/${d.total} hábitos"></div>`).join('')}</div>`).join('');
+
+  return`<div class="heatmap-section">
+    <div class="sec-hd"><span class="sec-title">Actividad — Últimos 90 días</span></div>
+    <div style="padding:16px 18px">
+      <div class="heatmap-grid">${cells}</div>
+      <div style="display:flex;align-items:center;gap:6px;margin-top:10px;font-size:10px;color:var(--tx3)">
+        <span>Menos</span>
+        <div class="heatmap-cell"></div>
+        <div class="heatmap-cell l1"></div>
+        <div class="heatmap-cell l2"></div>
+        <div class="heatmap-cell l3"></div>
+        <div class="heatmap-cell l4"></div>
+        <span>Más</span>
+      </div>
+    </div>
+  </div>`;
+}
+
+function render(){
+  const done=state.habits.filter(h=>h.history[today]).length;
+  const total=state.habits.length;
+  const pct=total?Math.round(done/total*100):0;
+  const maxStreak=Math.max(0,...state.habits.map(h=>h.streak));
+  const totalDays=state.habits.reduce((s,h)=>s+Object.keys(h.history).length,0);
+
+  const circumference=2*Math.PI*20;
+  const offset=circumference*(1-pct/100);
+
+  const todayRow=`
+  <div class="today-grid">
+    <div class="today-stat">
+      <div class="today-stat-l">Hoy</div>
+      <div class="today-stat-v">${done}/${total}</div>
+      <div class="today-stat-sub">${pct}% completado</div>
+    </div>
+    <div class="today-stat">
+      <div class="today-stat-l">Racha máxima</div>
+      <div class="today-stat-v">${maxStreak}d</div>
+      <div class="today-stat-sub">días consecutivos</div>
+    </div>
+    <div class="today-stat">
+      <div class="today-stat-l">Total check-ins</div>
+      <div class="today-stat-v dim">${totalDays}</div>
+      <div class="today-stat-sub">en todos los hábitos</div>
+    </div>
+    <div class="today-stat" style="display:flex;align-items:center;justify-content:center">
+      <svg width="60" height="60" viewBox="0 0 60 60">
+        <circle cx="30" cy="30" r="20" fill="none" stroke="rgba(34,197,94,.1)" stroke-width="5"/>
+        <circle cx="30" cy="30" r="20" fill="none" stroke="#22c55e" stroke-width="5"
+          stroke-dasharray="${circumference.toFixed(1)}" stroke-dashoffset="${offset.toFixed(1)}"
+          stroke-linecap="round" transform="rotate(-90 30 30)" style="transition:stroke-dashoffset .4s ease"/>
+        <text x="30" y="35" text-anchor="middle" font-size="12" font-weight="700" fill="#4ade80" font-family="Inter,sans-serif">${pct}%</text>
+      </svg>
+    </div>
+  </div>`;
+
+  const habitsSection=`
+  <div class="habits-section">
+    <div class="sec-hd">
+      <span class="sec-title">Hábitos del día — ${dias[new Date().getDay()]} ${new Date().getDate()} de ${meses[new Date().getMonth()]}</span>
+    </div>
+    ${state.habits.map(h=>{
+      const isDone=!!h.history[today];
+      return`<div class="habit-row">
+        <div class="habit-check ${isDone?'done':''}" onclick="toggleHabit(${h.id})">
+          ${isDone?`<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round"><polyline points="20,6 9,17 4,12"/></svg>`:''}
+        </div>
+        <span class="habit-name ${isDone?'done':''}">${esc(h.name)}</span>
+        <div class="habit-streak ${h.streak>=5?'hot':''}">
+          ${h.streak>=3?`<svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2c0 0-5 4-5 10a5 5 0 0010 0c0-3-2-6-2-6s-1 3-3 3c0 0 1-4 0-7z"/></svg>`:''}
+          ${h.streak}d
+        </div>
+        <button class="habit-del" onclick="delHabit(${h.id})">✕</button>
+      </div>`;
+    }).join('')}
+    <div class="add-form">
+      <input id="new-habit" class="add-input" placeholder="Agregar hábito..." onkeydown="if(event.key==='Enter')addHabit()">
+      <button class="add-btn" onclick="addHabit()">+ Agregar</button>
+    </div>
+  </div>`;
+
+  document.getElementById('main').innerHTML=todayRow+habitsSection+buildHeatmap();
+}
+
+document.getElementById('nav-date').textContent=new Date().toLocaleDateString('es-AR',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+render();
+</script>
+</body>
+</html>
