@@ -154,7 +154,12 @@ ol {
 
 h1,
 h2,
-h3 {
+h3,
+.hero__lead,
+.section-head__sub,
+.contact__lead,
+.detail-head__lead,
+.next-card__name {
   text-wrap: balance;
 }
 
@@ -918,6 +923,23 @@ a.lang__item:active {
   max-width: calc(720px + var(--gutter) * 2);
 }
 
+.about {
+  display: grid;
+  gap: var(--space-8);
+}
+
+.about .section-head {
+  margin-bottom: 0;
+}
+
+@media (min-width: 900px) {
+  .about {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: var(--space-16);
+    align-items: start;
+  }
+}
+
 .about__text {
   font-size: var(--fs-lead);
 }
@@ -1440,7 +1462,7 @@ a.lang__item:active {
   .skills-desk {
     display: grid;
     grid-template-columns: minmax(260px, 320px) minmax(0, 1fr);
-    align-items: start;
+    align-items: stretch;
     gap: var(--space-6);
   }
 
@@ -1450,19 +1472,15 @@ a.lang__item:active {
     gap: var(--space-2);
   }
 
-  /* El alto se adapta al contenido de la categoría activa (el JS lo anima) */
+  /* El panel ocupa el mismo alto que la lista de pestañas (no cambia entre categorías) */
   .skills-panels {
-    transition: height var(--dur) var(--ease);
-  }
-
-  .skills-panels.is-sizing {
-    overflow: hidden;
+    display: flex;
   }
 
   .skills-panel {
     position: relative;
+    flex: 1;
     min-width: 0;
-    min-height: 200px;
     padding: var(--space-8);
     background: var(--white);
     border: 1px solid var(--border);
@@ -1476,10 +1494,12 @@ a.lang__item:active {
   /* Ícono grande y muy tenue de la categoría, solo decorativo */
   .skills-deco {
     position: absolute;
-    right: var(--space-6);
-    bottom: var(--space-6);
+    right: var(--space-5);
+    bottom: var(--space-5);
+    width: 88px;
+    height: 88px;
     color: var(--blue);
-    opacity: 0.07;
+    opacity: 0.06;
     pointer-events: none;
   }
 
@@ -1826,6 +1846,12 @@ html.modal-open {
   color: var(--blue-dark);
 }
 
+.contact__lead {
+  max-width: 36ch;
+  margin-top: var(--space-4);
+  font-size: var(--fs-lead);
+}
+
 .contact__list {
   display: grid;
   gap: var(--space-3);
@@ -1923,8 +1949,8 @@ a.contact__item:active {
   .contact {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     align-items: center;
-    gap: var(--space-12);
-    padding: var(--space-14);
+    gap: var(--space-16);
+    padding: var(--space-16) var(--space-16);
   }
 
   .contact__actions {
@@ -2222,7 +2248,9 @@ a.contact__item:active {
 
 .footer__nav ul {
   display: grid;
+  grid-auto-flow: column;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(4, auto);
   column-gap: var(--space-6);
 }
 
