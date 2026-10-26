@@ -940,11 +940,6 @@ a.lang__item:active {
   color: var(--ink);
 }
 
-.company__logo {
-  width: auto;
-  height: 22px;
-}
-
 .timeline {
   position: relative;
   display: grid;
