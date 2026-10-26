@@ -596,6 +596,44 @@ a.lang__item:active {
   background: var(--blue);
 }
 
+/* ---------- Encabezados de sección ---------- */
+.section-head {
+  margin-bottom: var(--space-12);
+}
+
+.section-head__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+  font-size: var(--fs-small);
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: var(--blue);
+}
+
+.section-head__eyebrow::after {
+  content: "";
+  width: 28px;
+  height: 2px;
+  background: var(--blue);
+}
+
+.section-head__title {
+  font-size: var(--fs-h2);
+  font-weight: 800;
+  line-height: var(--lh-tight);
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+
+.section-head__sub {
+  max-width: 52ch;
+  margin-top: var(--space-3);
+  font-size: var(--fs-lead);
+  color: var(--muted);
+}
+
 /* ---------- Botones ---------- */
 .btn {
   display: inline-flex;
@@ -1457,11 +1495,6 @@ a.lang__item:active {
 }
 
 /* ---------- Currículum ---------- */
-.cv__lead {
-  margin: calc(var(--space-4) * -1) 0 var(--space-8);
-  font-size: var(--fs-lead);
-}
-
 .cvs {
   display: grid;
   gap: var(--space-5);
@@ -1538,12 +1571,6 @@ a.lang__item:active {
   line-height: 1.15;
   letter-spacing: -0.02em;
   color: var(--blue-dark);
-}
-
-.contact__lead {
-  max-width: 40ch;
-  margin-top: var(--space-3);
-  font-size: var(--fs-lead);
 }
 
 .contact__list {
