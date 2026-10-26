@@ -1,18 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://mirkowalenten.vercel.app/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://mirkowalenten.vercel.app/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mirkowalenten.vercel.app/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mirkowalenten.vercel.app/"/>
+  </url>
+  <url>
+    <loc>https://mirkowalenten.vercel.app/en/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://mirkowalenten.vercel.app/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mirkowalenten.vercel.app/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mirkowalenten.vercel.app/"/>
   </url>
   <url>
     <loc>https://mirkowalenten.vercel.app/proyectos/cc-medios</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://mirkowalenten.vercel.app/proyectos/cc-medios"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mirkowalenten.vercel.app/en/projects/cc-medios"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mirkowalenten.vercel.app/proyectos/cc-medios"/>
+  </url>
+  <url>
+    <loc>https://mirkowalenten.vercel.app/en/projects/cc-medios</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://mirkowalenten.vercel.app/proyectos/cc-medios"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mirkowalenten.vercel.app/en/projects/cc-medios"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mirkowalenten.vercel.app/proyectos/cc-medios"/>
   </url>
   <url>
     <loc>https://mirkowalenten.vercel.app/proyectos/mozak</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://mirkowalenten.vercel.app/proyectos/mozak"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mirkowalenten.vercel.app/en/projects/mozak"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mirkowalenten.vercel.app/proyectos/mozak"/>
+  </url>
+  <url>
+    <loc>https://mirkowalenten.vercel.app/en/projects/mozak</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://mirkowalenten.vercel.app/proyectos/mozak"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mirkowalenten.vercel.app/en/projects/mozak"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mirkowalenten.vercel.app/proyectos/mozak"/>
   </url>
   <url>
     <loc>https://mirkowalenten.vercel.app/proyectos/bonsai-corp</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://mirkowalenten.vercel.app/proyectos/bonsai-corp"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mirkowalenten.vercel.app/en/projects/bonsai-corp"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mirkowalenten.vercel.app/proyectos/bonsai-corp"/>
+  </url>
+  <url>
+    <loc>https://mirkowalenten.vercel.app/en/projects/bonsai-corp</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://mirkowalenten.vercel.app/proyectos/bonsai-corp"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mirkowalenten.vercel.app/en/projects/bonsai-corp"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mirkowalenten.vercel.app/proyectos/bonsai-corp"/>
   </url>
   <url>
     <loc>https://mirkowalenten.vercel.app/proyectos/pac-app</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://mirkowalenten.vercel.app/proyectos/pac-app"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mirkowalenten.vercel.app/en/projects/pac-app"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mirkowalenten.vercel.app/proyectos/pac-app"/>
+  </url>
+  <url>
+    <loc>https://mirkowalenten.vercel.app/en/projects/pac-app</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://mirkowalenten.vercel.app/proyectos/pac-app"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mirkowalenten.vercel.app/en/projects/pac-app"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mirkowalenten.vercel.app/proyectos/pac-app"/>
   </url>
 </urlset>
