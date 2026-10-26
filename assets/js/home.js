@@ -60,7 +60,8 @@
       t.setAttribute('role', 'tab');
       t.setAttribute('aria-controls', 'skp' + i);
       tabEls.push(t);
-      var p = add(panels, 'div', 'skills-panel', '<h3>' + name + '</h3>' + chips);
+      var deco = h.querySelector('svg').outerHTML.replace('skill-icon', 'skills-deco').replace(/(width|height)="22"/g, '$1="140"');
+      var p = add(panels, 'div', 'skills-panel', '<h3>' + name + '</h3>' + chips + deco);
       p.id = 'skp' + i;
       p.tabIndex = 0;
       p.setAttribute('role', 'tabpanel');
@@ -74,12 +75,26 @@
       accPans.push(it.querySelector('.skills-item__panel'));
     });
 
+    var calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var select = function (i, focus) {
+      var from = panels.getBoundingClientRect().height;
+      panels.style.height = '';
       tabEls.forEach(function (t, j) {
         t.setAttribute('aria-selected', j === i);
         t.tabIndex = j === i ? 0 : -1;
         panEls[j].hidden = j !== i;
       });
+      var to = panels.getBoundingClientRect().height;
+      if (from && to && from !== to && !calm) {
+        panels.classList.add('is-sizing');
+        panels.style.height = from + 'px';
+        panels.getBoundingClientRect();
+        panels.style.height = to + 'px';
+        setTimeout(function () {
+          panels.style.height = '';
+          panels.classList.remove('is-sizing');
+        }, 300);
+      }
       if (focus) tabEls[i].focus();
     };
     var open = function (i) {
@@ -106,8 +121,7 @@
     acc.addEventListener('click', function (e) {
       var b = e.target.closest('button');
       if (!b) return;
-      var i = accBtns.indexOf(b);
-      open(b.getAttribute('aria-expanded') === 'true' ? -1 : i);
+      if (b.getAttribute('aria-expanded') !== 'true') open(accBtns.indexOf(b));
     });
 
     desk.appendChild(tabs);
