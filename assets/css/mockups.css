@@ -689,6 +689,17 @@ figure.mockup {
   border-bottom: 0.2em solid #ffffff;
 }
 
+/* ---------- Marco angosto (celular): menos filas, menos texto diminuto ---------- */
+@container (max-width: 560px) {
+  .cc-panel .cc-row:nth-child(n + 7),
+  .cc-row--ord:nth-child(n + 6),
+  .mz-habit:nth-child(n + 6),
+  .mz-ev:nth-child(2),
+  .pac-item:nth-child(n + 5) {
+    display: none;
+  }
+}
+
 /* ---------- Animación (una sola vez al entrar en pantalla) ---------- */
 @media (prefers-reduced-motion: no-preference) {
   .js .mock:not(.is-playing) .a-in {
