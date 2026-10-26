@@ -1722,25 +1722,39 @@ a.contact__item:active {
 }
 
 /* ---------- Páginas de detalle de proyecto ---------- */
-.container--detail {
-  max-width: calc(960px + var(--gutter) * 2);
-}
-
 .detail {
-  padding-block: var(--space-8) var(--space-22);
+  padding-block: var(--space-4) var(--space-22);
 }
 
-.back-link {
+.breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1) var(--space-2);
+  font-size: var(--fs-ui);
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.breadcrumb li + li::before {
+  content: "/";
+  margin-right: var(--space-2);
+  color: var(--border-strong);
+}
+
+.breadcrumb a {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-2);
   min-height: 44px;
   font-weight: 700;
-  color: var(--blue);
+}
+
+.breadcrumb [aria-current="page"] {
+  color: var(--ink);
 }
 
 .detail-head {
-  margin-top: var(--space-6);
+  margin-top: var(--space-4);
 }
 
 .detail-head__logo {
@@ -1786,22 +1800,165 @@ a.contact__item:active {
   margin-top: var(--space-5);
 }
 
-.detail-block {
-  margin-top: var(--space-14);
+/* Móvil: maqueta → ficha → "Qué hice". Escritorio: contenido a la izquierda y ficha sticky a la derecha */
+.detail-layout {
+  display: grid;
+  gap: var(--space-10);
+  margin-top: var(--space-12);
+}
+
+.detail-h2 {
+  margin-bottom: var(--space-5);
+  font-size: var(--fs-h3);
+  font-weight: 800;
+  line-height: var(--lh-snug);
+  color: var(--ink);
 }
 
 .bullets--lg {
   gap: 14px;
 }
 
-.detail-cta {
+.detail-facts {
+  padding: var(--space-6);
+  background: var(--sky-50);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.detail-facts h2 {
+  margin-bottom: var(--space-4);
+  font-size: var(--fs-h4);
+  font-weight: 800;
+  line-height: var(--lh-snug);
+  color: var(--ink);
+}
+
+.fact {
+  padding-block: var(--space-3);
+  border-top: 1px solid var(--border);
+}
+
+.fact dt {
+  font-size: var(--fs-small);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.fact dd {
+  margin: var(--space-1) 0 0;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.fact a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-weight: 700;
+}
+
+@media (min-width: 1024px) {
+  .detail-layout {
+    grid-template-columns: minmax(0, 1fr) 320px;
+    grid-template-areas:
+      "mock facts"
+      "did facts";
+    column-gap: var(--space-12);
+  }
+
+  .detail-mock {
+    grid-area: mock;
+  }
+
+  .detail-did {
+    grid-area: did;
+  }
+
+  .detail-facts {
+    grid-area: facts;
+    position: sticky;
+    top: calc(var(--header-h) + var(--space-6));
+    align-self: start;
+  }
+}
+
+.detail-end {
   display: flex;
   flex-wrap: wrap;
+  align-items: stretch;
+  gap: var(--space-4);
+  margin-top: var(--space-16);
+}
+
+.next-card {
+  position: relative;
+  display: flex;
+  flex: 1 1 320px;
   align-items: center;
-  justify-content: center;
-  gap: var(--space-3) var(--space-4);
-  padding: var(--space-8) var(--space-6);
-  background: var(--sky-50);
+  gap: var(--space-4);
+  min-height: 96px;
+  padding: var(--space-5) var(--space-6) var(--space-4);
+  color: var(--ink);
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+
+.next-card:hover {
+  color: var(--ink);
+  border-color: var(--celeste);
+  box-shadow: var(--shadow-2);
+}
+
+.next-card__label {
+  position: absolute;
+  top: var(--space-3);
+  left: var(--space-6);
+  font-size: var(--fs-small);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.next-card__main {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1) var(--space-3);
+  min-width: 0;
+  padding-top: var(--space-6);
+}
+
+.next-card__logo {
+  flex: none;
+  width: auto;
+  height: 32px;
+  object-fit: contain;
+}
+
+.next-card__logo--round {
+  border-radius: var(--radius-sm);
+}
+
+.next-card__name {
+  font-size: var(--fs-h4);
+  font-weight: 800;
+  line-height: var(--lh-snug);
+}
+
+.next-card .icon {
+  color: var(--blue);
+}
+
+.detail-end .btn {
+  align-self: center;
 }
 
 /* ---------- 404 ---------- */
@@ -1931,7 +2088,8 @@ a.contact__item:active {
     transform: translateY(-4px);
   }
 
-  .edu:hover {
+  .edu:hover,
+  .next-card:hover {
     transform: translateY(-2px);
   }
 

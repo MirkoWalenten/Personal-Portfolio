@@ -29,6 +29,26 @@
   <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="/assets/css/styles.css?v=6">
   <link rel="stylesheet" href="/assets/css/mockups.css?v=6">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Proyectos",
+        "item": "https://mirkowalenten.vercel.app/#proyectos"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "CC Medios Platform",
+        "item": "https://mirkowalenten.vercel.app/proyectos/cc-medios"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -58,8 +78,13 @@
   </header>
 
   <main id="contenido">
-    <div class="container container--detail detail">
-      <a class="back-link" href="/#proyectos"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/img/icons.svg?v=6#i-arrow-left"/></svg>Volver a proyectos</a>
+    <div class="container detail">
+      <nav class="breadcrumb" aria-label="Migas de pan">
+        <ol>
+          <li><a href="/#proyectos">Proyectos</a></li>
+          <li aria-current="page">CC Medios Platform</li>
+        </ol>
+      </nav>
 
       <header class="detail-head">
         <img class="detail-head__logo" src="/assets/img/logos/cc-medios-128.webp" width="48" height="48" style="border-radius:12px" alt="Logo de CC Medios" decoding="async">
@@ -74,9 +99,10 @@
         </ul>
       </header>
 
-      <figure class="mockup detail-block">
-        <div class="mock-frame">
-          <div class="mock mock--cc" aria-hidden="true" inert>
+      <div class="detail-layout">
+        <figure class="mockup detail-mock">
+          <div class="mock-frame">
+            <div class="mock mock--cc" aria-hidden="true" inert>
             <div class="mock__bar"><span class="mock__dot"></span><span class="mock__dot"></span><span class="mock__dot"></span></div>
             <div class="mock__body">
               <aside class="cc-side">
@@ -106,26 +132,43 @@
               <svg class="mk-pointer" style="--x0:52.00em;--y0:26.37em;--x1:19.24em;--y1:7.59em;--x2:25.27em;--y2:21.80em;--x3:49.17em;--y3:19.77em" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l14 7-6 2-2 6z" fill="#fff" stroke="#10202e" stroke-width="1.500" stroke-linejoin="round"/></svg>
             </div>
           </div>
-        </div>
-        <figcaption class="mockup__caption">Maqueta ilustrativa con datos ficticios.</figcaption>
-      </figure>
+          </div>
+          <figcaption class="mockup__caption">Maqueta ilustrativa con datos ficticios.</figcaption>
+        </figure>
 
-      <section class="detail-block" aria-labelledby="t-hice">
-        <h2 class="section__title" id="t-hice">Qué hice</h2>
-        <ul class="bullets bullets--lg">
+        <aside class="detail-facts" aria-labelledby="t-ficha">
+          <h2 id="t-ficha">Ficha del proyecto</h2>
+          <dl>
+            <div class="fact"><dt>Tipo</dt><dd>Proyecto para cliente</dd></div>
+            <div class="fact"><dt>Rol</dt><dd>Relevamiento de procesos, diseño y desarrollo</dd></div>
+            <div class="fact"><dt>Estado</dt><dd>En curso (desde ago 2026)</dd></div>
+            <div class="fact"><dt>Stack</dt><dd>React, TypeScript, Supabase, Vercel</dd></div>
+          </dl>
+        </aside>
+
+        <section class="detail-did" aria-labelledby="t-hice">
+          <h2 class="detail-h2" id="t-hice">Qué hice</h2>
+          <ul class="bullets bullets--lg">
           <li>Relevé los procesos con el cliente.</li>
           <li>Diseñé el modelo de datos, la interfaz y los permisos por rol.</li>
           <li>Desarrollé y desplegué con React, TypeScript, Supabase y Vercel, con asistencia de IA (Claude Code).</li>
           <li>Trabajé en entregas por fases con demos.</li>
           <li>Incluye lectura automática de facturas PDF de ARCA, vinculadas automáticamente a su orden de venta.</li>
           <li>Módulos: Administración (clientes, tareas, calendario, usuarios y dashboard), Comercial (carteles, mapa nacional, mapa propio y órdenes con líneas de venta, compra y margen) y Financiero (saldos, cobros y pagos, sueldos, gastos de oficina, impositivo y consolidado mensual).</li>
-        </ul>
-      </section>
+          </ul>
+        </section>
+      </div>
 
-      <section class="detail-block" aria-label="Más proyectos">
-        <div class="card detail-cta">
-          <a class="btn btn--ghost" href="/#proyectos">Ver otros proyectos<svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/img/icons.svg?v=6#i-arrow-right"/></svg></a>
-        </div>
+      <section class="detail-end" aria-label="Más proyectos">
+        <a class="next-card" href="/proyectos/mozak">
+          <span class="next-card__label">Siguiente proyecto</span>
+          <span class="next-card__main">
+            <img class="next-card__logo" src="/assets/img/logos/mozak.svg" width="30" height="32" alt="" loading="lazy" decoding="async">
+            <span class="next-card__name">Mozak</span>
+          </span>
+          <svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/img/icons.svg?v=6#i-arrow-right"/></svg>
+        </a>
+        <a class="btn btn--ghost" href="/#proyectos">Ver otros proyectos</a>
       </section>
     </div>
   </main>

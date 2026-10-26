@@ -29,6 +29,26 @@
   <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="/assets/css/styles.css?v=6">
   <link rel="stylesheet" href="/assets/css/mockups.css?v=6">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Proyectos",
+        "item": "https://mirkowalenten.vercel.app/#proyectos"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Mozak",
+        "item": "https://mirkowalenten.vercel.app/proyectos/mozak"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -58,8 +78,13 @@
   </header>
 
   <main id="contenido">
-    <div class="container container--detail detail">
-      <a class="back-link" href="/#proyectos"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/img/icons.svg?v=6#i-arrow-left"/></svg>Volver a proyectos</a>
+    <div class="container detail">
+      <nav class="breadcrumb" aria-label="Migas de pan">
+        <ol>
+          <li><a href="/#proyectos">Proyectos</a></li>
+          <li aria-current="page">Mozak</li>
+        </ol>
+      </nav>
 
       <header class="detail-head">
         <img class="detail-head__logo" src="/assets/img/logos/mozak.svg" width="45" height="48" alt="Logo de Mozak" decoding="async">
@@ -74,9 +99,10 @@
         </ul>
       </header>
 
-      <figure class="mockup detail-block">
-        <div class="mock-frame">
-          <div class="mock mock--mz" aria-hidden="true" inert>
+      <div class="detail-layout">
+        <figure class="mockup detail-mock">
+          <div class="mock-frame">
+            <div class="mock mock--mz" aria-hidden="true" inert>
             <div class="mock__bar"><span class="mock__dot"></span><span class="mock__dot"></span><span class="mock__dot"></span></div>
             <div class="mock__body">
               <div class="mz-main">
@@ -94,26 +120,43 @@
               <svg class="mk-pointer" style="--x0:52.00em;--y0:24.83em;--x1:43.60em;--y1:10.67em;--x2:43.60em;--y2:13.24em;--x3:56.45em;--y3:2.13em" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l14 7-6 2-2 6z" fill="#fff" stroke="#10202e" stroke-width="1.500" stroke-linejoin="round"/></svg>
             </div>
           </div>
-        </div>
-        <figcaption class="mockup__caption">Maqueta ilustrativa con datos ficticios.</figcaption>
-      </figure>
+          </div>
+          <figcaption class="mockup__caption">Maqueta ilustrativa con datos ficticios.</figcaption>
+        </figure>
 
-      <section class="detail-block" aria-labelledby="t-hice">
-        <h2 class="section__title" id="t-hice">Qué hice</h2>
-        <ul class="bullets bullets--lg">
+        <aside class="detail-facts" aria-labelledby="t-ficha">
+          <h2 id="t-ficha">Ficha del proyecto</h2>
+          <dl>
+            <div class="fact"><dt>Tipo</dt><dd>Producto propio</dd></div>
+            <div class="fact"><dt>Rol</dt><dd>Producto de punta a punta (UX/UI, desarrollo e implementación)</dd></div>
+            <div class="fact"><dt>Estado</dt><dd>En producción, de acceso gratuito</dd></div>
+            <div class="fact"><dt>Funciones</dt><dd>Hábitos, Tareas, Agenda, Asistente de IA</dd></div>
+            <div class="fact"><dt>Enlace</dt><dd><a href="https://mozak.pro" target="_blank" rel="noopener noreferrer">mozak.pro<span class="sr-only"> (se abre en una pestaña nueva)</span></a></dd></div>
+          </dl>
+        </aside>
+
+        <section class="detail-did" aria-labelledby="t-hice">
+          <h2 class="detail-h2" id="t-hice">Qué hice</h2>
+          <ul class="bullets bullets--lg">
           <li>Creé y lancé Mozak, una app de organización personal que integra finanzas, proyectos, estudios y salud, disponible gratis.</li>
           <li>Responsable del producto de punta a punta.</li>
           <li>Diseño UX/UI.</li>
           <li>Desarrollo e implementación en producción.</li>
           <li>Funciones visibles en la app: hábitos, tareas, agenda de eventos, asistente de IA, buscador, modo claro y oscuro y opción para ocultar importes.</li>
-        </ul>
-      </section>
+          </ul>
+        </section>
+      </div>
 
-      <section class="detail-block" aria-label="Más proyectos">
-        <div class="card detail-cta">
-          <a class="btn" href="https://mozak.pro" target="_blank" rel="noopener noreferrer">Visitar mozak.pro<span class="sr-only"> (se abre en una pestaña nueva)</span></a>
-          <a class="btn btn--ghost" href="/#proyectos">Ver otros proyectos<svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/img/icons.svg?v=6#i-arrow-right"/></svg></a>
-        </div>
+      <section class="detail-end" aria-label="Más proyectos">
+        <a class="next-card" href="/proyectos/bonsai-corp">
+          <span class="next-card__label">Siguiente proyecto</span>
+          <span class="next-card__main">
+            <img class="next-card__logo" src="/assets/img/logos/alixpartners-56.webp" width="163" height="24" alt="" loading="lazy" decoding="async">
+            <span class="next-card__name">Data Challenge 2026 AlixPartners × ECI</span>
+          </span>
+          <svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/img/icons.svg?v=6#i-arrow-right"/></svg>
+        </a>
+        <a class="btn btn--ghost" href="/#proyectos">Ver otros proyectos</a>
       </section>
     </div>
   </main>
