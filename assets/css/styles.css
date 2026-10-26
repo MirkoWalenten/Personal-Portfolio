@@ -1725,7 +1725,21 @@ html.modal-open {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-5);
+  gap: var(--space-4);
+  box-shadow: var(--shadow-1);
+  transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+
+.cv:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-2);
+}
+
+.cv__meta {
+  margin-top: calc(var(--space-1) * -1);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--muted);
 }
 
 .cv img {
@@ -1826,6 +1840,7 @@ html.modal-open {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 10px;
   min-height: 52px;
   padding: 10px 18px;
   font-weight: 700;
@@ -1850,10 +1865,62 @@ a.contact__item:active {
   box-shadow: none;
 }
 
-.contact__place {
-  margin-top: var(--space-4);
-  font-weight: 600;
+.contact__row {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.contact__copy {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 48px;
+  padding: 0 var(--space-4);
+  font: inherit;
+  font-weight: 700;
+  color: var(--blue-dark);
+  background: transparent;
+  border: 1px solid var(--blue-dark);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background-color var(--dur) var(--ease), transform var(--dur-fast) var(--ease);
+}
+
+.js .contact__copy {
+  display: inline-flex;
+}
+
+.contact__copy:hover {
+  background: var(--white);
+}
+
+.contact__copy:active {
+  background: var(--tint);
+  transform: translateY(1px);
+}
+
+.contact__status {
+  display: none;
+  min-height: 1.5em;
+  margin-top: var(--space-3);
+  font-size: var(--fs-small);
+  font-weight: 700;
   text-align: center;
+  color: var(--blue-dark);
+}
+
+.js .contact__status {
+  display: block;
+}
+
+.contact__place {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+  font-weight: 600;
   color: var(--blue-dark);
 }
 
@@ -1951,7 +2018,7 @@ a.contact__item:active {
   margin-top: var(--space-5);
 }
 
-/* Móvil: maqueta → ficha → "Qué hice". Escritorio: contenido a la izquierda y ficha sticky a la derecha */
+/* Móvil: maqueta, ficha y "Qué hice" (en ese orden). Escritorio: contenido a la izquierda y ficha sticky a la derecha */
 .detail-layout {
   display: grid;
   gap: var(--space-10);
@@ -2133,10 +2200,87 @@ a.contact__item:active {
 
 /* ---------- Footer ---------- */
 .site-footer {
-  padding-block: var(--space-8);
+  padding-block: var(--space-14) var(--space-8);
   font-size: var(--fs-ui);
   color: var(--muted);
   border-top: 1px solid var(--border);
+}
+
+.footer__grid {
+  display: grid;
+  gap: var(--space-10);
+}
+
+.footer__brand p {
+  margin-top: var(--space-1);
+  font-weight: 600;
+}
+
+.footer__title {
+  margin-bottom: var(--space-3);
+  font-size: var(--fs-small);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.footer__nav ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: var(--space-6);
+}
+
+.site-footer li a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 44px;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+  transition: color var(--dur-fast) var(--ease);
+}
+
+.site-footer li a:hover {
+  color: var(--blue);
+  text-decoration: underline;
+}
+
+.footer__contact .icon {
+  color: var(--blue);
+}
+
+.footer__end {
+  display: grid;
+  gap: var(--space-5);
+  align-content: start;
+  justify-items: start;
+}
+
+.lang.lang--footer {
+  order: 0;
+  margin-left: calc(var(--space-2) * -1);
+}
+
+.footer__legal {
+  margin-top: var(--space-10);
+  padding-top: var(--space-6);
+  font-size: var(--fs-small);
+  border-top: 1px solid var(--border);
+}
+
+@media (min-width: 760px) {
+  .footer__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1080px) {
+  .footer__grid {
+    grid-template-columns: 0.8fr 1.6fr 1.2fr auto;
+    gap: var(--space-12);
+  }
 }
 
 /* ---------- Sin JavaScript: header estático y menú visible ---------- */
@@ -2240,13 +2384,15 @@ a.contact__item:active {
   }
 
   .edu:hover,
-  .next-card:hover {
+  .next-card:hover,
+  .cv:hover {
     transform: translateY(-2px);
   }
 
   /* Con .reveal activo hay que repetir la transición y subir la especificidad del hover */
   .js .project.reveal,
-  .js .edu.reveal {
+  .js .edu.reveal,
+  .js .cv.reveal {
     transition: opacity var(--dur-slow) var(--ease), transform var(--dur) var(--ease), border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
   }
 
@@ -2254,7 +2400,8 @@ a.contact__item:active {
     transform: translateY(-4px);
   }
 
-  .js .edu.reveal.is-visible:hover {
+  .js .edu.reveal.is-visible:hover,
+  .js .cv.reveal.is-visible:hover {
     transform: translateY(-2px);
   }
 

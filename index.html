@@ -464,11 +464,13 @@
         <div class="cvs">
           <article class="card cv reveal">
             <img src="/assets/cv/previews/CV-Mirko-Walenten-ES.webp" width="720" height="1018" loading="lazy" decoding="async" alt="Vista previa del CV en español">
-            <a class="btn" href="/assets/cv/CV-Mirko-Walenten-ES.pdf" download>Descargar CV en español</a>
+            <a class="btn" href="/assets/cv/CV-Mirko-Walenten-ES.pdf" download><svg class="icon" width="20" height="20" aria-hidden="true" focusable="false"><use href="/assets/img/icons.svg?v=6#i-download"/></svg>Descargar CV en español</a>
+            <p class="cv__meta">PDF · 1 página · 242 KB</p>
           </article>
           <article class="card cv reveal" lang="en">
             <img src="/assets/cv/previews/CV-Mirko-Walenten-EN.webp" width="720" height="1018" loading="lazy" decoding="async" alt="Preview of the CV in English">
-            <a class="btn" href="/assets/cv/CV-Mirko-Walenten-EN.pdf" download>Download CV in English</a>
+            <a class="btn" href="/assets/cv/CV-Mirko-Walenten-EN.pdf" download><svg class="icon" width="20" height="20" aria-hidden="true" focusable="false"><use href="/assets/img/icons.svg?v=6#i-download"/></svg>Download CV in English</a>
+            <p class="cv__meta">PDF · 1 page · 241 KB</p>
           </article>
         </div>
       </div>
@@ -487,11 +489,15 @@
           </div>
           <div class="contact__actions">
             <ul class="contact__list">
-              <li><a class="contact__item" href="mailto:mirkowalenten@gmail.com">mirkowalenten@gmail.com</a></li>
-              <li><a class="contact__item" href="https://www.linkedin.com/in/mirkowalenten" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (se abre en una pestaña nueva)</span></a></li>
-              <li><a class="contact__item" href="tel:+541122642220">+54 11 2264-2220</a></li>
+              <li class="contact__row">
+                <a class="contact__item" href="mailto:mirkowalenten@gmail.com"><svg class="icon" width="20" height="20" aria-hidden="true" focusable="false"><use href="/assets/img/icons.svg?v=6#i-mail"/></svg><span class="contact__text">mirkowalenten@gmail.com</span></a>
+                <button type="button" class="contact__copy" data-copy="mirkowalenten@gmail.com" data-copied="Email copiado" data-select="Seleccioná el email para copiarlo"><svg class="icon" width="20" height="20" aria-hidden="true" focusable="false"><use href="/assets/img/icons.svg?v=6#i-copy"/></svg>Copiar email</button>
+              </li>
+              <li><a class="contact__item" href="https://www.linkedin.com/in/mirkowalenten" target="_blank" rel="noopener noreferrer"><svg class="icon" width="20" height="20" aria-hidden="true" focusable="false"><use href="/assets/img/icons.svg?v=6#i-linkedin"/></svg>LinkedIn<span class="sr-only"> (se abre en una pestaña nueva)</span></a></li>
+              <li><a class="contact__item" href="tel:+541122642220"><svg class="icon" width="20" height="20" aria-hidden="true" focusable="false"><use href="/assets/img/icons.svg?v=6#i-phone"/></svg>+54 11 2264-2220</a></li>
             </ul>
-            <p class="contact__place">Buenos Aires, Argentina</p>
+            <p class="contact__status" role="status" aria-live="polite"></p>
+            <p class="contact__place"><svg class="icon" width="20" height="20" aria-hidden="true" focusable="false"><use href="/assets/img/icons.svg?v=6#i-pin"/></svg>Buenos Aires, Argentina</p>
           </div>
         </div>
       </div>
@@ -500,7 +506,41 @@
 
   <footer class="site-footer">
     <div class="container">
-      <p>© <span id="anio">2026</span> Mirko Walenten · Buenos Aires, Argentina</p>
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a class="logo" href="#top" aria-label="MW. Mirko Walenten, inicio">MW<span>.</span></a>
+          <p>Mirko Walenten</p>
+        </div>
+        <nav class="footer__nav" aria-label="Pie de página">
+          <p class="footer__title">Menú</p>
+          <ul>
+          <li><a href="#sobre-mi">Sobre mí</a></li>
+          <li><a href="#experiencia">Experiencia</a></li>
+          <li><a href="#educacion">Educación</a></li>
+          <li><a href="#proyectos">Proyectos</a></li>
+          <li><a href="#habilidades">Habilidades</a></li>
+          <li><a href="#certificaciones">Certificaciones</a></li>
+          <li><a href="#cv">CV</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </nav>
+        <div class="footer__contact">
+          <p class="footer__title">Contacto</p>
+          <ul>
+            <li><a href="https://www.linkedin.com/in/mirkowalenten" target="_blank" rel="noopener noreferrer"><svg class="icon" width="20" height="20" aria-hidden="true" focusable="false"><use href="/assets/img/icons.svg?v=6#i-linkedin"/></svg>LinkedIn<span class="sr-only"> (se abre en una pestaña nueva)</span></a></li>
+            <li><a href="mailto:mirkowalenten@gmail.com"><svg class="icon" width="20" height="20" aria-hidden="true" focusable="false"><use href="/assets/img/icons.svg?v=6#i-mail"/></svg>mirkowalenten@gmail.com</a></li>
+          </ul>
+        </div>
+        <div class="footer__end">
+        <div class="footer__lang"><p class="footer__title">Idioma</p>
+        <div class="lang lang--footer" role="group" aria-label="Cambiar idioma">
+        <span class="lang__item lang__item--current" lang="es" aria-current="true"><span class="sr-only">Español: </span><span aria-hidden="true">ES</span></span>
+        <a class="lang__item" href="/en/" hreflang="en" lang="en" aria-label="EN, English">EN</a>
+      </div></div>
+          <a class="btn btn--ghost btn--sm" href="#"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/img/icons.svg?v=6#i-arrow-up"/></svg>Volver arriba</a>
+        </div>
+      </div>
+      <p class="footer__legal">© <span id="anio">2026</span> Mirko Walenten · Buenos Aires, Argentina</p>
     </div>
   </footer>
 

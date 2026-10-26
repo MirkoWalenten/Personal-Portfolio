@@ -197,4 +197,33 @@
       thumb.addEventListener('click', function () { show(card, link); });
     });
   }
+
+  // Contacto: copiar el email al portapapeles (con aviso en una región aria-live)
+  var copy = document.querySelector('.contact__copy');
+  var status = document.querySelector('.contact__status');
+  if (copy && status) {
+    var timer;
+    var say = function (msg) {
+      status.textContent = msg;
+      clearTimeout(timer);
+      timer = setTimeout(function () { status.textContent = ''; }, 2000);
+    };
+    var fallback = function () {
+      var r = document.createRange();
+      var sel = window.getSelection();
+      var ok = false;
+      r.selectNodeContents(document.querySelector('.contact__text'));
+      sel.removeAllRanges();
+      sel.addRange(r);
+      try { ok = document.execCommand('copy'); } catch (e) { /* sin portapapeles: queda seleccionado */ }
+      say(ok ? copy.dataset.copied : copy.dataset.select);
+    };
+    copy.addEventListener('click', function () {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(copy.dataset.copy).then(function () { say(copy.dataset.copied); }, fallback);
+      } else {
+        fallback();
+      }
+    });
+  }
 })();
