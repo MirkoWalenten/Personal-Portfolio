@@ -932,55 +932,70 @@ a.lang__item:active {
 
 /* ---------- Experiencia ---------- */
 .company {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
   margin-bottom: var(--space-8);
   font-weight: 700;
   color: var(--ink);
+}
+
+.company__logo {
+  width: auto;
+  height: 22px;
 }
 
 .timeline {
   position: relative;
   display: grid;
   gap: var(--space-6);
-  padding-left: var(--space-7);
+  padding-left: var(--space-8);
 }
 
 .timeline::before {
   content: "";
   position: absolute;
-  top: var(--space-2);
-  bottom: var(--space-2);
-  left: 5px;
+  top: var(--space-4);
+  bottom: var(--space-4);
+  left: 6px;
   width: 2px;
-  background: var(--border);
+  background: linear-gradient(var(--blue), var(--border) 70%);
 }
 
 .timeline__item {
   position: relative;
 }
 
+/* Nodo alineado con la primera línea del título de cada rol */
 .timeline__item::before {
   content: "";
   position: absolute;
-  top: var(--space-9);
-  left: calc(var(--space-7) * -1);
-  width: 12px;
-  height: 12px;
+  top: 36px;
+  left: calc(var(--space-8) * -1);
+  width: 14px;
+  height: 14px;
   background: var(--white);
   border: 2px solid var(--blue);
   border-radius: 50%;
+  box-shadow: 0 0 0 4px var(--white);
 }
 
 .timeline__item:first-child::before {
   background: var(--blue);
+  box-shadow: 0 0 0 4px var(--white), 0 0 0 6px var(--tint);
+}
+
+.section--alt .timeline__item::before {
+  box-shadow: 0 0 0 4px var(--sky-50);
 }
 
 .role__head {
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
-  gap: var(--space-1) var(--space-4);
-  margin-bottom: var(--space-4);
+  gap: var(--space-2) var(--space-4);
+  margin-bottom: var(--space-5);
 }
 
 .role__title {
@@ -990,31 +1005,57 @@ a.lang__item:active {
   color: var(--ink);
 }
 
-.role__date {
+.role__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: var(--space-1) var(--space-3);
   font-size: var(--fs-small);
   font-weight: 700;
-  color: var(--blue);
+  line-height: 1.4;
+  white-space: nowrap;
+  border-radius: var(--radius-pill);
+}
+
+.pill--date {
+  color: var(--blue-dark);
+  background: var(--sky-50);
+  border: 1px solid var(--border);
+}
+
+.pill--now {
+  color: var(--white);
+  background: var(--blue);
+  border: 1px solid var(--blue);
 }
 
 .bullets {
   display: grid;
-  gap: 10px;
+  gap: var(--space-3);
 }
 
 .bullets li {
   position: relative;
-  padding-left: var(--space-5);
+  padding-left: var(--space-7);
 }
 
 .bullets li::before {
   content: "";
   position: absolute;
-  top: 0.72em;
+  top: 0.38em;
   left: 0;
-  width: 6px;
-  height: 6px;
+  width: 16px;
+  height: 16px;
   background: var(--blue);
-  border-radius: 50%;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
 /* ---------- Proyectos ---------- */
@@ -1530,8 +1571,31 @@ a.lang__item:active {
   gap: var(--space-5);
 }
 
+.edu {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-5);
+  transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+
+.edu:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-2);
+}
+
+.edu__icon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  color: var(--blue-dark);
+  background: var(--tint);
+  border-radius: var(--radius-md);
+}
+
 .education h3 {
-  font-size: var(--fs-h3);
+  font-size: var(--fs-h4);
   font-weight: 800;
   line-height: var(--lh-snug);
   color: var(--ink);
@@ -1543,7 +1607,7 @@ a.lang__item:active {
 }
 
 .education__date {
-  margin-top: 14px;
+  margin-top: var(--space-3);
   font-size: var(--fs-small);
   font-weight: 700;
   color: var(--blue);
@@ -1834,7 +1898,8 @@ a.contact__item:active {
     transform: none;
   }
 
-  .project:hover {
+  .project:hover,
+  .edu:hover {
     transform: translateY(-2px);
   }
 }
