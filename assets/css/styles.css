@@ -144,7 +144,7 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 8px;
 }
 
 .logo {
@@ -262,6 +262,16 @@ a:hover {
     display: none;
   }
 
+  .nav__menu {
+    order: 2;
+    margin-left: auto;
+  }
+
+  .lang {
+    order: 3;
+    margin-left: 12px;
+  }
+
   .nav__menu,
   .js .nav__menu:not(.is-open) {
     position: static;
@@ -284,6 +294,50 @@ a:hover {
   .nav__menu a:hover {
     background: var(--sky-50);
   }
+}
+
+/* ---------- Selector de idioma ---------- */
+.lang {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.lang__item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 8px;
+  color: var(--ink);
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+a.lang__item {
+  color: var(--blue);
+}
+
+a.lang__item:hover {
+  background: var(--sky-50);
+}
+
+.lang__item--current {
+  background: var(--sky-50);
+}
+
+.lang__item + .lang__item::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  bottom: 12px;
+  left: -1px;
+  width: 1px;
+  background: var(--border);
 }
 
 /* ---------- Secciones ---------- */
@@ -862,12 +916,9 @@ main {
   gap: 0 20px;
 }
 
-.cert__links:empty {
-  display: none;
-}
-
-.cert__body:not(:has(.cert__links)) {
-  padding-bottom: 24px;
+/* Cambridge no tiene PDF: reserva el alto de un link para alinear la fecha con las demás */
+.cert__links--spacer {
+  min-height: 44px;
 }
 
 @media (min-width: 640px) {
@@ -1102,12 +1153,70 @@ a.contact__item:hover {
   flex: none;
 }
 
+/* ---------- 404 ---------- */
+.notfound {
+  padding-block: 24px;
+}
+
+.notfound h1 {
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+
+.notfound__text {
+  margin-top: 16px;
+  font-size: 1.0625rem;
+  color: var(--muted);
+}
+
 /* ---------- Footer ---------- */
 .site-footer {
   padding-block: 32px;
   font-size: 0.9rem;
   color: var(--muted);
   border-top: 1px solid var(--border);
+}
+
+/* ---------- Sin JavaScript: header estático y menú visible ---------- */
+:root:not(.js) .site-header {
+  position: static;
+  height: auto;
+}
+
+:root:not(.js) main {
+  padding-top: 0;
+}
+
+:root:not(.js) .nav {
+  flex-wrap: wrap;
+  height: auto;
+  padding-block: 8px;
+}
+
+:root:not(.js) .nav__toggle {
+  display: none;
+}
+
+:root:not(.js) .nav__menu {
+  position: static;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 4px;
+  order: 5;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: 0;
+}
+
+:root:not(.js) .nav__menu a {
+  min-height: 44px;
+  padding: 0 10px;
+  border: 0;
 }
 
 /* ---------- Movimiento ---------- */

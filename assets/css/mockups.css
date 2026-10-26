@@ -19,7 +19,6 @@ figure.mockup {
   width: 100%;
   max-width: 960px;
   margin-inline: auto;
-  aspect-ratio: 16 / 10;
   overflow: hidden;
   background: var(--white);
   border: 1px solid var(--border);
@@ -128,6 +127,26 @@ figure.mockup {
 
 .cc-side__item--on {
   background: rgba(255, 255, 255, 0.28);
+}
+
+.cc-side__user {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  margin-top: auto;
+  padding: 0.7em 0.6em;
+  font-size: 0.75em;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 0.7em;
+}
+
+.cc-side__user i {
+  flex: none;
+  width: 2em;
+  height: 2em;
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 50%;
 }
 
 .cc-main {
@@ -445,7 +464,7 @@ figure.mockup {
 .bc-nav span {
   display: flex;
   gap: 0.7em;
-  padding: 0.5em 0.7em;
+  padding: 0.95em 0.7em;
   font-size: 0.72em;
   border-radius: 0.5em;
 }
@@ -510,7 +529,8 @@ figure.mockup {
 
 .bc-bars {
   display: flex;
-  flex: 1;
+  flex: none;
+  height: 14em;
   align-items: flex-end;
   justify-content: space-around;
   min-height: 0;
