@@ -18,7 +18,7 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <script>document.documentElement.classList.add('js');</script>
-  <link rel="stylesheet" href="assets/css/styles.css?v=2">
+  <link rel="stylesheet" href="assets/css/styles.css?v=3">
 
   <script type="application/ld+json">
   {
@@ -78,27 +78,11 @@
     </section>
 
     <section class="section section--alt" id="sobre-mi" aria-labelledby="t-sobre-mi">
-      <div class="container">
+      <div class="container container--narrow">
         <h2 class="section__title reveal" id="t-sobre-mi">Sobre mí</h2>
-        <div class="about__grid">
-          <div class="reveal">
-            <p class="about__text">Estudiante de Ciencia de Datos en la UBA (3.er año) con experiencia en una empresa de software, donde transformo datos financieros y operativos en reportes, dashboards e insights para la dirección. Desarrollé el sistema de gestión interno de la compañía, automatizo procesos con IA generativa y acompaño a un equipo de unos 10 desarrolladores en el uso de Claude. Trabajo con Python, SQL, Power BI y Excel avanzado.</p>
-            <p class="about__langs">Español (nativo) · Inglés (avanzado, Cambridge FCE, B2/C1)</p>
-          </div>
-          <ul class="stats">
-            <li class="card stat reveal">
-              <span class="stat__value">3.er año</span>
-              <span class="stat__label">Licenciatura en Ciencia de Datos (UBA)</span>
-            </li>
-            <li class="card stat reveal">
-              <span class="stat__value">~10</span>
-              <span class="stat__label">desarrolladores a los que acompaño en el uso de Claude</span>
-            </li>
-            <li class="card stat reveal">
-              <span class="stat__value">204 → 48</span>
-              <span class="stat__label">tipos de caja en el caso Bonsai Corp</span>
-            </li>
-          </ul>
+        <div class="reveal">
+          <p class="about__text">Estudiante de Ciencia de Datos en la UBA (3.er año) con experiencia en una empresa de software, donde transformo datos financieros y operativos en reportes, dashboards e insights para la dirección. Desarrollé el sistema de gestión interno de la compañía, automatizo procesos con IA generativa y acompaño a un equipo de desarrolladores en el uso de Claude. Trabajo con Python, SQL, Power BI y Excel avanzado.</p>
+          <p class="about__langs">Español (nativo) · Inglés (avanzado, Cambridge FCE, B2/C1)</p>
         </div>
       </div>
     </section>
@@ -118,7 +102,7 @@
                 <li>Convierto datos financieros y de gestión interna (ingresos, egresos, horas) en insights y reportes semanales para la dirección y los equipos de Desarrollo y Consultoría.</li>
                 <li>Automatizo el reporting recurrente con herramientas de IA, optimizando procesos clave de reporte y control.</li>
                 <li>Diseñé y desarrollé el sistema de gestión interno: una plataforma centralizada de servicios, finanzas y horas del equipo de desarrollo, usada por la dirección.</li>
-                <li>Implemento el entorno de Claude Business (IA generativa) para unos 10 desarrolladores y los asesoro en consultas y proyectos.</li>
+                <li>Implemento el entorno de Claude Business (IA generativa) para el equipo de desarrolladores y los asesoro en consultas y proyectos.</li>
               </ul>
             </article>
           </li>
@@ -143,55 +127,69 @@
         <h2 class="section__title reveal" id="t-proyectos">Proyectos</h2>
         <div class="projects">
 
-          <article class="card project project--featured reveal">
-            <!-- Imagen opcional: sumar captura aquí
-            <div class="project__media"><img src="assets/img/..." width="" height="" alt="" loading="lazy"></div>
-            -->
-            <p class="project__tag">Proyecto para cliente</p>
-            <h3 class="project__title">CC Medios Platform</h3>
-            <div class="project__body">
-              <p>Plataforma web para CC Medios (publicidad exterior) que unifica clientes, carteles, órdenes, cobros, pagos y facturación, con margen por operación y alertas de vencimientos. Relevé los procesos con el cliente, diseñé el modelo de datos, la interfaz y los permisos por rol, y desarrollé y desplegué con React, TypeScript, Supabase y Vercel, con asistencia de IA (Claude Code), en entregas por fases con demos. Incluye lectura automática de facturas en PDF de ARCA, vinculadas de forma automática a su orden de venta.</p>
+          <article class="card project reveal">
+            <img class="project__logo" src="/assets/img/logos/cc-medios-64.webp" srcset="/assets/img/logos/cc-medios-64.webp 1x, /assets/img/logos/cc-medios-128.webp 2x" width="40" height="40" alt="Logo de CC Medios" loading="lazy" decoding="async">
+            <div class="project__meta">
+              <p class="project__tag">Proyecto para cliente</p>
+            <p class="project__flag">Destacado</p>
             </div>
-            <ul class="chips" aria-label="Tecnologías">
-              <li>React</li>
-              <li>TypeScript</li>
-              <li>Supabase</li>
-              <li>Vercel</li>
-            </ul>
+            <h3 class="project__title">CC Medios Platform</h3>
+            <p class="project__text">Plataforma web para CC Medios (publicidad exterior) que unifica clientes, carteles, órdenes, cobros, pagos y facturación, con margen por operación y alertas de vencimientos. Relevé los procesos con el cliente, diseñé el modelo de datos, la interfaz y los permisos por rol, y desarrollé y desplegué con React, TypeScript, Supabase y Vercel, con asistencia de IA (Claude Code), en entregas por fases con demos. Incluye lectura automática de facturas en PDF de ARCA, vinculadas de forma automática a su orden de venta.</p>
+          <ul class="chips" aria-label="Tecnologías">
+            <li>React</li>
+            <li>TypeScript</li>
+            <li>Supabase</li>
+            <li>Vercel</li>
+          </ul>
+            <div class="project__actions">
+              <a class="btn btn--ghost btn--sm project__detail" href="/proyectos/cc-medios">Ver detalle<svg class="icon" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sr-only"> de CC Medios Platform</span></a>
+            </div>
           </article>
-
           <article class="card project reveal">
-            <!-- Imagen opcional: sumar captura aquí
-            <div class="project__media"><img src="assets/img/..." width="" height="" alt="" loading="lazy"></div>
-            -->
-            <p class="project__tag">Finanzas y Productividad</p>
+            <img class="project__logo" src="/assets/img/logos/mozak.svg" width="37" height="40" alt="Logo de Mozak" loading="lazy" decoding="async">
+            <div class="project__meta">
+              <p class="project__tag">Finanzas y Productividad</p>
+            </div>
             <h3 class="project__title">Mozak</h3>
-            <p>Creé y lancé Mozak, una app de organización personal que integra finanzas, proyectos, estudios y salud, disponible gratis. Responsable del producto de punta a punta: diseño UX/UI, desarrollo e implementación en producción.</p>
-            <a class="project__link" href="https://mozak.pro" target="_blank" rel="noopener noreferrer">mozak.pro<span class="sr-only"> (se abre en una pestaña nueva)</span></a>
+            <p class="project__text">Creé y lancé Mozak, una app de organización personal que integra finanzas, proyectos, estudios y salud, disponible gratis. Responsable del producto de punta a punta: diseño UX/UI, desarrollo e implementación en producción.</p>
+          <ul class="chips" aria-label="Funciones">
+            <li>Hábitos</li>
+            <li>Tareas</li>
+            <li>Agenda</li>
+            <li>Asistente de IA</li>
+          </ul>
+            <div class="project__actions">
+              <a class="btn btn--ghost btn--sm project__detail" href="/proyectos/mozak">Ver detalle<svg class="icon" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sr-only"> de Mozak</span></a>
+              <a class="project__link" href="https://mozak.pro" target="_blank" rel="noopener noreferrer">mozak.pro<span class="sr-only"> (se abre en una pestaña nueva)</span></a>
+            </div>
           </article>
-
           <article class="card project reveal">
-            <!-- Imagen opcional: sumar captura aquí
-            <div class="project__media"><img src="assets/img/..." width="" height="" alt="" loading="lazy"></div>
-            -->
-            <p class="project__tag">Caso Bonsai Corp</p>
+            <img class="project__logo" src="/assets/img/logos/bonsai.svg" width="40" height="40" alt="Monograma BC de Bonsai Corp" loading="lazy" decoding="async">
+            <div class="project__meta">
+              <p class="project__tag">Caso Bonsai Corp</p>
+            </div>
             <h3 class="project__title">Data Challenge 2026 AlixPartners × ECI</h3>
-            <p>Modelo de optimización de packaging: reduje el catálogo de 204 a 48 tipos de caja (−76%), con ahorro proyectado de USD 21,1M anuales (+10,1%), validado en la plataforma oficial Kaggle. Informe web con visualizaciones de datos y protocolo para nuevos productos.</p>
-            <ul class="chips" aria-label="Técnicas">
-              <li>Optimización combinatoria</li>
-              <li>MILP</li>
-              <li>Simulated annealing</li>
-            </ul>
-            <a class="project__link" href="https://bonsai-corp-informe.vercel.app" target="_blank" rel="noopener noreferrer">bonsai-corp-informe.vercel.app<span class="sr-only"> (se abre en una pestaña nueva)</span></a>
+            <p class="project__text">Modelo de optimización de packaging con ahorro proyectado de USD 21,1M anuales (+10,1%), validado en la plataforma oficial Kaggle. Informe web con visualizaciones de datos y protocolo para nuevos productos.</p>
+          <ul class="chips" aria-label="Técnicas">
+            <li>Optimización combinatoria</li>
+            <li>MILP</li>
+            <li>Simulated annealing</li>
+          </ul>
+            <div class="project__actions">
+              <a class="btn btn--ghost btn--sm project__detail" href="/proyectos/bonsai-corp">Ver detalle<svg class="icon" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sr-only"> de Data Challenge 2026 AlixPartners × ECI</span></a>
+              <a class="project__link" href="https://bonsai-corp-informe.vercel.app" target="_blank" rel="noopener noreferrer">Informe web<span class="sr-only"> (se abre en una pestaña nueva)</span></a>
+            </div>
           </article>
-
           <article class="card project reveal">
-            <!-- Imagen opcional: sin capturas por confidencialidad
-            <div class="project__media"><img src="assets/img/..." width="" height="" alt="" loading="lazy"></div>
-            -->
-            <p class="project__tag">Uso interno</p>
+            <img class="project__logo" src="/assets/img/logos/pac-72.webp" width="105" height="40" alt="Logo de PAC" loading="lazy" decoding="async">
+            <div class="project__meta">
+              <p class="project__tag">Uso interno</p>
+            </div>
             <h3 class="project__title">Sistema de gestión interno · PAC Software</h3>
-            <p>Plataforma centralizada de servicios, finanzas y horas del equipo de desarrollo, usada por la dirección. Diseño y desarrollo propios.</p>
+            <p class="project__text">Plataforma centralizada de servicios, finanzas y horas del equipo de desarrollo, usada por la dirección. Diseño y desarrollo propios.</p>
+            <div class="project__actions">
+              <a class="btn btn--ghost btn--sm project__detail" href="/proyectos/pac-app">Ver detalle<svg class="icon" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sr-only"> de Sistema de gestión interno · PAC Software</span></a>
+            </div>
           </article>
 
         </div>
@@ -271,112 +269,100 @@
     <section class="section section--alt" id="certificaciones" aria-labelledby="t-certificaciones">
       <div class="container">
         <h2 class="section__title reveal" id="t-certificaciones">Certificaciones</h2>
-
-        <div class="cert-group">
-          <h3 class="cert-group__title reveal">Anthropic</h3>
-          <div class="certs">
+        <div class="certs">
           <article class="card cert reveal">
             <div class="cert__preview">
-              <img src="assets/certs/previews/Anthropic-Claude-Code-101.webp" width="720" height="557" loading="lazy" decoding="async" alt="Vista previa del certificado Claude Code 101">
+              <img src="/assets/certs/previews/IBM-Tools-for-Data-Science.webp" width="720" height="557" loading="lazy" decoding="async" alt="Vista previa del certificado Tools for Data Science">
+            </div>
+            <div class="cert__body">
+              <p class="cert__issuer">IBM</p>
+              <h3 class="cert__name">Tools for Data Science</h3>
+              <p class="cert__date">May 2026</p>
+              <div class="cert__links">
+                <a class="link-action" href="/assets/certs/IBM-Tools-for-Data-Science.pdf" target="_blank" rel="noopener noreferrer">Ver certificado<span class="sr-only"> de Tools for Data Science (se abre en una pestaña nueva)</span></a>
+                <a class="link-action" href="https://www.coursera.org/account/accomplishments/records/HKEGD7QCQ8GG" target="_blank" rel="noopener noreferrer">Verificar credencial<span class="sr-only"> de Tools for Data Science (se abre en una pestaña nueva)</span></a>
+              </div>
+            </div>
+          </article>
+          <article class="card cert reveal">
+            <div class="cert__preview">
+              <img src="/assets/certs/previews/IBM-Data-Science-Methodology.webp" width="720" height="557" loading="lazy" decoding="async" alt="Vista previa del certificado Data Science Methodology">
+            </div>
+            <div class="cert__body">
+              <p class="cert__issuer">IBM</p>
+              <h3 class="cert__name">Data Science Methodology</h3>
+              <p class="cert__date">May 2026</p>
+              <div class="cert__links">
+                <a class="link-action" href="/assets/certs/IBM-Data-Science-Methodology.pdf" target="_blank" rel="noopener noreferrer">Ver certificado<span class="sr-only"> de Data Science Methodology (se abre en una pestaña nueva)</span></a>
+                <a class="link-action" href="https://www.coursera.org/account/accomplishments/records/PC90Z2LCW7A9" target="_blank" rel="noopener noreferrer">Verificar credencial<span class="sr-only"> de Data Science Methodology (se abre en una pestaña nueva)</span></a>
+              </div>
+            </div>
+          </article>
+          <article class="card cert reveal">
+            <div class="cert__preview">
+              <img src="/assets/certs/previews/IBM-Python-for-Data-Science-AI-Development.webp" width="720" height="557" loading="lazy" decoding="async" alt="Vista previa del certificado Python for Data Science, AI &amp; Development">
+            </div>
+            <div class="cert__body">
+              <p class="cert__issuer">IBM</p>
+              <h3 class="cert__name">Python for Data Science, AI &amp; Development</h3>
+              <p class="cert__date">May 2026</p>
+              <div class="cert__links">
+                <a class="link-action" href="/assets/certs/IBM-Python-for-Data-Science-AI-Development.pdf" target="_blank" rel="noopener noreferrer">Ver certificado<span class="sr-only"> de Python for Data Science, AI &amp; Development (se abre en una pestaña nueva)</span></a>
+                <a class="link-action" href="https://www.coursera.org/account/accomplishments/records/YOIWO8FFMBSK" target="_blank" rel="noopener noreferrer">Verificar credencial<span class="sr-only"> de Python for Data Science, AI &amp; Development (se abre en una pestaña nueva)</span></a>
+              </div>
+            </div>
+          </article>
+          <article class="card cert reveal">
+            <div class="cert__preview">
+              <img src="/assets/certs/previews/IBM-Python-Project-for-Data-Science.webp" width="720" height="557" loading="lazy" decoding="async" alt="Vista previa del certificado Python Project for Data Science">
+            </div>
+            <div class="cert__body">
+              <p class="cert__issuer">IBM</p>
+              <h3 class="cert__name">Python Project for Data Science</h3>
+              <p class="cert__date">May 2026</p>
+              <div class="cert__links">
+                <a class="link-action" href="/assets/certs/IBM-Python-Project-for-Data-Science.pdf" target="_blank" rel="noopener noreferrer">Ver certificado<span class="sr-only"> de Python Project for Data Science (se abre en una pestaña nueva)</span></a>
+                <a class="link-action" href="https://www.coursera.org/account/accomplishments/records/UWQ1WP1I8QCJ" target="_blank" rel="noopener noreferrer">Verificar credencial<span class="sr-only"> de Python Project for Data Science (se abre en una pestaña nueva)</span></a>
+              </div>
+            </div>
+          </article>
+          <article class="card cert reveal">
+            <div class="cert__preview">
+              <img src="/assets/certs/previews/Anthropic-Claude-Code-101.webp" width="720" height="557" loading="lazy" decoding="async" alt="Vista previa del certificado Claude Code 101">
             </div>
             <div class="cert__body">
               <p class="cert__issuer">Anthropic</p>
-              <h4 class="cert__name">Claude Code 101</h4>
+              <h3 class="cert__name">Claude Code 101</h3>
               <p class="cert__date">Jul 2026</p>
               <div class="cert__links">
-                <a class="link-action" href="assets/certs/Anthropic-Claude-Code-101.pdf" target="_blank" rel="noopener noreferrer">Ver certificado<span class="sr-only"> de Claude Code 101 (se abre en una pestaña nueva)</span></a>
+                <a class="link-action" href="/assets/certs/Anthropic-Claude-Code-101.pdf" target="_blank" rel="noopener noreferrer">Ver certificado<span class="sr-only"> de Claude Code 101 (se abre en una pestaña nueva)</span></a>
               </div>
             </div>
           </article>
           <article class="card cert reveal">
             <div class="cert__preview">
-              <img src="assets/certs/previews/Anthropic-Introduction-to-MCP.webp" width="720" height="557" loading="lazy" decoding="async" alt="Vista previa del certificado Introduction to Model Context Protocol">
+              <img src="/assets/certs/previews/Anthropic-Introduction-to-MCP.webp" width="720" height="557" loading="lazy" decoding="async" alt="Vista previa del certificado Introduction to Model Context Protocol">
             </div>
             <div class="cert__body">
               <p class="cert__issuer">Anthropic</p>
-              <h4 class="cert__name">Introduction to Model Context Protocol</h4>
+              <h3 class="cert__name">Introduction to Model Context Protocol</h3>
               <p class="cert__date">Jul 2026</p>
               <div class="cert__links">
-                <a class="link-action" href="assets/certs/Anthropic-Introduction-to-MCP.pdf" target="_blank" rel="noopener noreferrer">Ver certificado<span class="sr-only"> de Introduction to Model Context Protocol (se abre en una pestaña nueva)</span></a>
-              </div>
-            </div>
-          </article>
-          </div>
-        </div>
-
-        <div class="cert-group">
-          <h3 class="cert-group__title reveal">IBM</h3>
-          <div class="certs">
-          <article class="card cert reveal">
-            <div class="cert__preview">
-              <img src="assets/certs/previews/IBM-Tools-for-Data-Science.webp" width="720" height="557" loading="lazy" decoding="async" alt="Vista previa del certificado Tools for Data Science">
-            </div>
-            <div class="cert__body">
-              <p class="cert__issuer">IBM</p>
-              <h4 class="cert__name">Tools for Data Science</h4>
-              <p class="cert__date">May 2026</p>
-              <div class="cert__links">
-                <a class="link-action" href="assets/certs/IBM-Tools-for-Data-Science.pdf" target="_blank" rel="noopener noreferrer">Ver certificado<span class="sr-only"> de Tools for Data Science (se abre en una pestaña nueva)</span></a>
-              <a class="link-action" href="https://www.coursera.org/account/accomplishments/records/HKEGD7QCQ8GG" target="_blank" rel="noopener noreferrer">Verificar credencial<span class="sr-only"> de Tools for Data Science (se abre en una pestaña nueva)</span></a>
+                <a class="link-action" href="/assets/certs/Anthropic-Introduction-to-MCP.pdf" target="_blank" rel="noopener noreferrer">Ver certificado<span class="sr-only"> de Introduction to Model Context Protocol (se abre en una pestaña nueva)</span></a>
               </div>
             </div>
           </article>
           <article class="card cert reveal">
-            <div class="cert__preview">
-              <img src="assets/certs/previews/IBM-Data-Science-Methodology.webp" width="720" height="557" loading="lazy" decoding="async" alt="Vista previa del certificado Data Science Methodology">
+            <div class="cert__preview cert__preview--placeholder">
+              <svg class="cert__icon" width="48" height="48" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 6h22l6 6v30H10z" fill="none" stroke="currentColor" stroke-width="2.500" stroke-linejoin="round"/><path d="M32 6v6h6M16 20h16M16 27h16" fill="none" stroke="currentColor" stroke-width="2.500" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="36" r="3.500" fill="none" stroke="currentColor" stroke-width="2.500"/></svg>
+              <span class="cert__placeholder-text">Cambridge Assessment English</span>
             </div>
             <div class="cert__body">
-              <p class="cert__issuer">IBM</p>
-              <h4 class="cert__name">Data Science Methodology</h4>
-              <p class="cert__date">May 2026</p>
-              <div class="cert__links">
-                <a class="link-action" href="assets/certs/IBM-Data-Science-Methodology.pdf" target="_blank" rel="noopener noreferrer">Ver certificado<span class="sr-only"> de Data Science Methodology (se abre en una pestaña nueva)</span></a>
-              <a class="link-action" href="https://www.coursera.org/account/accomplishments/records/PC90Z2LCW7A9" target="_blank" rel="noopener noreferrer">Verificar credencial<span class="sr-only"> de Data Science Methodology (se abre en una pestaña nueva)</span></a>
-              </div>
+              <p class="cert__issuer">Cambridge Assessment English</p>
+              <h3 class="cert__name">First Certificate in English (FCE), B2/C1</h3>
+              <p class="cert__date">2023</p>
             </div>
           </article>
-          <article class="card cert reveal">
-            <div class="cert__preview">
-              <img src="assets/certs/previews/IBM-Python-for-Data-Science-AI-Development.webp" width="720" height="557" loading="lazy" decoding="async" alt="Vista previa del certificado Python for Data Science, AI &amp; Development">
-            </div>
-            <div class="cert__body">
-              <p class="cert__issuer">IBM</p>
-              <h4 class="cert__name">Python for Data Science, AI &amp; Development</h4>
-              <p class="cert__date">May 2026</p>
-              <div class="cert__links">
-                <a class="link-action" href="assets/certs/IBM-Python-for-Data-Science-AI-Development.pdf" target="_blank" rel="noopener noreferrer">Ver certificado<span class="sr-only"> de Python for Data Science, AI &amp; Development (se abre en una pestaña nueva)</span></a>
-              <a class="link-action" href="https://www.coursera.org/account/accomplishments/records/YOIWO8FFMBSK" target="_blank" rel="noopener noreferrer">Verificar credencial<span class="sr-only"> de Python for Data Science, AI &amp; Development (se abre en una pestaña nueva)</span></a>
-              </div>
-            </div>
-          </article>
-          <article class="card cert reveal">
-            <div class="cert__preview">
-              <img src="assets/certs/previews/IBM-Python-Project-for-Data-Science.webp" width="720" height="557" loading="lazy" decoding="async" alt="Vista previa del certificado Python Project for Data Science">
-            </div>
-            <div class="cert__body">
-              <p class="cert__issuer">IBM</p>
-              <h4 class="cert__name">Python Project for Data Science</h4>
-              <p class="cert__date">May 2026</p>
-              <div class="cert__links">
-                <a class="link-action" href="assets/certs/IBM-Python-Project-for-Data-Science.pdf" target="_blank" rel="noopener noreferrer">Ver certificado<span class="sr-only"> de Python Project for Data Science (se abre en una pestaña nueva)</span></a>
-              <a class="link-action" href="https://www.coursera.org/account/accomplishments/records/UWQ1WP1I8QCJ" target="_blank" rel="noopener noreferrer">Verificar credencial<span class="sr-only"> de Python Project for Data Science (se abre en una pestaña nueva)</span></a>
-              </div>
-            </div>
-          </article>
-          </div>
-        </div>
-
-        <div class="cert-group">
-          <h3 class="cert-group__title reveal">Cambridge</h3>
-          <div class="certs">
-            <article class="card cert reveal">
-              <div class="cert__body">
-                <p class="cert__issuer">Cambridge Assessment English</p>
-                <h4 class="cert__name">First Certificate in English (FCE), B2/C1</h4>
-                <p class="cert__date">2023</p>
-              </div>
-            </article>
-          </div>
         </div>
       </div>
     </section>
@@ -420,14 +406,18 @@
       <div class="container">
         <h2 class="section__title reveal" id="t-contacto">Contacto</h2>
         <div class="contact reveal">
-          <h3>¿Hablamos?</h3>
-          <p class="contact__lead">Abierto a oportunidades, proyectos o simplemente conectar: escribime.</p>
-          <ul class="contact__list">
-            <li><a class="contact__item" href="mailto:mirkowalenten@gmail.com">mirkowalenten@gmail.com</a></li>
-            <li><a class="contact__item" href="https://www.linkedin.com/in/mirkowalenten" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (se abre en una pestaña nueva)</span></a></li>
-            <li><a class="contact__item" href="tel:+541122642220">+54 11 2264-2220</a></li>
-            <li><p class="contact__item contact__item--static">Buenos Aires, Argentina</p></li>
-          </ul>
+          <div class="contact__intro">
+            <h3>¿Hablamos?</h3>
+            <p class="contact__lead">Abierto a oportunidades, proyectos o simplemente conectar: escribime.</p>
+          </div>
+          <div class="contact__actions">
+            <ul class="contact__list">
+              <li><a class="contact__item" href="mailto:mirkowalenten@gmail.com">mirkowalenten@gmail.com</a></li>
+              <li><a class="contact__item" href="https://www.linkedin.com/in/mirkowalenten" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (se abre en una pestaña nueva)</span></a></li>
+              <li><a class="contact__item" href="tel:+541122642220">+54 11 2264-2220</a></li>
+            </ul>
+            <p class="contact__place">Buenos Aires, Argentina</p>
+          </div>
         </div>
       </div>
     </section>
@@ -439,6 +429,6 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=2" defer></script>
+  <script src="assets/js/main.js?v=3" defer></script>
 </body>
 </html>
