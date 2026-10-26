@@ -1585,6 +1585,136 @@ a.lang__item:active {
   }
 }
 
+/* Vista ampliada de certificados (<dialog> modal) */
+html.modal-open {
+  overflow: hidden;
+}
+
+.cert__preview.is-zoomable {
+  cursor: zoom-in;
+}
+
+.cert-modal {
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  margin: 0;
+  padding: var(--space-4);
+  overflow: auto;
+  background: transparent;
+  border: 0;
+}
+
+.cert-modal::backdrop {
+  background: rgba(10, 22, 32, 0.78);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+}
+
+.cert-modal[open] {
+  display: grid;
+  place-items: center;
+}
+
+.cert-modal__box {
+  position: relative;
+  width: min(1040px, 100%);
+  max-height: 100%;
+  overflow: auto;
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-3);
+}
+
+.cert-modal__img {
+  min-height: 200px;
+  background: var(--sky-50);
+}
+
+.cert-modal__img img {
+  width: 100%;
+  height: auto;
+  max-height: calc(100vh - 210px);
+  max-height: calc(100dvh - 210px);
+  margin-inline: auto;
+  object-fit: contain;
+}
+
+.cert-modal__close {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  color: var(--ink);
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  box-shadow: var(--shadow-1);
+  cursor: pointer;
+  transition: background-color var(--dur-fast) var(--ease);
+}
+
+.cert-modal__close:hover {
+  background: var(--sky-50);
+}
+
+.cert-modal__close:active {
+  background: var(--tint);
+}
+
+.cert-modal__info {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-5) var(--space-6);
+}
+
+.cert-modal__issuer {
+  font-size: var(--fs-small);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.cert-modal__info h3 {
+  font-size: var(--fs-h4);
+  font-weight: 800;
+  line-height: var(--lh-snug);
+  color: var(--ink);
+}
+
+.cert-modal__date {
+  font-size: var(--fs-small);
+  font-weight: 700;
+  color: var(--blue);
+}
+
+@keyframes modal-pop {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .cert-modal[open] .cert-modal__box {
+    animation: modal-pop var(--dur) var(--ease);
+  }
+}
+
 /* ---------- Currículum ---------- */
 .cvs {
   display: grid;
