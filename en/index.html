@@ -27,7 +27,7 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="/assets/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <script>document.documentElement.classList.add('js');</script>
-  <link rel="stylesheet" href="/assets/css/styles.css?v=4">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=5">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -67,10 +67,10 @@
       <ul class="nav__menu" id="menu-principal">
         <li><a href="#about">About</a></li>
         <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#certifications">Certifications</a></li>
-        <li><a href="#education">Education</a></li>
         <li><a href="#cv">CV</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -145,7 +145,25 @@
       </div>
     </section>
 
-    <section class="section section--alt" id="projects" aria-labelledby="t-projects">
+    <section class="section section--alt" id="education" aria-labelledby="t-education">
+      <div class="container">
+        <h2 class="section__title reveal" id="t-education">Education</h2>
+        <div class="education">
+          <article class="card reveal">
+            <h3>BSc in Data Science (Licenciatura)</h3>
+            <p class="education__school">Universidad de Buenos Aires (UBA)</p>
+            <p class="education__date">2024 – 2028 (3rd year)</p>
+          </article>
+          <article class="card reveal">
+            <h3>Technical Diploma in Information Technology</h3>
+            <p class="education__school">Escuela Técnica ORT Argentina</p>
+            <p class="education__date">2018 – 2023</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects" aria-labelledby="t-projects">
       <div class="container">
         <h2 class="section__title reveal" id="t-projects">Projects</h2>
         <div class="projects">
@@ -187,7 +205,7 @@
             </div>
           </article>
           <article class="card project reveal">
-            <img class="project__logo" src="/assets/img/logos/bonsai.svg" width="40" height="40" alt="BC monogram of Bonsai Corp" loading="lazy" decoding="async">
+            <img class="project__logo project__logo--alix" src="/assets/img/logos/alixpartners-56.webp" srcset="/assets/img/logos/alixpartners-56.webp 1x, /assets/img/logos/alixpartners-112.webp 2x" width="190" height="28" alt="AlixPartners logo" loading="lazy" decoding="async">
             <div class="project__meta">
               <p class="project__tag">Bonsai Corp case</p>
             </div>
@@ -204,7 +222,7 @@
             </div>
           </article>
           <article class="card project reveal">
-            <img class="project__logo" src="/assets/img/logos/pac-72.webp" width="105" height="40" alt="PAC logo" loading="lazy" decoding="async">
+            <img class="project__logo project__logo--pac" src="/assets/img/logos/pac-72.webp" width="74" height="28" alt="PAC logo" loading="lazy" decoding="async">
             <div class="project__meta">
               <p class="project__tag">Internal use</p>
             </div>
@@ -219,12 +237,12 @@
       </div>
     </section>
 
-    <section class="section" id="skills" aria-labelledby="t-skills">
+    <section class="section section--alt" id="skills" aria-labelledby="t-skills">
       <div class="container">
         <h2 class="section__title reveal" id="t-skills">Skills</h2>
-        <div class="skills">
-          <article class="card reveal">
-            <h3>Data &amp; BI</h3>
+        <div class="skills reveal" data-skills data-label="Skill categories" data-unit="skills">
+          <article class="card skill-card">
+            <h3><svg class="skill-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 20v-8M11 20V5M17 20v-5M3 21h18"/></svg><span>Data &amp; BI</span></h3>
             <ul class="chips">
               <li>Data analysis</li>
               <li>Business Intelligence (BI)</li>
@@ -238,16 +256,16 @@
               <li>Jupyter</li>
             </ul>
           </article>
-          <article class="card reveal">
-            <h3>Optimization &amp; Modeling</h3>
+          <article class="card skill-card">
+            <h3><svg class="skill-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></svg><span>Optimization &amp; Modeling</span></h3>
             <ul class="chips">
               <li>Combinatorial optimization</li>
               <li>Mixed-integer linear programming (MILP)</li>
               <li>Simulated annealing</li>
             </ul>
           </article>
-          <article class="card reveal">
-            <h3>AI &amp; Automation</h3>
+          <article class="card skill-card">
+            <h3><svg class="skill-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 16v4M17 18h4"/></svg><span>AI &amp; Automation</span></h3>
             <ul class="chips">
               <li>Generative AI</li>
               <li>Claude Code</li>
@@ -258,8 +276,8 @@
               <li>No-code</li>
             </ul>
           </article>
-          <article class="card reveal">
-            <h3>Development &amp; Product</h3>
+          <article class="card skill-card">
+            <h3><svg class="skill-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M13.5 6l-3 12"/></svg><span>Development &amp; Product</span></h3>
             <ul class="chips">
               <li>JavaScript</li>
               <li>TypeScript</li>
@@ -274,8 +292,8 @@
               <li>UX/UI</li>
             </ul>
           </article>
-          <article class="card reveal">
-            <h3>Management</h3>
+          <article class="card skill-card">
+            <h3><svg class="skill-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4" width="5" height="16" rx="1"/><rect x="10" y="4" width="5" height="10" rx="1"/><rect x="17" y="4" width="4" height="6" rx="1"/></svg><span>Management</span></h3>
             <ul class="chips">
               <li>Project management</li>
               <li>Agile</li>
@@ -289,7 +307,7 @@
       </div>
     </section>
 
-    <section class="section section--alt" id="certifications" aria-labelledby="t-certifications">
+    <section class="section" id="certifications" aria-labelledby="t-certifications">
       <div class="container">
         <h2 class="section__title reveal" id="t-certifications">Certifications</h2>
         <div class="certs">
@@ -303,7 +321,6 @@
               <p class="cert__date">May 2026</p>
               <div class="cert__links">
                 <a class="link-action" href="/assets/certs/IBM-Tools-for-Data-Science.pdf" target="_blank" rel="noopener noreferrer">View certificate<span class="sr-only"> of Tools for Data Science (opens in a new tab)</span></a>
-                <a class="link-action" href="https://www.coursera.org/account/accomplishments/records/HKEGD7QCQ8GG" target="_blank" rel="noopener noreferrer">Verify credential<span class="sr-only"> of Tools for Data Science (opens in a new tab)</span></a>
               </div>
             </div>
           </article>
@@ -317,7 +334,6 @@
               <p class="cert__date">May 2026</p>
               <div class="cert__links">
                 <a class="link-action" href="/assets/certs/IBM-Data-Science-Methodology.pdf" target="_blank" rel="noopener noreferrer">View certificate<span class="sr-only"> of Data Science Methodology (opens in a new tab)</span></a>
-                <a class="link-action" href="https://www.coursera.org/account/accomplishments/records/PC90Z2LCW7A9" target="_blank" rel="noopener noreferrer">Verify credential<span class="sr-only"> of Data Science Methodology (opens in a new tab)</span></a>
               </div>
             </div>
           </article>
@@ -331,7 +347,6 @@
               <p class="cert__date">May 2026</p>
               <div class="cert__links">
                 <a class="link-action" href="/assets/certs/IBM-Python-for-Data-Science-AI-Development.pdf" target="_blank" rel="noopener noreferrer">View certificate<span class="sr-only"> of Python for Data Science, AI &amp; Development (opens in a new tab)</span></a>
-                <a class="link-action" href="https://www.coursera.org/account/accomplishments/records/YOIWO8FFMBSK" target="_blank" rel="noopener noreferrer">Verify credential<span class="sr-only"> of Python for Data Science, AI &amp; Development (opens in a new tab)</span></a>
               </div>
             </div>
           </article>
@@ -345,7 +360,6 @@
               <p class="cert__date">May 2026</p>
               <div class="cert__links">
                 <a class="link-action" href="/assets/certs/IBM-Python-Project-for-Data-Science.pdf" target="_blank" rel="noopener noreferrer">View certificate<span class="sr-only"> of Python Project for Data Science (opens in a new tab)</span></a>
-                <a class="link-action" href="https://www.coursera.org/account/accomplishments/records/UWQ1WP1I8QCJ" target="_blank" rel="noopener noreferrer">Verify credential<span class="sr-only"> of Python Project for Data Science (opens in a new tab)</span></a>
               </div>
             </div>
           </article>
@@ -376,9 +390,8 @@
             </div>
           </article>
           <article class="card cert reveal">
-            <div class="cert__preview cert__preview--placeholder">
-              <svg class="cert__icon" width="48" height="48" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 6h22l6 6v30H10z" fill="none" stroke="currentColor" stroke-width="2.500" stroke-linejoin="round"/><path d="M32 6v6h6M16 20h16M16 27h16" fill="none" stroke="currentColor" stroke-width="2.500" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="36" r="3.500" fill="none" stroke="currentColor" stroke-width="2.500"/></svg>
-              <span class="cert__placeholder-text">Cambridge Assessment English</span>
+            <div class="cert__preview cert__preview--cover">
+              <img src="/assets/img/logos/cambridge-english.webp" width="640" height="252" loading="lazy" decoding="async" alt="Cambridge English logo">
             </div>
             <div class="cert__body">
               <p class="cert__issuer">Cambridge Assessment English</p>
@@ -386,24 +399,6 @@
               <p class="cert__date">2023</p>
               <div class="cert__links cert__links--spacer" aria-hidden="true"></div>
             </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="education" aria-labelledby="t-education">
-      <div class="container">
-        <h2 class="section__title reveal" id="t-education">Education</h2>
-        <div class="education">
-          <article class="card reveal">
-            <h3>BSc in Data Science (Licenciatura)</h3>
-            <p class="education__school">Universidad de Buenos Aires (UBA)</p>
-            <p class="education__date">2024 – 2028 (3rd year)</p>
-          </article>
-          <article class="card reveal">
-            <h3>Technical Diploma in Information Technology</h3>
-            <p class="education__school">Escuela Técnica ORT Argentina</p>
-            <p class="education__date">2018 – 2023</p>
           </article>
         </div>
       </div>
@@ -453,6 +448,6 @@
     </div>
   </footer>
 
-  <script src="/assets/js/main.js?v=4" defer></script>
+  <script src="/assets/js/main.js?v=5" defer></script>
 </body>
 </html>
