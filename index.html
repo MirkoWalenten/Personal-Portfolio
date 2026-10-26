@@ -1,745 +1,312 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mirko Walenten — Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mirko Walenten — Estudiante de Ciencia de Datos · Analista de Datos &amp; BI</title>
+  <meta name="description" content="Estudiante de Ciencia de Datos en la UBA y Analista de Datos &amp; BI. Reportes, dashboards, automatización con IA generativa y desarrollo de producto.">
+  <meta name="theme-color" content="#b4d2ee">
+  <link rel="canonical" href="https://mirkowalenten.vercel.app/">
 
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <meta property="og:title" content="Mirko Walenten — Estudiante de Ciencia de Datos · Analista de Datos &amp; BI">
+  <meta property="og:description" content="Estudiante de Ciencia de Datos en la UBA y Analista de Datos &amp; BI. Reportes, dashboards, automatización con IA generativa y desarrollo de producto.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:url" content="https://mirkowalenten.vercel.app/">
+  <meta name="twitter:card" content="summary">
 
-    :root {
-      --bg:          #0a0c12;
-      --bg2:         #0e1118;
-      --bg3:         #131820;
-      --bg4:         #181e28;
-      --teal:        #1a9bb8;
-      --teal-dim:    #117a90;
-      --teal-glow:   rgba(26,155,184,.18);
-      --teal-soft:   rgba(26,155,184,.08);
-      --teal-border: rgba(26,155,184,.25);
-      --white:       #f0f4f8;
-      --white-dim:   #c8d4e0;
-      --gray:        #8090a4;
-      --lgray:       #303c4e;
-      --card-bg:     rgba(255,255,255,.05);
-      --card-border: rgba(255,255,255,.1);
-      --radius:      14px;
-      --fh: 'Raleway', sans-serif;
-      --fb: 'DM Sans', sans-serif;
-    }
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="stylesheet" href="assets/css/styles.css?v=1">
 
-    html { scroll-behavior: smooth; }
-    body {
-      background: var(--bg);
-      color: var(--white);
-      font-family: var(--fb);
-      font-size: 15px;
-      line-height: 1.65;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    ::-webkit-scrollbar { width: 3px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: var(--teal-dim); border-radius: 2px; }
-
-    #bg-canvas {
-      position: fixed; inset: 0; z-index: 0;
-      pointer-events: none; opacity: .55;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 22px 64px;
-      background: rgba(4,6,9,.75);
-      backdrop-filter: blur(24px);
-      border-bottom: 1px solid rgba(14,125,150,.06);
-      transition: padding .3s ease;
-    }
-    nav.scrolled { padding: 15px 64px; }
-    .nav-logo {
-      font-family: var(--fh); font-weight: 700; font-size: 1rem;
-      letter-spacing: .12em; text-transform: uppercase;
-      color: var(--white); text-decoration: none;
-    }
-    .nav-logo span { color: var(--teal); }
-    .nav-links { display: flex; gap: 40px; list-style: none; }
-    .nav-links a {
-      font-family: var(--fb); font-size: .8rem; font-weight: 400;
-      letter-spacing: .08em; text-transform: uppercase;
-      color: var(--gray); text-decoration: none;
-      transition: color .2s; position: relative; padding-bottom: 2px;
-    }
-    .nav-links a::after {
-      content: ''; position: absolute; bottom: -2px; left: 0; right: 0;
-      height: 1px; background: var(--teal); border-radius: 1px;
-      transform: scaleX(0); transition: transform .25s ease;
-    }
-    .nav-links a:hover { color: var(--white); }
-    .nav-links a:hover::after { transform: scaleX(1); }
-    .nav-links a.active { color: var(--white); }
-    .nav-links a.active::after { transform: scaleX(1); }
-
-    /* ── LAYOUT ── */
-    section { position: relative; z-index: 1; }
-    .container { max-width: 1060px; margin: 0 auto; padding: 0 48px; }
-
-    /* ── REVEAL ── */
-    .reveal {
-      opacity: 0; transform: translateY(28px);
-      transition: opacity .75s cubic-bezier(.22,1,.36,1),
-                  transform .75s cubic-bezier(.22,1,.36,1);
-    }
-    .reveal.visible { opacity: 1; transform: none; }
-    .reveal-d1 { transition-delay: .08s; }
-    .reveal-d2 { transition-delay: .16s; }
-    .reveal-d3 { transition-delay: .24s; }
-    .reveal-d4 { transition-delay: .32s; }
-
-    /* ── SECTION LABEL ── */
-    .label {
-      font-family: var(--fb); font-size: .68rem; font-weight: 500;
-      letter-spacing: .2em; text-transform: uppercase;
-      color: var(--teal); margin-bottom: 20px;
-      display: flex; align-items: center; gap: 10px;
-    }
-    .label::before { content: ''; width: 22px; height: 1px; background: var(--teal); }
-
-    /* ── HERO ── */
-    #hero { min-height: 100vh; display: flex; align-items: center; padding: 140px 0 100px; }
-    .hero-inner { max-width: 1060px; width: 100%; margin: 0 auto; padding: 0 48px; }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      border: 1px solid var(--teal-border); background: var(--teal-soft);
-      border-radius: 100px; padding: 5px 14px;
-      font-size: .72rem; font-weight: 500; letter-spacing: .06em;
-      color: var(--teal); margin-bottom: 44px;
-      animation: fadeUp .7s .1s both;
-    }
-    .badge-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--teal); animation: blink 2.2s infinite; }
-    @keyframes blink { 0%,100% { opacity:1; } 50% { opacity:.3; } }
-    .hero-name {
-      font-family: var(--fh); font-size: clamp(2.8rem, 6.5vw, 5.2rem);
-      font-weight: 700; line-height: 1.06; letter-spacing: -.01em;
-      color: var(--white);
-    }
-    .hero-name .word {
-      display: inline-block; overflow: hidden; vertical-align: bottom;
-    }
-    .hero-name .word span {
-      display: inline-block;
-      animation: slideUp .6s both cubic-bezier(.22,1,.36,1);
-    }
-    .hero-name .teal { color: var(--teal); }
-    .hero-role {
-      font-family: var(--fb); font-size: clamp(.95rem, 1.6vw, 1.1rem);
-      font-weight: 300; color: var(--gray); letter-spacing: .04em;
-      margin-top: 18px; animation: fadeUp .7s .3s both;
-    }
-    .hero-desc {
-      font-family: var(--fb); font-size: .92rem; font-weight: 300;
-      color: var(--gray); line-height: 1.8;
-      max-width: 520px; margin-top: 28px; animation: fadeUp .7s .4s both;
-    }
-    .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 48px; animation: fadeUp .7s .5s both; }
-    .btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 11px 26px; border-radius: 8px;
-      font-family: var(--fb); font-size: .82rem; font-weight: 500;
-      letter-spacing: .05em; text-decoration: none; border: none; cursor: pointer;
-      transition: transform .2s, box-shadow .2s, background .2s, border-color .2s, color .2s;
-    }
-    .btn:hover { transform: translateY(-2px); }
-    .btn-primary { background: var(--teal); color: var(--bg); box-shadow: 0 0 22px rgba(14,125,150,.3); }
-    .btn-primary:hover { box-shadow: 0 0 36px rgba(14,125,150,.5); }
-    .btn-outline { background: transparent; color: var(--white-dim); border: 1px solid var(--lgray); }
-    .btn-outline:hover { border-color: var(--teal); color: var(--teal); }
-    .scroll-hint {
-      position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
-      display: flex; flex-direction: column; align-items: center; gap: 7px;
-      font-size: .65rem; letter-spacing: .15em; text-transform: uppercase;
-      color: var(--lgray); animation: fadeUp .7s .9s both;
-    }
-    .scroll-bar {
-      width: 1px; height: 42px;
-      background: linear-gradient(to bottom, var(--teal), transparent);
-      animation: scrollAnim 2s ease-in-out infinite;
-    }
-    @keyframes scrollAnim { 0%,100% { opacity:.25; transform: scaleY(1); } 50% { opacity:1; transform: scaleY(.5) translateY(6px); } }
-    @keyframes fadeUp { from { opacity:0; transform: translateY(18px); } to { opacity:1; transform: none; } }
-
-    /* ── SKILLS ── */
-    #skills { padding: 56px 0; border-top: 1px solid var(--card-border); }
-    .skills-wrap { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
-    .skill-tag {
-      border: 1px solid var(--card-border); border-radius: 6px; padding: 7px 16px; text-align: center;
-      font-size: .75rem; font-weight: 400; letter-spacing: .05em; color: var(--gray);
-      transition: border-color .25s, color .25s;
-    }
-    .skill-tag:hover { border-color: var(--teal-border); color: var(--teal); }
-
-    /* ── ABOUT ── */
-    #about { padding: 80px 0; }
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 90px; align-items: center; }
-    .about-h { font-family: var(--fh); font-size: clamp(1.7rem, 3vw, 2.4rem); font-weight: 700; line-height: 1.2; margin-bottom: 22px; letter-spacing: -.01em; }
-    .about-p { font-size: .88rem; font-weight: 300; color: var(--gray); line-height: 1.85; margin-bottom: 14px; }
-    .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .stat {
-      background: var(--card-bg); border: 1px solid var(--card-border);
-      border-radius: var(--radius); padding: 22px 20px;
-      transition: border-color .3s, background .3s;
-    }
-    .stat:hover { border-color: var(--teal-border); background: var(--teal-soft); }
-    .stat-n { font-family: var(--fh); font-size: 1.9rem; font-weight: 700; color: var(--teal); letter-spacing: -.02em; }
-    .stat-l { font-size: .76rem; font-weight: 300; color: var(--gray); margin-top: 4px; letter-spacing: .02em; }
-
-    .section-divider { height: 1px; background: var(--card-border); margin: 0 48px; }
-
-    /* ── PROJECTS ── */
-    #projects { padding: 80px 0; }
-    .proj-header { margin-bottom: 56px; }
-    .proj-h { font-family: var(--fh); font-size: clamp(1.7rem, 3vw, 2.4rem); font-weight: 700; letter-spacing: -.01em; }
-    .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-    .proj-card {
-      background: var(--card-bg); border: 1px solid var(--card-border);
-      border-radius: 16px; overflow: hidden;
-      transition: transform .3s cubic-bezier(.22,1,.36,1), border-color .3s, box-shadow .3s;
-    }
-    .proj-card:hover {
-      transform: translateY(-6px); border-color: var(--teal-border);
-      box-shadow: 0 24px 56px rgba(0,0,0,.5), 0 0 0 1px rgba(26,155,184,.12), 0 0 40px rgba(26,155,184,.04);
-    }
-    .proj-cover {
-      width: 100%; aspect-ratio: 16/7;
-      display: flex; align-items: center; justify-content: center;
-      position: relative; overflow: hidden;
-    }
-    .proj-cover-overlay {
-      position: absolute; inset: 0; z-index: 2;
-      background: rgba(10,12,18,.7);
-      display: flex; align-items: center; justify-content: center;
-      opacity: 0; transition: opacity .3s ease;
-      backdrop-filter: blur(2px);
-    }
-    .proj-card:hover .proj-cover-overlay { opacity: 1; }
-    .proj-cover-overlay span {
-      font-family: var(--fh); font-size: .85rem; font-weight: 600;
-      color: var(--teal); letter-spacing: .1em; text-transform: uppercase;
-      display: flex; align-items: center; gap: 8px;
-      border: 1px solid var(--teal-border); border-radius: 8px;
-      padding: 10px 20px; background: rgba(26,155,184,.06);
-      transition: all .2s;
-    }
-    .proj-card:hover .proj-cover-overlay span {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(26,155,184,.15);
-    }
-    /* Finance Flow — deep navy blue */
-    .c-ff { background: linear-gradient(135deg, #081828 0%, #0c2040 50%, #102848 100%); }
-    /* Workly — near black charcoal */
-    .c-wk { background: linear-gradient(135deg, #0a0a10 0%, #10121a 50%, #14161e 100%); }
-    /* Habit Tracker — deep emerald */
-    .c-ht { background: linear-gradient(135deg, #061a0a 0%, #0a2410 50%, #0e2c14 100%); }
-    /* Studeo — warm amber dark */
-    .c-st { background: linear-gradient(135deg, #1a1200 0%, #241800 50%, #2e2000 100%); }
-
-    .proj-cover-inner {
-      display: flex; flex-direction: column; align-items: center; gap: 10px;
-      z-index: 1;
-    }
-    .cover-logo-text {
-      font-family: var(--fh); font-weight: 800; font-size: 2.4rem;
-      letter-spacing: -.04em; line-height: 1;
-    }
-    .cover-sub {
-      font-size: .6rem; letter-spacing: .22em; text-transform: uppercase; font-weight: 500;
-    }
-    .cover-glow-ff { position: absolute; width: 200px; height: 200px; border-radius: 50%; background: radial-gradient(circle, rgba(37,99,235,.18) 0%, transparent 70%); top: 50%; left: 50%; transform: translate(-50%,-50%); }
-    .cover-glow-wk { position: absolute; width: 200px; height: 200px; border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,.06) 0%, transparent 70%); top: 50%; left: 50%; transform: translate(-50%,-50%); }
-    .cover-glow-ht { position: absolute; width: 200px; height: 200px; border-radius: 50%; background: radial-gradient(circle, rgba(16,185,129,.18) 0%, transparent 70%); top: 50%; left: 50%; transform: translate(-50%,-50%); }
-    .cover-glow-st { position: absolute; width: 200px; height: 200px; border-radius: 50%; background: radial-gradient(circle, rgba(245,158,11,.16) 0%, transparent 70%); top: 50%; left: 50%; transform: translate(-50%,-50%); }
-    .cover-line { position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: linear-gradient(to right, transparent, var(--teal-border), transparent); }
-
-    .proj-body { padding: 26px 26px 28px; }
-    .proj-tags { display: flex; gap: 8px; margin-bottom: 14px; }
-    .proj-tag {
-      font-size: .63rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase;
-      color: var(--teal); border: 1px solid var(--teal-border); background: var(--teal-soft);
-      border-radius: 4px; padding: 3px 10px;
-    }
-    .proj-name { font-family: var(--fh); font-size: 1.25rem; font-weight: 700; letter-spacing: -.01em; margin-bottom: 10px; }
-    .proj-desc { font-size: .84rem; font-weight: 300; color: var(--gray); line-height: 1.75; margin-bottom: 22px; }
-    .proj-foot {
-      display: flex; align-items: center; justify-content: space-between;
-      padding-top: 16px; border-top: 1px solid var(--card-border);
-    }
-    .proj-stack { display: flex; gap: 7px; }
-    .stack-badge {
-      font-size: .62rem; font-weight: 500; letter-spacing: .06em;
-      color: var(--gray); background: var(--bg3); border: 1px solid var(--lgray);
-      border-radius: 5px; padding: 3px 9px;
-    }
-    .proj-link {
-      display: flex; align-items: center; gap: 5px;
-      font-size: .78rem; font-weight: 500; color: var(--teal);
-      text-decoration: none; opacity: .65; transition: opacity .2s; letter-spacing: .03em;
-    }
-    .proj-link:hover { opacity: 1; }
-
-    /* ── CV ── */
-    #cv { padding: 70px 0; border-top: 1px solid var(--card-border); border-bottom: 1px solid var(--card-border); }
-    .cv-row { display: flex; align-items: center; justify-content: space-between; gap: 48px; flex-wrap: wrap; }
-    .cv-h { font-family: var(--fh); font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 700; letter-spacing: -.01em; margin-bottom: 10px; }
-    .cv-p { font-size: .85rem; font-weight: 300; color: var(--gray); max-width: 380px; }
-    .cv-btns { display: flex; gap: 12px; flex-wrap: wrap; }
-
-    /* ── CONTACT ── */
-    #contact { padding: 130px 0 110px; }
-    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-    .contact-h { font-family: var(--fh); font-size: clamp(1.9rem, 4vw, 3rem); font-weight: 700; letter-spacing: -.02em; margin-bottom: 14px; line-height: 1.1; }
-    .contact-h .teal { color: var(--teal); }
-    .contact-p { font-size: .88rem; font-weight: 300; color: var(--gray); max-width: 420px; margin-top: 12px; }
-    .contact-row { display: flex; gap: 12px; flex-wrap: wrap; }
-    .contact-chip {
-      display: flex; align-items: center; gap: 9px;
-      background: var(--card-bg); border: 1px solid var(--card-border);
-      border-radius: 10px; padding: 12px 20px;
-      color: var(--white-dim); text-decoration: none;
-      font-size: .82rem; font-weight: 400; letter-spacing: .03em;
-      transition: border-color .25s, color .25s, background .25s, transform .2s;
-    }
-    .contact-chip:hover { border-color: var(--teal-border); color: var(--teal); background: var(--teal-soft); transform: translateY(-2px); }
-
-    /* ── FOOTER ── */
-    footer {
-      position: relative; z-index: 1; padding: 24px 64px;
-      border-top: 1px solid var(--card-border);
-      display: flex; align-items: center; justify-content: space-between;
-      font-size: .72rem; font-weight: 300; color: var(--lgray); letter-spacing: .06em;
-    }
-
-    @media (max-width: 768px) {
-      nav { padding: 16px 24px; }
-      .nav-links { display: none; }
-      .container, .hero-inner { padding: 0 24px; }
-      .about-grid, .projects-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
-      .cv-row { flex-direction: column; }
-      footer { flex-direction: column; gap: 6px; text-align: center; padding: 20px 24px; }
-    }
-  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Mirko Walenten",
+    "url": "https://mirkowalenten.vercel.app/",
+    "jobTitle": "Analista de Datos & BI",
+    "sameAs": ["https://www.linkedin.com/in/mirkowalenten"]
+  }
+  </script>
 </head>
 <body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-<canvas id="bg-canvas"></canvas>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Principal">
+      <a class="logo" href="#top" aria-label="Mirko Walenten, inicio">MW<span>.</span></a>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu-principal">
+        <span class="nav__toggle-icon" aria-hidden="true"></span>
+        Menú
+      </button>
+      <ul class="nav__menu" id="menu-principal">
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#experiencia">Experiencia</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#habilidades">Habilidades</a></li>
+        <li><a href="#educacion">Educación</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<nav id="nav">
-  <a href="#hero" class="nav-logo">MW<span>.</span></a>
-  <ul class="nav-links">
-    <li><a href="#about">Sobre mí</a></li>
-    <li><a href="#projects">Proyectos</a></li>
-    <li><a href="#cv">CV</a></li>
-    <li><a href="#contact">Contacto</a></li>
-  </ul>
-</nav>
-
-<section id="hero">
-  <div class="hero-inner">
-    <div class="hero-badge"><span class="badge-dot"></span>Disponible para nuevas oportunidades</div>
-    <h1 class="hero-name" id="hero-name">
-        <div class="word"><span style="animation-delay:.2s">Mirko</span></div><br>
-        <div class="word" style="color:var(--teal)"><span style="animation-delay:.38s">Walenten</span></div>
-      </h1>
-    <p class="hero-role">Data Science &amp; Business Operations</p>
-    <p class="hero-desc">Estudiante de Ciencia de Datos en la UBA, con experiencia en gestión operativa, análisis de datos y diseño UX/UI. Construyo herramientas que resuelven problemas reales.</p>
-    <div class="hero-cta">
-      <a href="#projects" class="btn btn-primary">Ver proyectos <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      <a href="#contact" class="btn btn-outline">Contactarme</a>
-    </div>
-  </div>
-  <div class="scroll-hint">Scroll <div class="scroll-bar"></div></div>
-</section>
-
-<section id="skills">
-  <div class="container">
-    <div class="skills-wrap">
-      <span class="skill-tag reveal">Python</span>
-      <span class="skill-tag reveal reveal-d1">SQL</span>
-      <span class="skill-tag reveal reveal-d1">Excel Avanzado</span>
-      <span class="skill-tag reveal reveal-d2">Figma / UX-UI</span>
-      <span class="skill-tag reveal reveal-d2">Bases de Datos</span>
-      <span class="skill-tag reveal reveal-d3">Atlassian Suite</span>
-      <span class="skill-tag reveal reveal-d3">Herramientas de IA</span>
-      <span class="skill-tag reveal reveal-d4">Supabase</span>
-      <span class="skill-tag reveal reveal-d4">Vercel</span>
-      <span class="skill-tag reveal reveal-d4">No-Code / Automatización</span>
-    </div>
-  </div>
-</section>
-
-<section id="about">
-  <div class="container">
-    <div class="about-grid">
-      <div class="reveal">
-        <div class="label">Sobre mí</div>
-        <h2 class="about-h">Builder. Analista.<br>Siempre aprendiendo.</h2>
-        <p class="about-p">Estudio la Licenciatura en Ciencia de Datos en la UBA y trabajo en PAC Software, donde combino análisis operativo, reportes financieros y proyectos con inteligencia artificial.</p>
-        <p class="about-p">Bachiller en Tecnologías de la Información (ORT Argentina) e inglés avanzado certificado — First Certificate in English, Cambridge B2/C1.</p>
-        <div style="margin-top:30px;"><a href="#cv" class="btn btn-outline" style="font-size:.78rem; padding:9px 20px;">Descargar CV →</a></div>
-      </div>
-      <div class="stats-grid reveal reveal-d2">
-        <div class="stat"><div class="stat-n">2+</div><div class="stat-l">Años de experiencia profesional</div></div>
-        <div class="stat"><div class="stat-n">4</div><div class="stat-l">Proyectos personales</div></div>
-        <div class="stat"><div class="stat-n">UBA</div><div class="stat-l">Lic. Ciencia de Datos · En curso</div></div>
-        <div class="stat"><div class="stat-n">B2/C1</div><div class="stat-l">Inglés · FCE Cambridge</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<section id="projects">
-  <div class="container">
-    <div class="proj-header reveal">
-      <div class="label">Proyectos</div>
-      <h2 class="proj-h">Lo que construí</h2>
-    </div>
-
-    <div class="projects-grid">
-
-      <!-- FINANCE FLOW -->
-      <div class="proj-card reveal reveal-d1">
-        <a href="/financeflow.html" target="_blank" style="text-decoration:none;color:inherit">
-          <div class="proj-cover c-ff">
-            <div class="cover-glow-ff"></div>
-            <svg width="100%" viewBox="0 0 320 140" style="position:absolute;inset:0" preserveAspectRatio="xMidYMid meet">
-              <!-- Stats row -->
-              <rect x="16" y="12" width="66" height="28" rx="4" fill="rgba(255,255,255,.06)"/>
-              <rect x="90" y="12" width="66" height="28" rx="4" fill="rgba(255,255,255,.06)"/>
-              <rect x="164" y="12" width="66" height="28" rx="4" fill="rgba(255,255,255,.06)"/>
-              <rect x="238" y="12" width="66" height="28" rx="4" fill="rgba(255,255,255,.06)"/>
-              <rect x="22" y="18" width="30" height="4" rx="2" fill="rgba(255,255,255,.15)"/>
-              <rect x="22" y="26" width="48" height="6" rx="2" fill="rgba(74,143,204,.7)"/>
-              <rect x="96" y="18" width="30" height="4" rx="2" fill="rgba(255,255,255,.15)"/>
-              <rect x="96" y="26" width="40" height="6" rx="2" fill="rgba(192,64,64,.6)"/>
-              <rect x="170" y="18" width="30" height="4" rx="2" fill="rgba(255,255,255,.15)"/>
-              <rect x="170" y="26" width="44" height="6" rx="2" fill="rgba(26,144,104,.7)"/>
-              <rect x="244" y="18" width="30" height="4" rx="2" fill="rgba(255,255,255,.15)"/>
-              <rect x="244" y="26" width="38" height="6" rx="2" fill="rgba(255,255,255,.3)"/>
-              <!-- Chart card -->
-              <rect x="16" y="48" width="180" height="80" rx="5" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.07)" stroke-width="1"/>
-              <polyline points="30,110 55,90 80,96 110,72 140,80 165,64 185,70" fill="none" stroke="rgba(74,143,204,.8)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <polygon points="30,120 30,110 55,90 80,96 110,72 140,80 165,64 185,70 185,120" fill="rgba(74,143,204,.08)"/>
-              <!-- Category card -->
-              <rect x="204" y="48" width="100" height="80" rx="5" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.07)" stroke-width="1"/>
-              <rect x="212" y="58" width="28" height="3" rx="1" fill="rgba(255,255,255,.2)"/>
-              <rect x="244" y="58" width="40" height="3" rx="1" fill="rgba(74,143,204,.5)"/>
-              <rect x="280" y="58" width="16" height="3" rx="1" fill="rgba(255,255,255,.15)"/>
-              <rect x="212" y="67" width="22" height="3" rx="1" fill="rgba(255,255,255,.2)"/>
-              <rect x="238" y="67" width="52" height="3" rx="1" fill="rgba(74,143,204,.4)"/>
-              <rect x="212" y="76" width="18" height="3" rx="1" fill="rgba(255,255,255,.2)"/>
-              <rect x="234" y="76" width="34" height="3" rx="1" fill="rgba(74,143,204,.3)"/>
-              <rect x="212" y="85" width="24" height="3" rx="1" fill="rgba(255,255,255,.2)"/>
-              <rect x="240" y="85" width="24" height="3" rx="1" fill="rgba(74,143,204,.2)"/>
-            </svg>
-            <div class="proj-cover-overlay"><span>Ver proyecto →</span></div>
-            <div class="cover-line"></div>
-          </div>
-        </a>
-        <div class="proj-body">
-          <div class="proj-tags"><span class="proj-tag">Finanzas</span><span class="proj-tag">Dashboard</span></div>
-          <div class="proj-name">Finance Flow</div>
-          <div class="proj-desc">Módulo de gestión financiera personal: balance mensual, portafolio de activos e historial de movimientos con visualizaciones interactivas.</div>
-          <div class="proj-foot">
-            <div class="proj-stack"><span class="stack-badge">JS</span><span class="stack-badge">HTML/CSS</span><span class="stack-badge">Vercel</span></div>
-            <a href="/financeflow.html" target="_blank" class="proj-link">Ver proyecto <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+  <main id="contenido">
+    <section class="hero" id="top">
+      <div class="container hero__grid">
+        <div class="hero__text">
+          <p class="badge">Abierto a oportunidades</p>
+          <h1>Mirko Walenten</h1>
+          <p class="hero__role">Estudiante de Ciencia de Datos · Analista de Datos &amp; BI</p>
+          <p class="hero__lead">Transformo datos financieros y operativos en reportes, dashboards e insights, automatizo procesos con IA generativa y desarrollo productos de punta a punta.</p>
+          <div class="hero__actions">
+            <a class="btn" href="#proyectos">Ver proyectos</a>
+            <a class="btn btn--ghost" href="#contacto">Contacto</a>
           </div>
         </div>
-      </div>
-
-      <!-- WORKLY -->
-      <div class="proj-card reveal reveal-d2">
-        <a href="/workly.html" target="_blank" style="text-decoration:none;color:inherit">
-          <div class="proj-cover c-wk">
-            <div class="cover-glow-wk"></div>
-            <svg width="100%" viewBox="0 0 320 140" style="position:absolute;inset:0" preserveAspectRatio="xMidYMid meet">
-              <!-- Kanban columns -->
-              <rect x="12" y="12" width="70" height="116" rx="4" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
-              <rect x="90" y="12" width="70" height="116" rx="4" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
-              <rect x="168" y="12" width="70" height="116" rx="4" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
-              <rect x="246" y="12" width="66" height="116" rx="4" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
-              <!-- Col headers -->
-              <rect x="18" y="18" width="40" height="4" rx="2" fill="rgba(255,255,255,.2)"/>
-              <rect x="96" y="18" width="50" height="4" rx="2" fill="rgba(74,143,204,.5)"/>
-              <rect x="174" y="18" width="44" height="4" rx="2" fill="rgba(192,144,32,.5)"/>
-              <rect x="252" y="18" width="34" height="4" rx="2" fill="rgba(26,144,80,.5)"/>
-              <!-- Cards col 1 -->
-              <rect x="18" y="30" width="58" height="24" rx="3" fill="rgba(255,255,255,.07)"/>
-              <rect x="22" y="35" width="40" height="3" rx="1" fill="rgba(255,255,255,.3)"/>
-              <rect x="22" y="41" width="26" height="3" rx="1" fill="rgba(255,255,255,.12)"/>
-              <rect x="18" y="58" width="58" height="24" rx="3" fill="rgba(255,255,255,.07)"/>
-              <rect x="22" y="63" width="34" height="3" rx="1" fill="rgba(255,255,255,.3)"/>
-              <rect x="22" y="69" width="20" height="3" rx="1" fill="rgba(255,255,255,.12)"/>
-              <!-- Cards col 2 -->
-              <rect x="96" y="30" width="58" height="24" rx="3" fill="rgba(255,255,255,.07)"/>
-              <rect x="100" y="35" width="44" height="3" rx="1" fill="rgba(255,255,255,.3)"/>
-              <rect x="100" y="41" width="28" height="3" rx="1" fill="rgba(192,64,64,.4)"/>
-              <rect x="96" y="58" width="58" height="24" rx="3" fill="rgba(255,255,255,.07)"/>
-              <rect x="100" y="63" width="36" height="3" rx="1" fill="rgba(255,255,255,.3)"/>
-              <!-- Cards col 3 -->
-              <rect x="174" y="30" width="58" height="24" rx="3" fill="rgba(255,255,255,.07)"/>
-              <rect x="178" y="35" width="38" height="3" rx="1" fill="rgba(255,255,255,.3)"/>
-              <!-- Cards col 4 -->
-              <rect x="252" y="30" width="54" height="24" rx="3" fill="rgba(26,144,80,.1)" stroke="rgba(26,144,80,.2)" stroke-width="1"/>
-              <rect x="256" y="35" width="32" height="3" rx="1" fill="rgba(255,255,255,.3)"/>
-            </svg>
-            <div class="proj-cover-overlay"><span>Ver proyecto →</span></div>
-            <div class="cover-line"></div>
-          </div>
-        </a>
-        <div class="proj-body">
-          <div class="proj-tags"><span class="proj-tag">Productividad</span><span class="proj-tag">Gestión</span></div>
-          <div class="proj-name">Workly</div>
-          <div class="proj-desc">Gestor de proyectos y tareas laborales. Kanban board, prioridades, deadlines y estadísticas de avance en un dashboard minimalista.</div>
-          <div class="proj-foot">
-            <div class="proj-stack"><span class="stack-badge">JS</span><span class="stack-badge">HTML/CSS</span><span class="stack-badge">Vercel</span></div>
-            <a href="/workly.html" target="_blank" class="proj-link">Ver proyecto <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
-          </div>
+        <div class="hero__visual">
+          <picture>
+            <source type="image/webp" srcset="assets/img/mirko-480.webp 480w, assets/img/mirko-960.webp 960w" sizes="(min-width: 900px) 400px, min(360px, 80vw)">
+            <img src="assets/img/mirko-960.jpg" width="960" height="1132" fetchpriority="high" decoding="async" alt="Retrato de Mirko Walenten">
+          </picture>
         </div>
       </div>
+    </section>
 
-      <!-- HABIT TRACKER -->
-      <div class="proj-card reveal reveal-d3">
-        <a href="/habittracker.html" target="_blank" style="text-decoration:none;color:inherit">
-          <div class="proj-cover c-ht">
-            <div class="cover-glow-ht"></div>
-            <svg width="100%" viewBox="0 0 320 140" style="position:absolute;inset:0" preserveAspectRatio="xMidYMid meet">
-              <!-- Stats row -->
-              <rect x="12" y="10" width="58" height="30" rx="4" fill="rgba(255,255,255,.05)"/>
-              <rect x="78" y="10" width="58" height="30" rx="4" fill="rgba(255,255,255,.05)"/>
-              <rect x="144" y="10" width="58" height="30" rx="4" fill="rgba(255,255,255,.05)"/>
-              <!-- Ring -->
-              <circle cx="270" cy="25" r="16" fill="none" stroke="rgba(42,144,80,.15)" stroke-width="5"/>
-              <circle cx="270" cy="25" r="16" fill="none" stroke="rgba(42,144,80,.7)" stroke-width="5" stroke-dasharray="70 31" stroke-dashoffset="25" stroke-linecap="round" transform="rotate(-90 270 25)"/>
-              <rect x="18" y="20" width="30" height="4" rx="2" fill="rgba(42,144,80,.6)"/>
-              <rect x="84" y="20" width="30" height="4" rx="2" fill="rgba(42,144,80,.4)"/>
-              <rect x="150" y="20" width="30" height="4" rx="2" fill="rgba(42,144,80,.3)"/>
-              <!-- Habit rows -->
-              <rect x="12" y="48" width="296" height="18" rx="3" fill="rgba(255,255,255,.04)"/>
-              <circle cx="26" cy="57" r="7" fill="rgba(42,144,80,.8)"/>
-              <polyline points="22,57 25,60 30,54" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-              <rect x="40" y="53" width="80" height="4" rx="2" fill="rgba(255,255,255,.25)"/>
-              <rect x="12" y="70" width="296" height="18" rx="3" fill="rgba(255,255,255,.04)"/>
-              <circle cx="26" cy="79" r="7" fill="none" stroke="rgba(255,255,255,.15)" stroke-width="1.5"/>
-              <rect x="40" y="75" width="64" height="4" rx="2" fill="rgba(255,255,255,.2)"/>
-              <rect x="12" y="92" width="296" height="18" rx="3" fill="rgba(255,255,255,.04)"/>
-              <circle cx="26" cy="101" r="7" fill="rgba(42,144,80,.8)"/>
-              <polyline points="22,101 25,104 30,98" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-              <rect x="40" y="97" width="72" height="4" rx="2" fill="rgba(255,255,255,.25)"/>
-              <!-- Heatmap -->
-              <rect x="12" y="116" width="296" height="14" rx="3" fill="rgba(255,255,255,.03)"/>
-              ${[...Array(36)].map((_,i)=>`<rect x="${16+i*8}" y="120" width="6" height="6" rx="1" fill="rgba(42,144,80,${Math.random()<0.3?0.05:Math.random()<0.6?0.3:Math.random()<0.8?0.6:0.9})"/>`).join('')}
-            </svg>
-            <div class="proj-cover-overlay"><span>Ver proyecto →</span></div>
-            <div class="cover-line"></div>
+    <section class="section section--alt" id="sobre-mi" aria-labelledby="t-sobre-mi">
+      <div class="container">
+        <h2 class="section__title reveal" id="t-sobre-mi">Sobre mí</h2>
+        <div class="about__grid">
+          <div class="reveal">
+            <p class="about__text">Estudiante de Ciencia de Datos en la UBA (3.er año) con experiencia en una empresa de software, donde transformo datos financieros y operativos en reportes, dashboards e insights para la dirección. Desarrollé el sistema de gestión interno de la compañía, automatizo procesos con IA generativa y acompaño a un equipo de unos 10 desarrolladores en el uso de Claude. Trabajo con Python, SQL, Power BI y Excel avanzado.</p>
+            <p class="about__langs">Español (nativo) · Inglés (avanzado, Cambridge FCE, B2/C1)</p>
           </div>
-        </a>
-        <div class="proj-body">
-          <div class="proj-tags"><span class="proj-tag">Salud</span><span class="proj-tag">Hábitos</span></div>
-          <div class="proj-name">Habit Tracker</div>
-          <div class="proj-desc">Seguimiento de hábitos diarios con heatmap de actividad, rachas de constancia y métricas de completitud a 30 días.</div>
-          <div class="proj-foot">
-            <div class="proj-stack"><span class="stack-badge">JS</span><span class="stack-badge">HTML/CSS</span><span class="stack-badge">Vercel</span></div>
-            <a href="/habittracker.html" target="_blank" class="proj-link">Ver proyecto <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
-          </div>
+          <ul class="stats">
+            <li class="card stat reveal">
+              <span class="stat__value">3.er año</span>
+              <span class="stat__label">Licenciatura en Ciencia de Datos (UBA)</span>
+            </li>
+            <li class="card stat reveal">
+              <span class="stat__value">~10</span>
+              <span class="stat__label">desarrolladores a los que acompaño en el uso de Claude</span>
+            </li>
+            <li class="card stat reveal">
+              <span class="stat__value">204 → 48</span>
+              <span class="stat__label">tipos de caja en el caso Bonsai Corp</span>
+            </li>
+          </ul>
         </div>
       </div>
+    </section>
 
-      <!-- STUDEO -->
-      <div class="proj-card reveal reveal-d4">
-        <a href="/studeo.html" target="_blank" style="text-decoration:none;color:inherit">
-          <div class="proj-cover c-st">
-            <div class="cover-glow-st"></div>
-            <svg width="100%" viewBox="0 0 320 140" style="position:absolute;inset:0" preserveAspectRatio="xMidYMid meet">
-              <!-- Stats -->
-              <rect x="12" y="10" width="58" height="28" rx="4" fill="rgba(255,255,255,.05)"/>
-              <rect x="78" y="10" width="58" height="28" rx="4" fill="rgba(255,255,255,.05)"/>
-              <rect x="144" y="10" width="58" height="28" rx="4" fill="rgba(255,255,255,.05)"/>
-              <rect x="210" y="10" width="100" height="28" rx="4" fill="rgba(255,255,255,.05)"/>
-              <rect x="18" y="20" width="36" height="5" rx="2" fill="rgba(26,112,64,.7)"/>
-              <rect x="84" y="20" width="28" height="5" rx="2" fill="rgba(138,104,16,.7)"/>
-              <rect x="150" y="20" width="24" height="5" rx="2" fill="rgba(255,255,255,.2)"/>
-              <!-- Progress bar -->
-              <rect x="216" y="20" width="88" height="5" rx="2" fill="rgba(255,255,255,.08)"/>
-              <rect x="216" y="20" width="52" height="5" rx="2" fill="rgba(138,104,16,.6)"/>
-              <!-- Materia cards grid -->
-              <rect x="12" y="46" width="92" height="40" rx="4" fill="rgba(255,255,255,.04)" stroke="rgba(26,112,64,.3)" stroke-width="1"/>
-              <rect x="12" y="46" width="3" height="40" rx="1" fill="rgba(26,112,64,.6)"/>
-              <rect x="20" y="52" width="60" height="4" rx="2" fill="rgba(255,255,255,.25)"/>
-              <rect x="20" y="60" width="40" height="3" rx="1" fill="rgba(255,255,255,.12)"/>
-              <rect x="20" y="69" width="24" height="6" rx="3" fill="rgba(26,112,64,.2)"/>
-              <rect x="112" y="46" width="92" height="40" rx="4" fill="rgba(255,255,255,.04)" stroke="rgba(138,104,16,.3)" stroke-width="1"/>
-              <rect x="112" y="46" width="3" height="40" rx="1" fill="rgba(138,104,16,.6)"/>
-              <rect x="120" y="52" width="56" height="4" rx="2" fill="rgba(255,255,255,.25)"/>
-              <rect x="120" y="60" width="36" height="3" rx="1" fill="rgba(255,255,255,.12)"/>
-              <rect x="120" y="69" width="28" height="6" rx="3" fill="rgba(138,104,16,.2)"/>
-              <rect x="212" y="46" width="100" height="40" rx="4" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
-              <rect x="212" y="46" width="3" height="40" rx="1" fill="rgba(46,58,64,.6)"/>
-              <rect x="220" y="52" width="70" height="4" rx="2" fill="rgba(255,255,255,.2)"/>
-              <rect x="220" y="60" width="48" height="3" rx="1" fill="rgba(255,255,255,.1)"/>
-              <rect x="220" y="69" width="32" height="6" rx="3" fill="rgba(255,255,255,.08)"/>
-              <!-- Evaluaciones -->
-              <rect x="12" y="94" width="300" height="16" rx="3" fill="rgba(255,255,255,.04)"/>
-              <rect x="18" y="100" width="24" height="4" rx="2" fill="rgba(138,104,16,.6)"/>
-              <rect x="50" y="100" width="80" height="4" rx="2" fill="rgba(255,255,255,.2)"/>
-              <rect x="240" y="98" width="28" height="8" rx="3" fill="rgba(138,104,16,.15)"/>
-              <rect x="12" y="114" width="300" height="16" rx="3" fill="rgba(255,255,255,.04)"/>
-              <rect x="18" y="120" width="24" height="4" rx="2" fill="rgba(138,104,16,.4)"/>
-              <rect x="50" y="120" width="60" height="4" rx="2" fill="rgba(255,255,255,.15)"/>
-              <rect x="240" y="118" width="34" height="8" rx="3" fill="rgba(96,165,250,.1)"/>
-            </svg>
-            <div class="proj-cover-overlay"><span>Ver proyecto →</span></div>
-            <div class="cover-line"></div>
-          </div>
-        </a>
-        <div class="proj-body">
-          <div class="proj-tags"><span class="proj-tag">Educación</span><span class="proj-tag">Academia</span></div>
-          <div class="proj-name">Studeo</div>
-          <div class="proj-desc">Panel académico para materias, evaluaciones y rendimiento universitario. Organiza el cursado, fechas de examen y calificaciones.</div>
-          <div class="proj-foot">
-            <div class="proj-stack"><span class="stack-badge">JS</span><span class="stack-badge">HTML/CSS</span><span class="stack-badge">Vercel</span></div>
-            <a href="/studeo.html" target="_blank" class="proj-link">Ver proyecto <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
-          </div>
+    <section class="section" id="experiencia" aria-labelledby="t-experiencia">
+      <div class="container">
+        <h2 class="section__title reveal" id="t-experiencia">Experiencia</h2>
+        <p class="company reveal">PAC Software S.A. · Buenos Aires, Argentina</p>
+        <ol class="timeline">
+          <li class="timeline__item">
+            <article class="card role reveal">
+              <div class="role__head">
+                <h3 class="role__title">Analista de Datos &amp; BI</h3>
+                <p class="role__date">Ago 2026 – Actualidad</p>
+              </div>
+              <ul class="bullets">
+                <li>Convierto datos financieros y de gestión interna (ingresos, egresos, horas) en insights y reportes semanales para la dirección y los equipos de Desarrollo y Consultoría.</li>
+                <li>Automatizo el reporting recurrente con herramientas de IA, optimizando procesos clave de reporte y control.</li>
+                <li>Diseñé y desarrollé el sistema de gestión interno: una plataforma centralizada de servicios, finanzas y horas del equipo de desarrollo, usada por la dirección.</li>
+                <li>Implemento el entorno de Claude Business (IA generativa) para unos 10 desarrolladores y los asesoro en consultas y proyectos.</li>
+              </ul>
+            </article>
+          </li>
+          <li class="timeline__item">
+            <article class="card role reveal">
+              <div class="role__head">
+                <h3 class="role__title">Responsable de Administración</h3>
+                <p class="role__date">Ene 2026 – Ago 2026</p>
+              </div>
+              <ul class="bullets">
+                <li>Seguimiento y reporte de ingresos y egresos de Argentina y Chile, con control administrativo y financiero.</li>
+                <li>Generé reportes semanales para Desarrollo y Consultoría con modelos contables en Excel avanzado.</li>
+              </ul>
+            </article>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="proyectos" aria-labelledby="t-proyectos">
+      <div class="container">
+        <h2 class="section__title reveal" id="t-proyectos">Proyectos</h2>
+        <div class="projects">
+
+          <article class="card project project--featured reveal">
+            <!-- Imagen opcional: sumar captura aquí
+            <div class="project__media"><img src="assets/img/..." width="" height="" alt="" loading="lazy"></div>
+            -->
+            <p class="project__tag">Proyecto para cliente</p>
+            <h3 class="project__title">CC Medios Platform</h3>
+            <div class="project__body">
+              <p>Plataforma web para CC Medios (publicidad exterior) que unifica clientes, carteles, órdenes, cobros, pagos y facturación, con margen por operación y alertas de vencimientos. Relevé los procesos con el cliente, diseñé el modelo de datos, la interfaz y los permisos por rol, y desarrollé y desplegué con React, TypeScript, Supabase y Vercel, con asistencia de IA (Claude Code), en entregas por fases con demos. Incluye lectura automática de facturas en PDF de ARCA, vinculadas de forma automática a su orden de venta.</p>
+            </div>
+            <ul class="chips" aria-label="Tecnologías">
+              <li>React</li>
+              <li>TypeScript</li>
+              <li>Supabase</li>
+              <li>Vercel</li>
+            </ul>
+          </article>
+
+          <article class="card project reveal">
+            <!-- Imagen opcional: sumar captura aquí
+            <div class="project__media"><img src="assets/img/..." width="" height="" alt="" loading="lazy"></div>
+            -->
+            <p class="project__tag">Finanzas y Productividad</p>
+            <h3 class="project__title">Mozak</h3>
+            <p>Creé y lancé Mozak, una app de organización personal que integra finanzas, proyectos, estudios y salud, disponible gratis. Responsable del producto de punta a punta: diseño UX/UI, desarrollo e implementación en producción.</p>
+            <a class="project__link" href="https://mozak.pro" target="_blank" rel="noopener noreferrer">mozak.pro<span class="sr-only"> (se abre en una pestaña nueva)</span></a>
+          </article>
+
+          <article class="card project reveal">
+            <!-- Imagen opcional: sumar captura aquí
+            <div class="project__media"><img src="assets/img/..." width="" height="" alt="" loading="lazy"></div>
+            -->
+            <p class="project__tag">Caso Bonsai Corp</p>
+            <h3 class="project__title">Data Challenge 2026 AlixPartners × ECI</h3>
+            <p>Modelo de optimización de packaging: reduje el catálogo de 204 a 48 tipos de caja (−76%), con ahorro proyectado de USD 21,1M anuales (+10,1%), validado en la plataforma oficial Kaggle. Informe web con visualizaciones de datos y protocolo para nuevos productos.</p>
+            <ul class="chips" aria-label="Técnicas">
+              <li>Optimización combinatoria</li>
+              <li>MILP</li>
+              <li>Simulated annealing</li>
+            </ul>
+            <a class="project__link" href="https://bonsai-corp-informe.vercel.app" target="_blank" rel="noopener noreferrer">bonsai-corp-informe.vercel.app<span class="sr-only"> (se abre en una pestaña nueva)</span></a>
+          </article>
+
+          <article class="card project reveal">
+            <!-- Imagen opcional: sin capturas por confidencialidad
+            <div class="project__media"><img src="assets/img/..." width="" height="" alt="" loading="lazy"></div>
+            -->
+            <p class="project__tag">Uso interno</p>
+            <h3 class="project__title">Sistema de gestión interno · PAC Software</h3>
+            <p>Plataforma centralizada de servicios, finanzas y horas del equipo de desarrollo, usada por la dirección. Diseño y desarrollo propios.</p>
+            <p class="project__note">Sin capturas ni datos por confidencialidad.</p>
+          </article>
+
         </div>
       </div>
+    </section>
 
+    <section class="section" id="habilidades" aria-labelledby="t-habilidades">
+      <div class="container">
+        <h2 class="section__title reveal" id="t-habilidades">Habilidades</h2>
+        <div class="skills">
+          <article class="card reveal">
+            <h3>Datos y BI</h3>
+            <ul class="chips">
+              <li>Análisis de datos</li>
+              <li>Business Intelligence (BI)</li>
+              <li>Visualización de datos</li>
+              <li>Dashboards</li>
+              <li>Reporting</li>
+              <li>Python</li>
+              <li>SQL</li>
+              <li>Power BI</li>
+              <li>Excel avanzado</li>
+              <li>Jupyter</li>
+            </ul>
+          </article>
+          <article class="card reveal">
+            <h3>Optimización y modelado</h3>
+            <ul class="chips">
+              <li>Optimización combinatoria</li>
+              <li>Programación lineal entera mixta (MILP)</li>
+              <li>Simulated annealing</li>
+            </ul>
+          </article>
+          <article class="card reveal">
+            <h3>IA y automatización</h3>
+            <ul class="chips">
+              <li>IA generativa</li>
+              <li>Claude Code</li>
+              <li>Claude Agent SDK</li>
+              <li>Model Context Protocol (MCP)</li>
+              <li>Automatización de procesos</li>
+              <li>Extracción de datos de PDF</li>
+              <li>No-code</li>
+            </ul>
+          </article>
+          <article class="card reveal">
+            <h3>Desarrollo y producto</h3>
+            <ul class="chips">
+              <li>JavaScript</li>
+              <li>TypeScript</li>
+              <li>React</li>
+              <li>HTML/CSS</li>
+              <li>Supabase (PostgreSQL)</li>
+              <li>Vercel</li>
+              <li>Git/GitHub</li>
+              <li>APIs</li>
+              <li>Testing automatizado</li>
+              <li>Figma</li>
+              <li>UX/UI</li>
+            </ul>
+          </article>
+          <article class="card reveal">
+            <h3>Gestión</h3>
+            <ul class="chips">
+              <li>Gestión de proyectos</li>
+              <li>Agile</li>
+              <li>Jira</li>
+              <li>Tempo</li>
+              <li>Confluence</li>
+              <li>Trello</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="educacion" aria-labelledby="t-educacion">
+      <div class="container">
+        <h2 class="section__title reveal" id="t-educacion">Educación</h2>
+        <div class="education">
+          <article class="card reveal">
+            <h3>Licenciatura en Ciencia de Datos</h3>
+            <p class="education__school">Universidad de Buenos Aires (UBA)</p>
+            <p class="education__date">2024 – 2028 (3.er año)</p>
+          </article>
+          <article class="card reveal">
+            <h3>Bachiller en Tecnologías de la Información</h3>
+            <p class="education__school">Escuela Técnica ORT Argentina</p>
+            <p class="education__date">2018 – 2023</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contacto" aria-labelledby="t-contacto">
+      <div class="container">
+        <h2 class="section__title reveal" id="t-contacto">Contacto</h2>
+        <div class="contact reveal">
+          <h3>¿Hablamos?</h3>
+          <p class="contact__lead">Abierto a oportunidades, proyectos o simplemente conectar: escribime.</p>
+          <ul class="contact__list">
+            <li><a class="contact__item" href="mailto:mirkowalenten@gmail.com">mirkowalenten@gmail.com</a></li>
+            <li><a class="contact__item" href="https://www.linkedin.com/in/mirkowalenten" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (se abre en una pestaña nueva)</span></a></li>
+            <li><a class="contact__item" href="tel:+541122642220">+54 11 2264-2220</a></li>
+            <li><p class="contact__item contact__item--static">Buenos Aires, Argentina</p></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="anio">2026</span> Mirko Walenten · Buenos Aires, Argentina</p>
     </div>
-  </div>
-</section>
+  </footer>
 
-<section id="cv">
-  <div class="container">
-    <div class="cv-row">
-      <div class="reveal">
-        <div class="label">Currículum</div>
-        <h2 class="cv-h">¿Querés saber más<br>sobre mi experiencia?</h2>
-        <p class="cv-p">CV actualizado con formación, experiencia y habilidades técnicas. Disponible en español e inglés.</p>
-      </div>
-      <div class="cv-btns reveal reveal-d2">
-        <a href="./CV%20Mirko%20Walenten.pdf" download class="btn btn-primary">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-          CV en Español
-        </a>
-        <a href="./CV%20Mirko%20Walenten%20English.pdf" download class="btn btn-outline">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-          CV in English
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="container">
-    <div class="contact-grid">
-      <div class="reveal">
-        <div class="label">Contacto</div>
-        <h2 class="contact-h">¿Hablamos?<br><span class="teal">Estoy disponible.</span></h2>
-        <p class="contact-p">Proyecto, oportunidad laboral o simplemente conectar — escribime.</p>
-      </div>
-      <div class="contact-row reveal reveal-d2">
-        <a href="mailto:mirkowalenten@gmail.com" class="contact-chip">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          mirkowalenten@gmail.com
-        </a>
-        <a href="https://linkedin.com/in/mirkowalenten" target="_blank" class="contact-chip">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-          LinkedIn
-        </a>
-        <a href="tel:+541122642220" class="contact-chip">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.69 12a19.79 19.79 0 01-3.07-8.67A2 2 0 013.6 1.28h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.91 8.85a16 16 0 006.72 6.72l.95-.95a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-          +54 11 2264-2220
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <span>© 2025 Mirko Walenten</span>
-  <span>Buenos Aires, Argentina</span>
-</footer>
-
-<script>
-const canvas = document.getElementById('bg-canvas');
-const ctx = canvas.getContext('2d');
-let pts = [];
-function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
-resize();
-window.addEventListener('resize', () => { resize(); init(); });
-function init() {
-  pts = [];
-  const n = Math.floor(canvas.width * canvas.height / 22000);
-  for (let i = 0; i < n; i++) {
-    pts.push({ x: Math.random()*canvas.width, y: Math.random()*canvas.height, r: Math.random()*1+.3, vx: (Math.random()-.5)*.15, vy: (Math.random()-.5)*.15, a: Math.random()*.45+.1 });
-  }
-}
-init();
-function draw() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  for (let i = 0; i < pts.length; i++) {
-    const p = pts[i];
-    ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
-    ctx.fillStyle = `rgba(26,155,184,${p.a})`; ctx.fill();
-    p.x += p.vx; p.y += p.vy;
-    if (p.x < 0) p.x = canvas.width; if (p.x > canvas.width) p.x = 0;
-    if (p.y < 0) p.y = canvas.height; if (p.y > canvas.height) p.y = 0;
-    for (let j = i+1; j < pts.length; j++) {
-      const q = pts[j]; const d = Math.hypot(p.x-q.x, p.y-q.y);
-      if (d < 110) { ctx.beginPath(); ctx.strokeStyle = `rgba(26,155,184,${.08*(1-d/110)})`; ctx.lineWidth = .5; ctx.moveTo(p.x,p.y); ctx.lineTo(q.x,q.y); ctx.stroke(); }
-    }
-  }
-  requestAnimationFrame(draw);
-}
-draw();
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
-}, { threshold: 0.1 });
-document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50));
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => { e.preventDefault(); document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' }); });
-});
-
-// Active nav on scroll
-const sections = ['hero','about','projects','cv','contact'];
-const navLinks = document.querySelectorAll('.nav-links a');
-const onScroll = () => {
-  const y = window.scrollY + 100;
-  let current = 'hero';
-  sections.forEach(id => {
-    const el = document.getElementById(id);
-    if(el && el.offsetTop <= y) current = id;
-  });
-  navLinks.forEach(a => {
-    a.classList.toggle('active', a.getAttribute('href') === '#'+current);
-  });
-};
-window.addEventListener('scroll', onScroll, {passive:true});
-onScroll();
-
-// Skill tags stagger on reveal
-const skillTags = document.querySelectorAll('.skill-tag');
-skillTags.forEach((el,i) => {
-  el.style.transitionDelay = (i * 0.04)+'s';
-});
-</script>
+  <script src="assets/js/main.js?v=1" defer></script>
 </body>
 </html>
