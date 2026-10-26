@@ -8,7 +8,11 @@
     { "source": "/habittracker", "destination": "/", "permanent": true },
     { "source": "/habittracker.html", "destination": "/", "permanent": true },
     { "source": "/studeo", "destination": "/", "permanent": true },
-    { "source": "/studeo.html", "destination": "/", "permanent": true }
+    { "source": "/studeo.html", "destination": "/", "permanent": true },
+    { "source": "/CV Mirko Walenten.pdf", "destination": "/assets/cv/CV-Mirko-Walenten-ES.pdf", "permanent": true },
+    { "source": "/CV%20Mirko%20Walenten.pdf", "destination": "/assets/cv/CV-Mirko-Walenten-ES.pdf", "permanent": true },
+    { "source": "/CV Mirko Walenten English.pdf", "destination": "/assets/cv/CV-Mirko-Walenten-EN.pdf", "permanent": true },
+    { "source": "/CV%20Mirko%20Walenten%20English.pdf", "destination": "/assets/cv/CV-Mirko-Walenten-EN.pdf", "permanent": true }
   ],
   "headers": [
     {
@@ -21,9 +25,15 @@
       ]
     },
     {
-      "source": "/assets/(.*)",
+      "source": "/assets/(css|js|fonts|img)/(.*)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/assets/(cv|certs)/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
       ]
     }
   ]
