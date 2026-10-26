@@ -7,19 +7,27 @@
   <meta name="description" content="Estudiante de Ciencia de Datos en la UBA y Analista de Datos &amp; BI. Reportes, dashboards, automatización con IA generativa y desarrollo de producto.">
   <meta name="theme-color" content="#b4d2ee">
   <link rel="canonical" href="https://mirkowalenten.vercel.app/">
+  <link rel="alternate" hreflang="es" href="https://mirkowalenten.vercel.app/">
+  <link rel="alternate" hreflang="en" href="https://mirkowalenten.vercel.app/en/">
+  <link rel="alternate" hreflang="x-default" href="https://mirkowalenten.vercel.app/">
 
   <meta property="og:title" content="Mirko Walenten — Estudiante de Ciencia de Datos · Analista de Datos &amp; BI">
   <meta property="og:description" content="Estudiante de Ciencia de Datos en la UBA y Analista de Datos &amp; BI. Reportes, dashboards, automatización con IA generativa y desarrollo de producto.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_AR">
+  <meta property="og:locale:alternate" content="en_US">
   <meta property="og:url" content="https://mirkowalenten.vercel.app/">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://mirkowalenten.vercel.app/assets/img/og-es.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Mirko Walenten, estudiante de Ciencia de Datos y Analista de Datos &amp; BI">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://mirkowalenten.vercel.app/assets/img/og-es.png">
 
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="preload" href="assets/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/assets/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <script>document.documentElement.classList.add('js');</script>
-  <link rel="stylesheet" href="assets/css/styles.css?v=3">
-
+  <link rel="stylesheet" href="/assets/css/styles.css?v=4">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -27,7 +35,18 @@
     "name": "Mirko Walenten",
     "url": "https://mirkowalenten.vercel.app/",
     "jobTitle": "Analista de Datos & BI",
-    "sameAs": ["https://www.linkedin.com/in/mirkowalenten"]
+    "sameAs": [
+      "https://www.linkedin.com/in/mirkowalenten"
+    ],
+    "knowsLanguage": [
+      "es",
+      "en"
+    ],
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://mirkowalenten.vercel.app/",
+      "inLanguage": "es"
+    }
   }
   </script>
 </head>
@@ -37,6 +56,10 @@
   <header class="site-header">
     <nav class="nav container" aria-label="Principal">
       <a class="logo" href="#top" aria-label="MW. Mirko Walenten, inicio">MW<span>.</span></a>
+      <div class="lang" role="group" aria-label="Cambiar idioma">
+        <span class="lang__item lang__item--current" lang="es" aria-current="true"><span class="sr-only">Español: </span><span aria-hidden="true">ES</span></span>
+        <a class="lang__item" href="/en/" hreflang="en" lang="en" aria-label="EN, English">EN</a>
+      </div>
       <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu-principal">
         <span class="nav__toggle-icon" aria-hidden="true"></span>
         Menú
@@ -64,14 +87,14 @@
           <p class="hero__lead">Transformo datos financieros y operativos en reportes, dashboards e insights, automatizo procesos con IA generativa y desarrollo productos de punta a punta.</p>
           <div class="hero__actions">
             <a class="btn" href="#proyectos">Ver proyectos</a>
-            <a class="btn btn--ghost" href="assets/cv/CV-Mirko-Walenten-ES.pdf" download>Descargar CV</a>
+            <a class="btn btn--ghost" href="/assets/cv/CV-Mirko-Walenten-ES.pdf" download>Descargar CV</a>
             <a class="btn-text" href="#contacto">Contacto</a>
           </div>
         </div>
         <div class="hero__visual">
           <picture>
-            <source type="image/webp" srcset="assets/img/mirko-480.webp 480w, assets/img/mirko-960.webp 960w" sizes="(min-width: 900px) 400px, min(360px, 80vw)">
-            <img src="assets/img/mirko-960.jpg" width="960" height="1132" fetchpriority="high" decoding="async" alt="Retrato de Mirko Walenten">
+            <source type="image/webp" srcset="/assets/img/mirko-480.webp 480w, /assets/img/mirko-960.webp 960w" sizes="(min-width: 900px) 400px, min(360px, 80vw)">
+            <img src="/assets/img/mirko-960.jpg" width="960" height="1132" fetchpriority="high" decoding="async" alt="Retrato de Mirko Walenten">
           </picture>
         </div>
       </div>
@@ -361,6 +384,7 @@
               <p class="cert__issuer">Cambridge Assessment English</p>
               <h3 class="cert__name">First Certificate in English (FCE), B2/C1</h3>
               <p class="cert__date">2023</p>
+              <div class="cert__links cert__links--spacer" aria-hidden="true"></div>
             </div>
           </article>
         </div>
@@ -391,12 +415,12 @@
         <p class="cv__lead reveal">CV de una página en español e inglés.</p>
         <div class="cvs">
           <article class="card cv reveal">
-            <img src="assets/cv/previews/CV-Mirko-Walenten-ES.webp" width="720" height="1018" loading="lazy" decoding="async" alt="Vista previa del CV en español">
-            <a class="btn" href="assets/cv/CV-Mirko-Walenten-ES.pdf" download>Descargar CV en español</a>
+            <img src="/assets/cv/previews/CV-Mirko-Walenten-ES.webp" width="720" height="1018" loading="lazy" decoding="async" alt="Vista previa del CV en español">
+            <a class="btn" href="/assets/cv/CV-Mirko-Walenten-ES.pdf" download>Descargar CV en español</a>
           </article>
           <article class="card cv reveal" lang="en">
-            <img src="assets/cv/previews/CV-Mirko-Walenten-EN.webp" width="720" height="1018" loading="lazy" decoding="async" alt="Preview of the CV in English">
-            <a class="btn" href="assets/cv/CV-Mirko-Walenten-EN.pdf" download>Download CV in English</a>
+            <img src="/assets/cv/previews/CV-Mirko-Walenten-EN.webp" width="720" height="1018" loading="lazy" decoding="async" alt="Preview of the CV in English">
+            <a class="btn" href="/assets/cv/CV-Mirko-Walenten-EN.pdf" download>Download CV in English</a>
           </article>
         </div>
       </div>
@@ -429,6 +453,6 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=3" defer></script>
+  <script src="/assets/js/main.js?v=4" defer></script>
 </body>
 </html>

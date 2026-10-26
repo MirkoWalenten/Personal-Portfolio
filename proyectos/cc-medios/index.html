@@ -7,19 +7,28 @@
   <meta name="description" content="Plataforma web para CC Medios (publicidad exterior) que unifica clientes, carteles, órdenes, cobros, pagos y facturación. Proyecto de Mirko Walenten.">
   <meta name="theme-color" content="#b4d2ee">
   <link rel="canonical" href="https://mirkowalenten.vercel.app/proyectos/cc-medios">
+  <link rel="alternate" hreflang="es" href="https://mirkowalenten.vercel.app/proyectos/cc-medios">
+  <link rel="alternate" hreflang="en" href="https://mirkowalenten.vercel.app/en/projects/cc-medios">
+  <link rel="alternate" hreflang="x-default" href="https://mirkowalenten.vercel.app/proyectos/cc-medios">
 
   <meta property="og:title" content="CC Medios Platform — Proyecto para cliente · Mirko Walenten">
   <meta property="og:description" content="Plataforma web para CC Medios (publicidad exterior) que unifica clientes, carteles, órdenes, cobros, pagos y facturación. Proyecto de Mirko Walenten.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_AR">
+  <meta property="og:locale:alternate" content="en_US">
   <meta property="og:url" content="https://mirkowalenten.vercel.app/proyectos/cc-medios">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://mirkowalenten.vercel.app/assets/img/og-es.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Mirko Walenten, estudiante de Ciencia de Datos y Analista de Datos &amp; BI">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://mirkowalenten.vercel.app/assets/img/og-es.png">
 
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="/assets/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <script>document.documentElement.classList.add('js');</script>
-  <link rel="stylesheet" href="/assets/css/styles.css?v=3">
-  <link rel="stylesheet" href="/assets/css/mockups.css?v=3">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=4">
+  <link rel="stylesheet" href="/assets/css/mockups.css?v=4">
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -27,6 +36,10 @@
   <header class="site-header">
     <nav class="nav container" aria-label="Principal">
       <a class="logo" href="/" aria-label="MW. Mirko Walenten, inicio">MW<span>.</span></a>
+      <div class="lang" role="group" aria-label="Cambiar idioma">
+        <span class="lang__item lang__item--current" lang="es" aria-current="true"><span class="sr-only">Español: </span><span aria-hidden="true">ES</span></span>
+        <a class="lang__item" href="/en/projects/cc-medios" hreflang="en" lang="en" aria-label="EN, English">EN</a>
+      </div>
       <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu-principal">
         <span class="nav__toggle-icon" aria-hidden="true"></span>
         Menú
@@ -49,7 +62,7 @@
       <a class="back-link" href="/#proyectos"><svg class="icon" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M13 8H3M7 4L3 8l4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Volver a proyectos</a>
 
       <header class="detail-head">
-        <img class="detail-head__logo" src="/assets/img/logos/cc-medios-128.webp" width="48" height="48" alt="Logo de CC Medios" decoding="async" style="border-radius:12px">
+        <img class="detail-head__logo" src="/assets/img/logos/cc-medios-128.webp" width="48" height="48" style="border-radius:12px" alt="Logo de CC Medios" decoding="async">
         <p class="project__tag">Proyecto para cliente</p>
         <h1>CC Medios Platform</h1>
         <p class="detail-head__lead">Plataforma web para CC Medios (publicidad exterior) que unifica clientes, carteles, órdenes, cobros, pagos y facturación, con margen por operación y alertas de vencimientos.</p>
@@ -67,15 +80,16 @@
             <div class="mock__bar"><span class="mock__dot"></span><span class="mock__dot"></span><span class="mock__dot"></span></div>
             <div class="mock__body">
               <aside class="cc-side">
-                <img class="cc-side__logo" src="/assets/img/logos/cc-medios-64.webp" width="64" height="64" alt="" loading="lazy">
+                <img class="cc-side__logo" src="/assets/img/logos/cc-medios-64.webp" width="64" height="64" alt="" loading="lazy" decoding="async">
                 <span class="cc-side__item cc-side__item--on">Panel</span>
                 <span class="cc-side__item">Administración</span>
                 <span class="cc-side__item">Comercial</span>
                 <span class="cc-side__item">Financiero</span>
+                <span class="cc-side__user"><i></i>Usuario</span>
               </aside>
               <div class="cc-main">
                 <div class="cc-title a-in" style="--i:0">Panel principal</div>
-                <div class="cc-cards"><div class="mk-card a-in a-hot t1" style="--i:1;--d:1.9s"><b>Administración</b><strong data-count="5">5</strong><span>módulos</span></div><div class="mk-card a-in" style="--i:2"><b>Comercial</b><strong data-count="4">4</strong><span>módulos</span></div><div class="mk-card a-in" style="--i:3"><b>Financiero</b><strong data-count="6">6</strong><span>módulos</span></div></div>
+                <div class="cc-cards"><div class="mk-card a-in a-hot t1" style="--i:1;--d:1.9s"><b>Administración</b><strong data-count="5">5</strong><span>módulos</span></div><div class="mk-card a-in" style="--i:2"><b>Comercial</b><strong data-count="4">4</strong><span>módulos</span></div><div class="mk-card a-in" style="--i:3"><b>Financiero</b><strong data-count="7">7</strong><span>módulos</span></div></div>
                 <div class="cc-lower">
                   <div class="mk-card cc-panel">
                     <h4>Carteles</h4>
@@ -85,11 +99,11 @@
                   <div class="mk-card cc-panel">
                     <h4>Orden ORD-0001</h4>
                     <div class="cc-row cc-row--head cc-row--ord"><span>Línea</span><span>Estado</span><span>Fecha</span></div>
-                    <div class="cc-row cc-row--ord a-in" style="--i:10"><span>Línea de venta</span><span><span class="mk-badge cc-ok">Confirmada</span></span><span>12/03</span></div><div class="cc-row cc-row--ord a-in a-hot t3" style="--i:11;--d:4.55s"><span>Línea de compra</span><span><span class="mk-badge cc-wait">Pendiente</span></span><span>18/03</span></div><div class="cc-row cc-row--ord a-in" style="--i:12"><span>Línea de venta</span><span><span class="mk-badge cc-ok">Facturada</span></span><span>25/03</span></div><div class="cc-row cc-row--ord a-in" style="--i:13"><span>Línea de compra</span><span><span class="mk-badge cc-ok">Confirmada</span></span><span>02/04</span></div>
+                    <div class="cc-row cc-row--ord a-in" style="--i:10"><span>Línea de venta</span><span><span class="mk-badge cc-ok">Confirmada</span></span><span>12/03</span></div><div class="cc-row cc-row--ord a-in a-hot t3" style="--i:11;--d:4.55s"><span>Línea de compra</span><span><span class="mk-badge cc-wait">Pendiente</span></span><span>18/03</span></div><div class="cc-row cc-row--ord a-in" style="--i:12"><span>Línea de venta</span><span><span class="mk-badge cc-ok">Facturada</span></span><span>25/03</span></div><div class="cc-row cc-row--ord a-in" style="--i:13"><span>Línea de compra</span><span><span class="mk-badge cc-ok">Confirmada</span></span><span>02/04</span></div><div class="cc-row cc-row--ord a-in" style="--i:14"><span>Línea de venta</span><span><span class="mk-badge cc-wait">Pendiente</span></span><span>09/04</span></div><div class="cc-row cc-row--ord a-in" style="--i:15"><span>Línea de compra</span><span><span class="mk-badge cc-ok">Confirmada</span></span><span>15/04</span></div>
                   </div>
                 </div>
               </div>
-              <svg class="mk-pointer" style="--x0:52.00em;--y0:29.95em;--x1:19.24em;--y1:7.59em;--x2:25.27em;--y2:21.80em;--x3:49.17em;--y3:19.77em" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l14 7-6 2-2 6z" fill="#fff" stroke="#10202e" stroke-width="1.500" stroke-linejoin="round"/></svg>
+              <svg class="mk-pointer" style="--x0:52.00em;--y0:26.37em;--x1:19.24em;--y1:7.59em;--x2:25.27em;--y2:21.80em;--x3:49.17em;--y3:19.77em" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l14 7-6 2-2 6z" fill="#fff" stroke="#10202e" stroke-width="1.500" stroke-linejoin="round"/></svg>
             </div>
           </div>
         </div>
@@ -122,7 +136,7 @@
     </div>
   </footer>
 
-  <script src="/assets/js/main.js?v=3" defer></script>
-  <script src="/assets/js/mockups.js?v=3" defer></script>
+  <script src="/assets/js/main.js?v=4" defer></script>
+  <script src="/assets/js/mockups.js?v=4" defer></script>
 </body>
 </html>
