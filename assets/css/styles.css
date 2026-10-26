@@ -23,6 +23,7 @@
   --border: rgba(20, 66, 115, 0.14);
   --border-strong: rgba(20, 66, 115, 0.3);
   --tint: rgba(180, 210, 238, 0.45);
+  --celeste-soft: #d3e5f6;
 
   /* Tipografía (fluida) */
   --font: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -673,7 +674,34 @@ a.lang__item:active {
 
 /* ---------- Hero ---------- */
 .hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   padding-block: var(--space-12) var(--space-18);
+}
+
+/* Fondo en capas: degradados celestes suaves + grilla de puntos que se desvanece hacia los bordes */
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hero::before {
+  z-index: -2;
+  background:
+    radial-gradient(55% 70% at 88% 18%, rgba(180, 210, 238, 0.55), transparent 70%),
+    radial-gradient(45% 60% at 4% 92%, rgba(238, 245, 252, 0.95), transparent 72%);
+}
+
+.hero::after {
+  z-index: -1;
+  background-image: radial-gradient(rgba(20, 66, 115, 0.2) 1px, transparent 1.3px);
+  background-size: 24px 24px;
+  -webkit-mask-image: radial-gradient(ellipse 75% 70% at 72% 40%, #000 0%, transparent 78%);
+  mask-image: radial-gradient(ellipse 75% 70% at 72% 40%, #000 0%, transparent 78%);
 }
 
 .hero__grid {
@@ -736,7 +764,32 @@ a.lang__item:active {
   margin-top: var(--space-8);
 }
 
+.hero__facts {
+  display: grid;
+  gap: var(--space-3) var(--space-6);
+  max-width: 54ch;
+  margin-top: var(--space-8);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--border);
+}
+
+.hero__facts li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--fs-ui);
+  font-weight: 600;
+  line-height: var(--lh-snug);
+  color: var(--text);
+}
+
+.hero__facts .icon {
+  color: var(--blue);
+}
+
 .hero__visual {
+  position: relative;
+  isolation: isolate;
   width: 100%;
   max-width: 400px;
   margin-inline: auto;
@@ -745,9 +798,53 @@ a.lang__item:active {
   border-radius: var(--radius-xl);
 }
 
+/* Forma decorativa desplazada detrás del retrato */
+.hero__visual::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--celeste-soft);
+  border-radius: var(--radius-xl);
+  transform: translate(var(--space-4), var(--space-4));
+}
+
 .hero__visual img {
   width: 100%;
   border-radius: var(--radius-lg);
+}
+
+.hero__chip {
+  position: absolute;
+  left: var(--space-8);
+  bottom: var(--space-8);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 36px;
+  padding: 0 var(--space-4);
+  font-size: var(--fs-small);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--blue-dark);
+  background: var(--white);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-2);
+}
+
+.hero__chip::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background: var(--blue);
+  border-radius: 50%;
+}
+
+@media (min-width: 640px) {
+  .hero__facts {
+    grid-template-columns: repeat(2, auto);
+    justify-content: start;
+  }
 }
 
 @media (min-width: 900px) {
@@ -763,6 +860,10 @@ a.lang__item:active {
   .hero__visual {
     max-width: none;
     padding: var(--space-5);
+  }
+
+  .hero__facts {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -1648,7 +1749,53 @@ a.contact__item:active {
 }
 
 /* ---------- Movimiento ---------- */
+@keyframes hero-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes hero-rise {
+  from {
+    transform: translateY(12px);
+  }
+
+  to {
+    transform: none;
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
+  .js .hero__text > * {
+    animation: hero-in 0.36s var(--ease) both;
+  }
+
+  .js .hero__text > :nth-child(2) {
+    animation-delay: 0.04s;
+  }
+
+  .js .hero__text > :nth-child(3) {
+    animation-delay: 0.08s;
+  }
+
+  .js .hero__text > :nth-child(4) {
+    animation-delay: 0.12s;
+  }
+
+  .js .hero__text > :nth-child(5) {
+    animation-delay: 0.16s;
+  }
+
+  .js .hero__visual {
+    animation: hero-rise 0.5s var(--ease) 0.06s both;
+  }
+
   .js .reveal {
     opacity: 0;
     transform: translateY(14px);
